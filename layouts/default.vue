@@ -1,6 +1,6 @@
 <template>
 
-    <!-- place for Header -->
+    <Header />
 
     <main>
         <slot />
