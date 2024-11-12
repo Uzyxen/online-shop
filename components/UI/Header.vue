@@ -4,16 +4,15 @@
 
         <SearchBar />
 
-        <div class="flex gap-4 items-center">
-            <TransparentButton>
-                Zaloguj się
-            </TransparentButton>
-
-            <PrimaryButton>
-                Zarejestruj się
-            </PrimaryButton>
+        <div class="flex gap-8 items-center">
+            <NuxtIcon name="mol-icon:user" size="1.8rem" />
+            <NuxtIcon name="mol-icon:bell" size="1.8rem"/>
+            <NuxtIcon name="mol-icon:heart" size="1.8rem"/>
+            <NuxtIcon name="mol-icon:message" size="1.8rem"/>
 
             <div class="w-[1px] bg-gray h-8 mx-4"></div>
+
+            <NuxtIcon name="mol-icon:cart" size="1.8rem"/>
         </div>
     </header>
 </template>
