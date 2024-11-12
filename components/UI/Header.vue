@@ -1,5 +1,5 @@
 <template>
-    <header class="h-24 bg-light-gray flex items-center px-20 border-b-2 border-dark-gray justify-between">
+    <header class="h-24 bg-light-gray flex items-center px-20 border-b-2 border-gray justify-between">
         <h2 class="text-blue text-4xl font-bold">MOLLEGRO</h2>
 
         <SearchBar />
@@ -40,6 +40,8 @@
             </IconVerticalGroup>
         </div>
     </header>
+
+    <SubHeader />
 </template>
 
 <script setup>
