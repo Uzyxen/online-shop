@@ -25,11 +25,15 @@
 
             <div v-else>
                 <TransparentButton>
-                    Zaloguj się
+                    <FlexLinkFull :link="'/logowanie'">
+                        Zaloguj się
+                    </FlexLinkFull>
                 </TransparentButton>
 
                 <PrimaryButton>
-                    Zarejestruj się
+                    <FlexLinkFull :link="'/rejestracja'">
+                        Zarejestruj się
+                    </FlexLinkFull>
                 </PrimaryButton>
             </div>
 
