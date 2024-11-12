@@ -5,31 +5,43 @@
         <SearchBar />
 
         <div class="flex gap-8 items-center">
-            <IconVerticalGroup :iconName="'mol-icon:user'">
-                Moje konto
-            </IconVerticalGroup>
+            <div class="flex gap-8 items-center" v-if="isLogged">
+                <IconVerticalGroup :iconName="'mol-icon:user'">
+                    Moje konto
+                </IconVerticalGroup>
 
-            <IconVerticalGroup :iconName="'mol-icon:bell'">
-                Powiadomienia
-            </IconVerticalGroup>
+                <IconVerticalGroup :iconName="'mol-icon:bell'">
+                    Powiadomienia
+                </IconVerticalGroup>
 
-            <IconVerticalGroup :iconName="'mol-icon:heart'">
-                Ulubione
-            </IconVerticalGroup>
+                <IconVerticalGroup :iconName="'mol-icon:heart'">
+                    Ulubione
+                </IconVerticalGroup>
 
-            <IconVerticalGroup :iconName="'mol-icon:message'">
-                Wiadomości
-            </IconVerticalGroup>
+                <IconVerticalGroup :iconName="'mol-icon:message'">
+                    Wiadomości
+                </IconVerticalGroup>
+            </div>
 
-            <div class="w-[1px] bg-gray h-8 mx-4"></div>
+            <div v-else>
+                <TransparentButton>
+                    Zaloguj się
+                </TransparentButton>
+
+                <PrimaryButton>
+                    Zarejestruj się
+                </PrimaryButton>
+            </div>
+
+            <div class="w-[1px] bg-gray h-8 mx-2"></div>
 
             <IconVerticalGroup :iconName="'mol-icon:cart'">
-                Koszyk
+                0,00 zł
             </IconVerticalGroup>
         </div>
     </header>
 </template>
 
 <script setup>
-
+    const isLogged = ref(false);
 </script>
