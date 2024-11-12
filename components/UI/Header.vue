@@ -43,5 +43,5 @@
 </template>
 
 <script setup>
-    const isLogged = ref(false);
+    const isLogged = ref(true);
 </script>
