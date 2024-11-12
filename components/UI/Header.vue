@@ -4,8 +4,16 @@
 
         <SearchBar />
 
-        <div>
-            
+        <div class="flex gap-4 items-center">
+            <TransparentButton>
+                Zaloguj się
+            </TransparentButton>
+
+            <PrimaryButton>
+                Zarejestruj się
+            </PrimaryButton>
+
+            <div class="w-[1px] bg-gray h-8 mx-4"></div>
         </div>
     </header>
 </template>
