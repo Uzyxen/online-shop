@@ -6,32 +6,32 @@
 
         <div class="flex gap-8 items-center">
             <div class="flex gap-8 items-center" v-if="isLogged">
-                <IconVerticalGroup :iconName="'mol-icon:user'">
+                <IconVerticalGroup icon-name="mol-icon:user">
                     Moje konto
                 </IconVerticalGroup>
 
-                <IconVerticalGroup :iconName="'mol-icon:bell'">
+                <IconVerticalGroup icon-name="mol-icon:bell">
                     Powiadomienia
                 </IconVerticalGroup>
 
-                <IconVerticalGroup :iconName="'mol-icon:heart'">
+                <IconVerticalGroup icon-name="mol-icon:heart">
                     Ulubione
                 </IconVerticalGroup>
 
-                <IconVerticalGroup :iconName="'mol-icon:message'">
+                <IconVerticalGroup icon-name="mol-icon:message">
                     Wiadomości
                 </IconVerticalGroup>
             </div>
 
             <div v-else>
                 <TransparentButton>
-                    <FlexLinkFull :link="'/logowanie'">
+                    <FlexLinkFull link="/logowanie">
                         Zaloguj się
                     </FlexLinkFull>
                 </TransparentButton>
 
                 <PrimaryButton>
-                    <FlexLinkFull :link="'/rejestracja'">
+                    <FlexLinkFull link="/rejestracja">
                         Zarejestruj się
                     </FlexLinkFull>
                 </PrimaryButton>
@@ -39,7 +39,7 @@
 
             <div class="w-[1px] bg-gray h-8 mx-2"></div>
 
-            <IconVerticalGroup :iconName="'mol-icon:cart'">
+            <IconVerticalGroup icon-name="mol-icon:cart">
                 0,00 zł
             </IconVerticalGroup>
         </div>
@@ -49,5 +49,5 @@
 </template>
 
 <script setup>
-    const isLogged = ref(false);
+    const isLogged = ref(true);
 </script>
