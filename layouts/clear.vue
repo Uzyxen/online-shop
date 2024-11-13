@@ -1,4 +1,6 @@
 <template>
+    <BackArrow />
+
     <main>
         <slot />
     </main>
