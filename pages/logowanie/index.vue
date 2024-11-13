@@ -1,14 +1,17 @@
 <template>
     <div class="flex h-[100vh]">
-        <div class="w-2/3 flex flex-col justify-center items-center">
-            <h2 class="text-5xl font-semibold text-blue">Zaloguj się</h2>
+        <div class="w-3/5 flex flex-col justify-center items-center">
+            <h2 class="text-5xl font-semibold text-blue mb-24">Zaloguj się</h2>
 
-            <form>
-                
+            <form class="flex flex-col gap-12">
+                <ValidateInput caption="E-mail:" type="email" />
+                <ValidateInput caption="Hasło:" type="password" />
+
+                <PrimaryButton class="w-full mt-16 h-12">Zaloguj się</PrimaryButton>
             </form>
         </div>
 
-        <div class="bg-blue size-full">
+        <div class="bg-blue w-2/5 h-full">
 
         </div>
     </div>
