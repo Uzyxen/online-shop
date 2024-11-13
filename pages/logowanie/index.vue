@@ -4,10 +4,10 @@
             <h2 class="text-5xl font-semibold text-blue mb-24">Zaloguj się</h2>
 
             <form class="flex flex-col gap-12">
-                <ValidateInput caption="E-mail:" type="email" />
+                <ValidateInput caption="E-mail:" type="email" v-model="loginData.email" />
 
                 <div>
-                    <ValidateInput caption="Hasło:" type="password" />
+                    <ValidateInput caption="Hasło:" type="password" v-model="loginData.password" />
                     <p class="mt-6">
                         Nie masz konta? 
                         <NuxtLink to="/rejestracja">Zrejestruj się</NuxtLink>
@@ -25,6 +25,11 @@
 </template>
 
 <script setup>
+    const loginData = ref({
+        email: '',
+        password: ''
+    });
+
     definePageMeta({
         layout: 'clear'
     });

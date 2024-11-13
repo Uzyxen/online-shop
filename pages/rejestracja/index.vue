@@ -4,11 +4,11 @@
             <h2 class="text-5xl font-semibold text-blue mb-24">Zarejestruj się</h2>
 
             <form class="flex flex-col gap-12">
-                <ValidateInput caption="E-mail:" type="email" />
-                <ValidateInput caption="Hasło:" type="password" />
+                <ValidateInput caption="E-mail:" type="email" v-model="registerData.email" />
+                <ValidateInput caption="Hasło:" type="password" v-model="registerData.password" />
 
                 <div>
-                    <ValidateInput caption="Potwórz hasło:" type="password" />
+                    <ValidateInput caption="Potwórz hasło:" type="password" v-model="registerData.passwordRepeat" />
                     <p class="mt-6">
                         Masz już konto? 
                         <NuxtLink to="/logowanie">Zaloguj się</NuxtLink>
@@ -26,6 +26,12 @@
 </template>
 
 <script setup>
+    const registerData = ref({
+        email: '',
+        password: '',
+        passwordRepeat: ''
+    });
+
     definePageMeta({
         layout: 'clear'
     });
