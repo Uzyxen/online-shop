@@ -2,6 +2,7 @@
     <div class="flex h-[100vh]">
         <div class="w-3/5 flex flex-col justify-center items-center">
             <CenterHeader>Zarejestruj się</CenterHeader>
+            {{ response }}
 
             <form class="flex flex-col gap-12">
                 <ValidateInput 
@@ -31,7 +32,7 @@
                     </p>
                 </div>
 
-                <PrimaryButton class="w-full mt-8 h-12">Utwórz konto</PrimaryButton>
+                <PrimaryButton class="w-full mt-8 h-12" @click.prevent="createAccount()">Utwórz konto</PrimaryButton>
             </form>
         </div>
 
@@ -51,4 +52,13 @@
     definePageMeta({
         layout: 'clear'
     });
+
+    const response = ref();
+
+    async function createAccount() {
+        response.value = await $fetch('/api/registerUser', {
+            method: 'POST',
+            body: registerData.value
+        });
+    }
 </script>
