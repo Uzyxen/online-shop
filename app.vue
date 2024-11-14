@@ -6,7 +6,7 @@
 
 <style>
   body {
-    background-color: #EEE;
+    background-color: #FAFAFA;
     font-family: "Rubik", sans-serif;
   }
 
