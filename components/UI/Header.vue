@@ -1,5 +1,9 @@
 <template>
     <header class="h-24 bg-light-gray flex items-center px-20 border-b-2 border-gray justify-between">
+        <Teleport to="#teleports">
+            <SideCart :is-opened="isCartOpened" /> <!-- will render inside #teleports -->
+        </Teleport>
+
         <AppLogo />
         <SearchBar />
 
@@ -38,7 +42,7 @@
 
             <div class="w-[1px] bg-gray h-8 mx-2"></div>
 
-            <IconVerticalGroup icon-name="mol-icon:cart">
+            <IconVerticalGroup icon-name="mol-icon:cart" @click="isCartOpened = true">
                 0,00 zł
             </IconVerticalGroup>
         </div>
@@ -49,4 +53,5 @@
 
 <script setup>
     const isLogged = ref(false);
+    const isCartOpened = ref(false);
 </script>
