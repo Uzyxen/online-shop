@@ -14,7 +14,7 @@
                     </p>
                 </div>
 
-                <PrimaryButton class="w-full mt-16 h-12">Zaloguj się</PrimaryButton>
+                <PrimaryButton class="w-full mt-8 h-12">Zaloguj się</PrimaryButton>
             </form>
         </div>
 
