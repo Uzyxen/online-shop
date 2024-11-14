@@ -1,7 +1,7 @@
 <template>
     <header class="h-24 bg-light-gray flex items-center px-20 border-b-2 border-gray justify-between">
         <Teleport to="#teleports">
-            <SideCart :is-opened="isCartOpened" /> <!-- will render inside #teleports -->
+            <SideCart :is-opened="isCartOpened" @hide-cart="isCartOpened = false" /> <!-- will render inside #teleports -->
         </Teleport>
 
         <AppLogo />
