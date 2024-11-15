@@ -2,7 +2,6 @@
     <div class="flex h-[100vh]">
         <div class="w-3/5 flex flex-col justify-center items-center">
             <CenterHeader>Zarejestruj się</CenterHeader>
-            {{ response }}
 
             <form class="flex flex-col gap-12">
                 <ValidateInput 
@@ -53,11 +52,14 @@
         layout: 'clear'
     });
 
-    const response = ref();
     async function register() {
-        response.value = await $fetch('/api/auth/register', {
+        const response = await $fetch('/api/auth/register', {
             method: 'POST',
             body: registerData.value
         });
+
+        if(response && response.message === 'created') {
+            await navigateTo('/logowanie');
+        }
     }
 </script>
