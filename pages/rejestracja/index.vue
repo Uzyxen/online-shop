@@ -32,7 +32,7 @@
                     </p>
                 </div>
 
-                <PrimaryButton class="w-full mt-8 h-12" @click.prevent="createAccount()">Utwórz konto</PrimaryButton>
+                <PrimaryButton class="w-full mt-8 h-12" @click.prevent="register()">Utwórz konto</PrimaryButton>
             </form>
         </div>
 
@@ -54,9 +54,8 @@
     });
 
     const response = ref();
-
-    async function createAccount() {
-        response.value = await $fetch('/api/registerUser', {
+    async function register() {
+        response.value = await $fetch('/api/user/register', {
             method: 'POST',
             body: registerData.value
         });

@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
-import db from "../database/connection";
-import { users } from "../database/schema";
+import db from "~/server/database/connection";
+import { users } from "~/server/database/schema";
 import bcrypt from 'bcrypt'
 
 export default defineEventHandler(async (event) => {

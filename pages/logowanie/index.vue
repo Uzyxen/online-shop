@@ -14,7 +14,7 @@
                     </p>
                 </div>
 
-                <PrimaryButton class="w-full mt-8 h-12">Zaloguj się</PrimaryButton>
+                <PrimaryButton class="w-full mt-8 h-12" @click.prevent="login()">Zaloguj się</PrimaryButton>
             </form>
         </div>
 
@@ -33,4 +33,13 @@
     definePageMeta({
         layout: 'clear'
     });
+
+    async function login() {
+        const response = await $fetch('/api/user/login', {
+            method: 'POST',
+            body: loginData.value
+        });
+
+        console.log(response);
+    }
 </script>
