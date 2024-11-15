@@ -1,6 +1,7 @@
 <template>
     <div class="flex h-[100vh]">
         <div class="w-3/5 flex flex-col justify-center items-center">
+            <UserExistsNotification v-if="userExists" :email="email" />
             <CenterHeader>Zarejestruj się</CenterHeader>
 
             <form class="flex flex-col gap-12">
@@ -52,6 +53,8 @@
         layout: 'clear'
     });
 
+    const userExists = ref(false);
+    let email = '';
     async function register() {
         const response = await $fetch('/api/auth/register', {
             method: 'POST',
@@ -60,6 +63,11 @@
 
         if(response && response.message === 'created') {
             await navigateTo('/logowanie');
+        }
+
+        if(response && response.message === 'exists') {
+            email = registerData.value.email;
+            userExists.value = true;
         }
     }
 </script>

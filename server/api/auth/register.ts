@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
                 // check if users exists
                 if(result.length > 0) {
                     return {
-                        message: 'user already exists'
+                        message: 'exists' // user exists
                     }
                 } else {
                     const salt = await bcrypt.genSalt();
