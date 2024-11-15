@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import db from "../database/connection";
 import { users } from "../database/schema";
+import bcrypt from 'bcrypt'
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event);
@@ -16,9 +17,12 @@ export default defineEventHandler(async (event) => {
                         message: 'user already exists'
                     }
                 } else {
+                    const salt = await bcrypt.genSalt();
+                    const hashedPassword = await bcrypt.hash(body.password, salt);
+
                     await db.insert(users).values({
                         email: body.email,
-                        password: body.password
+                        password: hashedPassword
                     });
             
                     return {
