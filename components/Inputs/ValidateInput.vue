@@ -7,7 +7,7 @@
             :minlength="minLength"
             :maxlength="maxLength"
             @blur="validateLength"
-            class="w-[500px] p-2.5 bg-gray outline-none border-b-[3px] border-gray"
+            class="w-[500px] p-2.5 bg-mid-gray outline-none border-b-[3px] border-gray"
             :class="{ 'border-red': error }">
         
         <span class="text-red text-right">

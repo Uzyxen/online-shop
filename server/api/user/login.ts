@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
         }
     } else {
         return {
-            message: 'user does not exists'
+            message: 'user does not exist'
         }
     }
 })

@@ -4,6 +4,7 @@ export default {
   theme: {
     colors: {
       'light-gray': '#FAFAFA',
+      'mid-gray': '#EEEEEE',
       'gray': '#D9D9D9',
       'dark-gray': '#C8C8C8',
       'blue': '#1976D2',
