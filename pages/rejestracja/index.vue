@@ -55,7 +55,7 @@
 
     const response = ref();
     async function register() {
-        response.value = await $fetch('/api/user/register', {
+        response.value = await $fetch('/api/auth/register', {
             method: 'POST',
             body: registerData.value
         });
