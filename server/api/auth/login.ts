@@ -13,8 +13,12 @@ export default defineEventHandler(async (event) => {
         const passwordVerified = await bcrypt.compare(body.password, passwordHash);
 
         if(passwordVerified) {
+            const user = result[0];
+            const { accessToken, refreshToken } = generateTokens(user);
+
             return {
-                message: 'password verified'
+                accessToken,
+                refreshToken
             }
         } else {
             return {
