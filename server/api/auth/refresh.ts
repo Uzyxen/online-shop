@@ -26,8 +26,7 @@ export default defineEventHandler(async (event) => {
         const { accessToken } = generateTokens(user);
 
         return {
-            access_token: accessToken,
-            user: user
+            access_token: accessToken
         }
     } catch (error) {
         return {

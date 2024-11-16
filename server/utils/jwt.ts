@@ -16,6 +16,16 @@ const generateRefreshToken = (user: User) => {
     });
 }
 
+export const validateAccessToken = (token: string) => {
+    const config = useRuntimeConfig();
+    
+    try {
+        return jwt.verify(token, config.jwtAccessSecret);
+    } catch (error) {
+        return null;
+    }
+}
+
 export const generateTokens = (user: User) => { 
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);

@@ -7,3 +7,9 @@ export const getRefreshTokenByToken = async (token: string) => {
 
     if(result[0]) return result[0].token;
 }
+
+export const deleteRefreshTokenByToken = async (token: string) => {
+    const result = await db.delete(refreshTokens).where(eq(refreshTokens.token, token));
+
+    return result;
+}

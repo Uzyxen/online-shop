@@ -9,8 +9,18 @@
 
         <div class="flex gap-8 items-center">
             <div class="flex gap-8 items-center" v-if="user">
-                <IconVerticalGroup icon-name="mol-icon:user">
+                <IconVerticalGroup icon-name="mol-icon:user" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
                     Moje konto
+
+                    <div class="absolute w-[200px] top-full h-fit bg-light-gray border-[1px] border-mid-gray" v-if="user" v-show="isUserDropdownVisible">
+                        <ul class="flex flex-col">
+                            <li v-for="link in links" class="p-2 py-3 hover:bg-mid-gray">
+                                {{ link.name }}
+                            </li>
+
+                            <SecondaryButton class="w-full text-red" @click="logOut()">Wyloguj się</SecondaryButton>
+                        </ul>
+                    </div>
                 </IconVerticalGroup>
 
                 <IconVerticalGroup icon-name="mol-icon:bell">
@@ -52,8 +62,27 @@
 </template>
 
 <script setup>
-    const isCartOpened = ref(false);
     const { useAccessUser } = useAuth();
-
     const user = useAccessUser();
+
+    const isCartOpened = ref(false);
+    const isUserDropdownVisible = ref(false);
+
+    const links = [
+        { name: 'Konto', path: '/konto' },
+        { name: 'Moje zamówienia', path: '/zamowienia' },
+        { name: 'Ustawienia', path: '/ustawienia' },
+    ];
+
+    async function logOut() {
+        const response = await $fetch('/api/auth/logout');
+
+        if(response && response.message === 'OK') {
+            const { setToken, setUser } = useAuth();
+
+            setToken(null);
+            setUser(null);
+        }
+    }
+
 </script>
