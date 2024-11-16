@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import db from "~/server/database/connection";
-import { users } from "~/server/database/schema";
+import { refreshTokens, users } from "~/server/database/schema";
 import bcrypt from 'bcrypt'
 
 export default defineEventHandler(async (event) => {
@@ -13,12 +13,19 @@ export default defineEventHandler(async (event) => {
         const passwordVerified = await bcrypt.compare(body.password, passwordHash);
 
         if(passwordVerified) {
-            const user = result[0];
+            const user = result[0] as User;
             const { accessToken, refreshToken } = generateTokens(user);
 
+            await db.insert(refreshTokens).values({ // save refresh token in db
+                token: refreshToken,
+                userId: user.id
+            });
+
+            sendRefreshToken(event, refreshToken); // send refresh token to the http-only cookie
+
             return {
-                accessToken,
-                refreshToken
+                access_token: accessToken,
+                user: user
             }
         } else {
             return {

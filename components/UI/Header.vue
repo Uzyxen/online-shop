@@ -8,7 +8,7 @@
         <SearchBar />
 
         <div class="flex gap-8 items-center">
-            <div class="flex gap-8 items-center" v-if="isLogged">
+            <div class="flex gap-8 items-center" v-if="user">
                 <IconVerticalGroup icon-name="mol-icon:user">
                     Moje konto
                 </IconVerticalGroup>
@@ -52,6 +52,8 @@
 </template>
 
 <script setup>
-    const isLogged = ref(false);
     const isCartOpened = ref(false);
+    const { useAccessUser } = useAuth();
+
+    const user = useAccessUser();
 </script>

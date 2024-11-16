@@ -40,6 +40,13 @@
             body: loginData.value
         });
 
-        console.log(response);
+        if(response.access_token && response.user) {
+            const { setToken, setUser } = useAuth();
+
+            setToken(response.access_token);
+            setUser(response.user);
+
+            await navigateTo('/');
+        }
     }
 </script>
