@@ -40,11 +40,11 @@
             body: loginData.value
         });
 
-        if(response.access_token && response.user) {
-            const { setToken, setUser } = useAuth();
+        if(response.access_token) {
+            const { useAccessToken } = useStore();
+            const token = useAccessToken();
 
-            setToken(response.access_token);
-            setUser(response.user);
+            token.value = response.access_token;
 
             await navigateTo('/');
         }

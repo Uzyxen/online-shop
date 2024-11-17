@@ -24,8 +24,7 @@ export default defineEventHandler(async (event) => {
             sendRefreshToken(event, refreshToken); // send refresh token to the http-only cookie
 
             return {
-                access_token: accessToken,
-                user: user
+                access_token: accessToken
             }
         } else {
             return {

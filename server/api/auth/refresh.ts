@@ -19,10 +19,10 @@ export default defineEventHandler(async (event) => {
         }
     }
 
-    const token: any = await validateRefreshToken(refreshTokenFromDB);
-
     try {
+        const token: any = await validateRefreshToken(refreshTokenFromDB);
         const user: User = await getUserById(token.userId);
+
         const { accessToken } = generateTokens(user);
 
         return {

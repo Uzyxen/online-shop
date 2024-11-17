@@ -8,14 +8,16 @@
         <SearchBar />
 
         <div class="flex gap-8 items-center">
-            <div class="flex gap-8 items-center" v-if="user">
+            <div class="flex gap-8 items-center" v-if="token">
                 <IconVerticalGroup icon-name="mol-icon:user" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
                     Moje konto
 
-                    <div class="absolute w-[200px] top-full h-fit bg-light-gray border-[1px] border-mid-gray" v-if="user" v-show="isUserDropdownVisible">
+                    <div class="absolute w-[200px] top-full h-fit bg-light-gray border-[1px] border-mid-gray" v-show="isUserDropdownVisible">
                         <ul class="flex flex-col">
-                            <li v-for="link in links" class="p-2 py-3 hover:bg-mid-gray">
-                                {{ link.name }}
+                            <li v-for="link in links" class="hover:bg-mid-gray">
+                                <NuxtLink class="justify-start size-full block p-2 py-3" :to="link.path">
+                                    {{ link.name }}
+                                </NuxtLink>
                             </li>
 
                             <SecondaryButton class="w-full text-red" @click="logOut()">Wyloguj się</SecondaryButton>
@@ -62,8 +64,8 @@
 </template>
 
 <script setup>
-    const { useAccessUser } = useAuth();
-    const user = useAccessUser();
+    const { useAccessToken } = useStore();
+    const token = useAccessToken();
 
     const isCartOpened = ref(false);
     const isUserDropdownVisible = ref(false);
@@ -78,10 +80,12 @@
         const response = await $fetch('/api/auth/logout');
 
         if(response && response.message === 'OK') {
-            const { setToken, setUser } = useAuth();
+            const { useAccessToken } = useStore();
+            const token = useAccessToken();
 
-            setToken(null);
-            setUser(null);
+            token.value = null;
+
+            await navigateTo('/');
         }
     }
 
