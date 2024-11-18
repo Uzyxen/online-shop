@@ -1,10 +1,15 @@
 <template>
-    <div>
-        <h1 class="text-5xl text-center pt-5">Konto</h1>
+    <div class="px-20">
+        
     </div>
 </template>
 
 <script setup>
+    const userData = ref({
+        firstName: '',
+        lastName: ''
+    })
+
     definePageMeta({
         middleware: 'auth-user'
     })

@@ -1,5 +1,7 @@
 <template>
     <h2 class="text-blue text-4xl font-bold">
-        MOLLEGRO
+        <NuxtLink to="/">
+            MOLLEGRO
+        </NuxtLink>
     </h2>
 </template>
