@@ -1,7 +1,10 @@
 <template>
     <div class="flex h-[100vh]">
         <div class="w-3/5 flex flex-col justify-center items-center">
-            <CenterHeader>Zaloguj się</CenterHeader>
+            <CenterHeader class="mb-8">Zaloguj się</CenterHeader>
+            <ResponseMessage>
+                {{ responseMessage }}
+            </ResponseMessage>
 
             <form class="flex flex-col gap-12">
                 <ValidateInput caption="E-mail:" type="email" v-model="loginData.email" />
@@ -34,6 +37,8 @@
         layout: 'clear'
     });
 
+    const responseMessage = ref();
+
     async function login() {
         const response = await $fetch('/api/auth/login', {
             method: 'POST',
@@ -47,6 +52,8 @@
             token.value = response.access_token;
 
             await navigateTo('/');
+        } else if(response.message) {
+            responseMessage.value = response.message;
         }
     }
 </script>

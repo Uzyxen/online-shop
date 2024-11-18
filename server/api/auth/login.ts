@@ -16,24 +16,27 @@ export default defineEventHandler(async (event) => {
             const user = result[0] as User;
             const { accessToken, refreshToken } = generateTokens(user);
 
-            await db.insert(refreshTokens).values({ // save refresh token in db
+            // save refresh token in db
+            await db.insert(refreshTokens).values({ 
                 token: refreshToken,
                 userId: user.id
             });
 
-            sendRefreshToken(event, refreshToken); // send refresh token to the http-only cookie
+            // send refresh token to the http-only cookie
+
+            sendRefreshToken(event, refreshToken); 
 
             return {
                 access_token: accessToken
             }
         } else {
             return {
-                message: 'Invalid credentials'
+                message: 'Nieprawidłowe dane logowanie!'
             }
         }
     } else {
         return {
-            message: 'user does not exist'
+            message: 'Nie znaleziono użytkownika o takich danych!'
         }
     }
 })

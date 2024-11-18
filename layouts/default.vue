@@ -3,6 +3,8 @@
     <Header />
 
     <main>
+        <BreadCrumbs />
+
         <slot />
     </main>
 

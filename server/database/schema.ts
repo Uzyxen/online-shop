@@ -11,7 +11,12 @@ export const products = mysqlTable('products', {
     id: int().notNull().primaryKey().autoincrement(),
     name: varchar({ length: 100 }).notNull(),
     price: decimal({ precision: 10, scale: 2 }) // decimal(10, 2) -> 99999999.99
-})
+});
+
+export const categoriesTable = mysqlTable('categories', {
+    id: int().notNull().primaryKey().autoincrement(),
+    name: varchar({ length: 100 }).notNull(),
+});
 
 export const refreshTokens = mysqlTable('refresh_tokens', {
     id: int().notNull().primaryKey().autoincrement(),
