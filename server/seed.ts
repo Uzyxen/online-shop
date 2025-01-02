@@ -1,5 +1,5 @@
 import db from "./database/connection";
-import { categoriesTable, subcategoriesTable } from "./database/schema";
+import { categoriesTable, productsTable, subcategoriesTable } from "./database/schema";
 
 async function main() {
     // default categories
@@ -18,8 +18,16 @@ async function main() {
         { title: 'Laptopy gamingowe', categoryId: 1 },
     ]
 
+    const products = [
+        { title: 'Laptop A', subcategoryId: 1, price: '1000' },
+        { title: 'Tablet B', subcategoryId: 2, price: '500' },
+        { title: 'Business Laptop C', subcategoryId: 3, price: '1500' },
+        { title: 'Gaming Laptop D', subcategoryId: 4, price: '2000' },
+    ];
+
     await db.insert(categoriesTable).values(categories);
     await db.insert(subcategoriesTable).values(subCategories);
+    await db.insert(productsTable).values(products);
 }
 
 main();

@@ -8,3 +8,9 @@ export const getAllSubcategories = async (id: number) => {
 
     return result;
 }
+
+export const getSubcategoryByName = async (name: string) => {
+    const result = await db.select({ id: subcategoriesTable.id }).from(subcategoriesTable).where(eq(subcategoriesTable.title, name));
+
+    return result[0];
+}

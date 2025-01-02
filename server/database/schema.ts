@@ -31,3 +31,10 @@ export const subcategoriesTable = mysqlTable('subcategories', {
     title: varchar({ length: 100 }).notNull(),
     categoryId: int().references(() => categoriesTable.id, { onDelete: 'cascade' })
 });
+
+export const productsTable = mysqlTable('products', {
+    id: int().notNull().primaryKey().autoincrement(),
+    title: varchar({ length: 100 }).notNull(),
+    price: decimal({ precision: 10, scale: 2 }).notNull(),
+    subcategoryId: int().references(() => subcategoriesTable.id, { onDelete: 'cascade' })
+});
