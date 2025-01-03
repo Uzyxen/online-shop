@@ -1,31 +1,38 @@
 <template>
-    <ul class="px-20 flex gap-32 text-sm border-b-2 border-gray">
-        <li class="w-64 group text-center">
-            <NuxtLink
-                class="size-full block py-4 relative" 
-                to="/kategorie">
+    <div class="border-b-2 border-gray ">
+        <ul class="mx-20 flex gap-32 text-sm relative">
+            <li class="w-64 group text-center">
+                <NuxtLink
+                    class="size-full block py-4 border-r-[1px] border-l-[1px] border-gray" 
+                    to="/kategorie">
 
-                Kategorie
+                    Kategorie
 
-                <div 
-                    class="w-full h-96 text-left border-2 border-t-0 bg-light-gray border-gray absolute top-[52px] left-0 hidden group-hover:block cursor-default">
-                    <ul>
-                        <li v-for="category in categories" class="cursor-pointer hover:text-blue text-sm font-semibold">
-                            <NuxtLink :to="`/kategorie/${category.title}`" class="block size-full p-3">
-                                {{ category.title }}
-                            </NuxtLink> 
-                        </li>
-                    </ul>
-                </div>
-            </NuxtLink>
-        </li>
+                    <div class="flex w-full absolute top-full left-0 shadow-md rounded-b-sm">
+                        <div
+                            class="w-64 h-96 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-gray hidden group-hover:block cursor-default">
+                            <ul>
+                                <li v-for="category in categories" class="cursor-pointer hover:text-blue text-sm font-semibold relative">
+                                    <NuxtLink :to="`/kategorie/${category.title}`" class="block size-full p-3">
+                                        {{ category.title }}
+                                    </NuxtLink> 
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="w-[calc(100%-256px)] h-96 rounded-br-sm bg-light-gray border-[1px] border-gray border-l-0 cursor-default hidden group-hover:block overflow-hidden">
+                            
+                        </div>
+                    </div>
+                </NuxtLink>
+            </li>
 
-        <li class="w-64 text-center" v-for="link in links">
-            <NuxtLink class="size-full block py-4" :to="link.path">
-                {{ link.label }}
-            </NuxtLink>
-        </li>
-    </ul>
+            <li class="w-64 text-center" v-for="link in links">
+                <NuxtLink class="size-full block py-4" :to="link.path">
+                    {{ link.label }}
+                </NuxtLink>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script setup>
