@@ -1,5 +1,8 @@
 <template>
-    <ProductList :products="products" />
+    <div class="flex mx-20 mt-8 gap-3">
+        <Filters />
+        <ProductList :products="products" />
+    </div>
 </template>
 
 <script setup>
