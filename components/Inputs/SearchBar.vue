@@ -15,10 +15,12 @@
             <ul v-if="response.products.length > 0">
                 <h1 class="text-base font-semibold">Produkty</h1>
 
-                <li v-for="product in response.products" class="pl-3 p-2 hover:bg-mid-gray cursor-pointer text-base flex justify-between">
-                    {{ product.title }}
+                <li v-for="product in response.products" class="hover:bg-mid-gray cursor-pointer text-base flex justify-between">
+                    <NuxtLink :to="`/produkty/${product.title}`" class="pl-3 p-2 size-full flex justify-between">
+                        <span>{{ product.title }}</span>
 
-                    <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
+                        <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
+                    </NuxtLink>
                 </li>
             </ul>
 
@@ -27,10 +29,12 @@
             <ul v-if="response.categories.length > 0">
                 <h1 class="text-base font-semibold">Kategorie</h1>
 
-                <li v-for="category in response.categories" class="pl-3 p-2 hover:bg-mid-gray cursor-pointer text-base flex justify-between">
-                    {{ category.title }}
+                <li v-for="category in response.categories" class="hover:bg-mid-gray cursor-pointer text-base">
+                    <NuxtLink :to="`/kategorie/${category.title}`" class="pl-3 p-2 size-full flex justify-between">
+                        <span>{{ category.title }}</span>
 
-                    <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
+                        <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
+                    </NuxtLink>
                 </li>
             </ul>
         </div>
