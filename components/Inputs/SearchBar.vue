@@ -11,22 +11,26 @@
             <NuxtIcon name="mol-icon:forward" size="1.7rem" />
         </button>
 
-        <div class="w-full h-fit bg-light-gray shadow-md absolute left-0 top-full z-50 flex flex-col gap-3 p-3" v-if="searchValue != ''">
+        <div class="w-full h-fit bg-light-gray shadow-md absolute left-0 top-full z-50 flex flex-col gap-3 p-3" v-if="searchValue != '' && response">
             <ul v-if="response.products.length > 0">
                 <h1 class="text-base font-semibold">Produkty</h1>
 
-                <li v-for="product in response.products" class="pl-3 p-2 hover:bg-mid-gray cursor-pointer text-base">
+                <li v-for="product in response.products" class="pl-3 p-2 hover:bg-mid-gray cursor-pointer text-base flex justify-between">
                     {{ product.title }}
+
+                    <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
                 </li>
             </ul>
 
-            <hr class="border-none h-px bg-dark-gray">
+            <hr class="border-none h-px bg-dark-gray" v-if="response.products.length > 0 && response.categories.length > 0">
 
             <ul v-if="response.categories.length > 0">
                 <h1 class="text-base font-semibold">Kategorie</h1>
 
-                <li v-for="category in response.categories" class="pl-3 p-2 hover:bg-mid-gray cursor-pointer text-base">
+                <li v-for="category in response.categories" class="pl-3 p-2 hover:bg-mid-gray cursor-pointer text-base flex justify-between">
                     {{ category.title }}
+
+                    <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
                 </li>
             </ul>
         </div>
