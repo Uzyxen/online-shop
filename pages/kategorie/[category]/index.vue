@@ -21,6 +21,4 @@
         },
         method: 'POST'
     });
-
-    console.log(subCategories);
 </script>
