@@ -38,3 +38,15 @@ export const productsTable = mysqlTable('products', {
     price: decimal({ precision: 10, scale: 2 }).notNull(),
     subcategoryId: int().references(() => subcategoriesTable.id, { onDelete: 'cascade' })
 });
+
+export const propertiesTable = mysqlTable('properties', {
+    id: int().notNull().primaryKey().autoincrement(),
+    name: varchar({ length: 100 }).notNull().unique(),
+});
+
+
+export const subcategoryProperties = mysqlTable('subcategory_properties', {
+    id: int().notNull().primaryKey().autoincrement(),
+    subcategoryId: int().references(() => subcategoriesTable.id, { onDelete: 'cascade' }),
+    propertyId: int().references(() => propertiesTable.id, { onDelete: 'cascade' }),
+});
