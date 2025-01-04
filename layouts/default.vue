@@ -1,4 +1,5 @@
 <template>
+    <AdminBlock v-if="isAdmin" />
 
     <Header />
 
@@ -11,3 +12,7 @@
     <!-- place for Footer -->
      
 </template>
+
+<script setup>
+    const isAdmin = ref(true);
+</script>
