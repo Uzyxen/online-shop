@@ -1,10 +1,11 @@
 import { sql } from 'drizzle-orm';
-import { datetime, decimal, int, mysqlTable, text, varchar } from 'drizzle-orm/mysql-core';
+import { boolean, datetime, decimal, int, mysqlTable, text, varchar } from 'drizzle-orm/mysql-core';
 
 export const users = mysqlTable('users', {
     id: int().notNull().primaryKey().autoincrement(),
     email: varchar({ length: 255 }).notNull().unique(),
     password: varchar({ length: 255 }).notNull(),
+    isAdmin: boolean().notNull().default(false),
 });
 
 export const products = mysqlTable('products', {
@@ -43,7 +44,6 @@ export const propertiesTable = mysqlTable('properties', {
     id: int().notNull().primaryKey().autoincrement(),
     name: varchar({ length: 100 }).notNull().unique(),
 });
-
 
 export const subcategoryProperties = mysqlTable('subcategory_properties', {
     id: int().notNull().primaryKey().autoincrement(),
