@@ -1,5 +1,5 @@
 import db from "./database/connection";
-import { categoriesTable, productsTable, subcategoriesTable } from "./database/schema";
+import { categoriesTable, productsTable, propertiesTable, subcategoriesTable, subcategoryProperties } from "./database/schema";
 
 async function main() {
     // default categories
@@ -18,6 +18,32 @@ async function main() {
         { title: 'Laptopy gamingowe', categoryId: 1 },
     ]
 
+    const properties = [
+        { name: 'Procesor' },
+        { name: 'Pamięć RAM' },
+        { name: 'Dysk' },
+        { name: 'Karta graficzna' },
+    ]
+
+    const _subcategoryProperties = [
+        { subcategoryId: 1, propertyId: 1 },
+        { subcategoryId: 1, propertyId: 2 },
+        { subcategoryId: 1, propertyId: 3 },
+        { subcategoryId: 1, propertyId: 4 },
+        { subcategoryId: 2, propertyId: 1 },
+        { subcategoryId: 2, propertyId: 2 },
+        { subcategoryId: 2, propertyId: 3 },
+        { subcategoryId: 2, propertyId: 4 },
+        { subcategoryId: 3, propertyId: 1 },
+        { subcategoryId: 3, propertyId: 2 },
+        { subcategoryId: 3, propertyId: 3 },
+        { subcategoryId: 3, propertyId: 4 },
+        { subcategoryId: 4, propertyId: 1 },
+        { subcategoryId: 4, propertyId: 2 },
+        { subcategoryId: 4, propertyId: 3 },
+        { subcategoryId: 4, propertyId: 4 },
+    ]
+
     const products = [
         { title: 'Laptop A', subcategoryId: 1, price: '1000' },
         { title: 'Tablet B', subcategoryId: 2, price: '500' },
@@ -28,6 +54,8 @@ async function main() {
     await db.insert(categoriesTable).values(categories);
     await db.insert(subcategoriesTable).values(subCategories);
     await db.insert(productsTable).values(products);
+    await db.insert(propertiesTable).values(properties);
+    await db.insert(subcategoryProperties).values(_subcategoryProperties);
 }
 
 main();
