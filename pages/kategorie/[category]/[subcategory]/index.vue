@@ -1,7 +1,11 @@
 <template>
     <div class="flex mx-20 mt-8 gap-3">
         <Filters />
-        <ProductList :products="products" />
+
+        <div class="flex flex-col gap-3 w-full">
+            <Sort />
+            <ProductList :products="products" />
+        </div>
     </div>
 </template>
 

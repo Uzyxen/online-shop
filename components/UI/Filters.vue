@@ -1,12 +1,16 @@
 <template>
-    <div class="w-72 h-fit bg-[#FFF] shadow-md">
-        <ul v-for="i in 4" class="p-3" :key="i">
-            type of filter {{ i }}
-            <li v-for="j in 5" class="pl-3" :key="j">
-                <input type="checkbox" class="ml-2" :id="'filter-' + i + j"/>
-                <label :for="'filter-' + i + j">Filter {{ j }}</label>
-            </li>
-        </ul>
+    <div class="w-96 h-fit bg-[#FFF] shadow-md p-3">
+        <h1 class="text-2xl font-semibold">Filtry</h1>
+        <button class="bg-mid-gray w-full mt-5 rounded-sm p-2">Pokaż wszystkie filtry</button>
+
+        <hr class="border-none h-px bg-dark-gray mt-3">
+
+        <div class="mt-8">
+            <div class="flex flex-col gap-3">
+                <h2 class="font-semibold">Cena</h2>
+                <FromToInput />
+            </div>
+        </div>
     </div>
 </template>
 
