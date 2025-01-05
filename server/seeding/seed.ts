@@ -5,7 +5,12 @@ import { seed } from "drizzle-seed";
 async function main() {
     const database = db;
     
-    await seed(database, { categories: schema.categoriesTable, subcategories: schema.subcategoriesTable }).refine((f) => ({
+    await seed(database, 
+        { 
+            categories: schema.categoriesTable, 
+            subcategories: schema.subcategoriesTable,
+            products: schema.productsTable
+        }).refine((f) => ({
         categories: {
             count: 10,
             columns: {
@@ -39,8 +44,27 @@ async function main() {
                         'Tablety graficzne'
                     ]
                 })
+            },
+            with: {
+                products: 7
             }
-        }
+        },
+        products: {
+            columns: {
+                title: f.valuesFromArray({
+                    values: [
+                        'Laptop Dell Inspiron 15 3000',
+                        'Laptop Lenovo IdeaPad 3',
+                        'Laptop HP Pavilion 15',
+                        'Laptop Acer Aspire 5',
+                        'Laptop Asus VivoBook 15',
+                        'Laptop Dell Inspiron 15 3000',
+                        'Laptop Lenovo IdeaPad 3',
+                    ]
+                }),
+                price: f.int({ minValue: 1000, maxValue: 5000 }),
+            }
+        },
     }));
 }
 
