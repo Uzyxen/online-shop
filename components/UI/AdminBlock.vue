@@ -1,5 +1,5 @@
 <template>
-    <div class="top-0 w-full h-fit bg-dark-gray z-50 p-2">
+    <div class="top-0 w-full h-fit bg-blue z-50 p-2">
         <h1 class="text-[#FFF] flex justify-center gap-2">
             <span>Jesteś zalogowany jako admin</span>
 
