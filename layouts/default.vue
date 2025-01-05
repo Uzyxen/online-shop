@@ -1,5 +1,5 @@
 <template>
-    <AdminBlock v-if="isAdmin" />
+    <AdminBlock v-if="isUserAdmin" />
 
     <Header />
 
@@ -14,5 +14,6 @@
 </template>
 
 <script setup>
-    const isAdmin = ref(true);
+    const { isAdmin } = useStore();
+    const isUserAdmin = isAdmin().value;
 </script>
