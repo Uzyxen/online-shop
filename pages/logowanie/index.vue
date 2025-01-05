@@ -46,10 +46,12 @@
         });
 
         if(response.access_token) {
-            const { useAccessToken } = useStore();
+            const { useAccessToken, isAdmin } = useStore();
             const token = useAccessToken();
+            const isUserAdmin = isAdmin();
 
             token.value = response.access_token;
+            isUserAdmin.value = response.is_admin;
 
             await navigateTo('/');
         } else if(response.message) {

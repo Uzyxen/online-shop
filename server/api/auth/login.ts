@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
             // save refresh token in db
             await db.insert(refreshTokens).values({ 
                 token: refreshToken,
-                userId: user.id
+                userId: user.id,
             });
 
             // send refresh token to the http-only cookie
@@ -27,7 +27,8 @@ export default defineEventHandler(async (event) => {
             sendRefreshToken(event, refreshToken); 
 
             return {
-                access_token: accessToken
+                access_token: accessToken,
+                is_admin: user.isAdmin
             }
         } else {
             return {
