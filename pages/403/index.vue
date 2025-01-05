@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>Panel admina</h1>
+        <h1>Brak dostępu do zasobu</h1>
     </div>
 </template>
 
 <script setup>
     definePageMeta({
-        middleware: 'auth-admin'
-    })
+        layout: 'clear'
+    });
 </script>

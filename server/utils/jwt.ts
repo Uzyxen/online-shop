@@ -1,12 +1,11 @@
-import jwt, { decode } from 'jsonwebtoken';
-import { getUserById } from '../database/users';
+import jwt from 'jsonwebtoken';
 
 // generate
 
 const generateAccessToken = (user: User) => {
     const config = useRuntimeConfig();
 
-    return jwt.sign({ userId: user.id }, config.jwtAccessSecret, {
+    return jwt.sign({ userId: user.id, isAdmin: user.isAdmin }, config.jwtAccessSecret, {
         expiresIn: '10m'
     });
 }
