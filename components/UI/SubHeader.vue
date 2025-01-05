@@ -2,7 +2,7 @@
     <div class="border-b-2 border-gray ">
         <ul class="mx-20 flex gap-32 text-sm relative">
             <li class="w-64 group text-center">
-                <NuxtLink
+                <div
                     class="size-full block py-4 border-r-[1px] border-l-[1px] border-gray" 
                     to="/kategorie">
 
@@ -23,7 +23,7 @@
                             
                         </div>
                     </div>
-                </NuxtLink>
+                </div>
             </li>
 
             <li class="w-64 text-center" v-for="link in links">
