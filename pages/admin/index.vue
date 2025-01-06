@@ -1,18 +1,25 @@
 <template>
-    <div class="mx-20">
+    <div class="mx-20 pb-16">
+        <HorizontalTextLine>Produkty</HorizontalTextLine>
         <ul class="grid gap-2 mt-4 grid-cols-5">
-            <li 
-                v-for="(page, index) in adminPages" 
-                :key="index" 
-                class="border-2 border-gray h-52 rounded-sm relative after:bg-blue after:w-full after:content-[''] after:absolute after:bottom-0 after:h-0 hover:after:h-full hover:border-blue transition-colors group cursor-pointer after:transition-all"
-                @click="navigateTo(page.path)">
-                <div
-                    class="flex flex-col gap-4 p-5 justify-center items-center size-full bg-light-gray z-20">
-                    <NuxtIcon :name="page.icon" size="6rem" mode="svg" class="z-10 transition-colors duration-300 group-hover:text-[#FFF]"/>
+            <AnimatedBlock :page="{ title: 'Dodaj nowy produkt', icon: 'solar:add-circle-linear', path: '/admin/dodaj-produkt' }" />
+            <AnimatedBlock :page="{ title: 'Przeglądaj produkty', icon: 'solar:box-minimalistic-linear', path: '/admin/produkty' }" />
+        </ul>
 
-                    <h1 class="text-lg group-hover:text-[#FFF] z-10 transition-colors duration-300 text-black">{{ page.title }}</h1>
-                </div>
-            </li>
+        <HorizontalTextLine class="mt-10">Kategorie</HorizontalTextLine>
+        <ul class="grid gap-2 mt-4 grid-cols-5">
+            <AnimatedBlock :page="{ title: 'Zarządzanie kategoriami', icon: 'solar:folder-with-files-linear', path: '/admin/kategorie' }" />
+        </ul>
+
+        <HorizontalTextLine class="mt-10">Zamówienia</HorizontalTextLine>
+        <ul class="grid gap-2 mt-4 grid-cols-5">
+            <AnimatedBlock :page="{ title: 'Przeglądaj zamówienia', icon: 'solar:cart-linear', path: '/admin/zamowienia' }" />
+            <AnimatedBlock :page="{ title: 'Przeglądaj zwroty', icon: 'solar:undo-left-round-linear', path: '/admin/zwroty' }" />
+        </ul>
+
+        <HorizontalTextLine class="mt-10">Zgłoszenia uytkowników</HorizontalTextLine>
+        <ul class="grid gap-2 mt-4 grid-cols-5">
+            <AnimatedBlock :page="{ title: 'Przeglądaj zgłoszenia', icon: 'solar:danger-circle-linear', path: '/admin/zgloszenia' }" />
         </ul>
     </div>
 </template>
@@ -21,12 +28,5 @@
     definePageMeta({
         middleware: 'auth-admin'
     });
-
-    const adminPages = ref([
-        { title: 'Zarządzanie produktami', path: '/admin/produkty', icon: 'solar:box-minimalistic-linear' },
-        { title: 'Zarządzanie kategoriami', path: '/admin/kategorie', icon: 'solar:folder-with-files-linear' },
-        { title: 'Zarządzanie zamówieniami', path: '/admin/zamowienia', icon: 'solar:cart-linear' },
-        { title: 'Zgłoszenia użytkowników', path: '/admin/zgloszenia', icon: 'solar:danger-circle-linear' },
-    ]);
     
 </script>

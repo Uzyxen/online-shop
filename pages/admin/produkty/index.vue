@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="mx-20">
+        
     </div>
 </template>
 
@@ -8,4 +8,6 @@
     definePageMeta({
         middleware: 'auth-admin'
     });
+
+
 </script>

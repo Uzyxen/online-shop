@@ -3,7 +3,7 @@ import db from "../connection";
 import { categoriesTable } from "../schema";
 
 export const getAllCategories = async () => {
-    const result = await db.select().from(categoriesTable);
+    const result = await db.query.categoriesTable.findMany();
 
     return result;
 }
