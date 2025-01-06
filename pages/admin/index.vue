@@ -25,10 +25,10 @@
     });
 
     const adminPages = ref([
-        { title: 'Zarządzanie produktami', path: '/admin/produkty', icon: 'solar:box-minimalistic-linear', hover: false },
-        { title: 'Zarządzanie kategoriami', path: '/admin/kategorie', icon: 'solar:folder-with-files-linear', hover: false },
-        { title: 'Zarządzanie zamówieniami', path: '/admin/zamowienia', icon: 'solar:cart-linear', hover: false },
-        { title: 'Zgłoszenia użytkowników', path: '/admin/zgloszenia', icon: 'solar:danger-circle-linear', hover: false },
+        { title: 'Zarządzanie produktami', path: '/admin/produkty', icon: 'solar:box-minimalistic-linear' },
+        { title: 'Zarządzanie kategoriami', path: '/admin/kategorie', icon: 'solar:folder-with-files-linear' },
+        { title: 'Zarządzanie zamówieniami', path: '/admin/zamowienia', icon: 'solar:cart-linear' },
+        { title: 'Zgłoszenia użytkowników', path: '/admin/zgloszenia', icon: 'solar:danger-circle-linear' },
     ]);
     
 </script>
