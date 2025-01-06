@@ -1,5 +1,5 @@
 <template>
-    <div class="border-b-2 border-gray ">
+    <div class="border-b-2 border-gray">
         <ul class="mx-20 flex gap-32 text-sm relative">
             <li class="w-64 group text-center">
                 <div
@@ -8,7 +8,7 @@
 
                     Kategorie
 
-                    <div class="flex w-full absolute top-full left-0 shadow-md rounded-b-sm">
+                    <div class="flex w-full absolute top-full left-0 shadow-md rounded-b-sm z-50">
                         <div
                             class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-gray hidden group-hover:block cursor-default">
                             <ul>
