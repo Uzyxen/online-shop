@@ -3,9 +3,14 @@
         <div class="flex size-full gap-4">
             <img :src="product.image" :alt="product.title" class="bg-mid-gray w-48" />
 
-            <div class="flex-1">
+            <div class="flex-1 flex flex-col gap-2">
                 <h1 class="text-xl">{{ product.title }}</h1>
                 
+                <ProductRating :rating="4.9" />
+
+                <div>
+                    
+                </div>
             </div>
 
             <div class="flex flex-col">
