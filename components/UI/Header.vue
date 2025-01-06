@@ -9,10 +9,10 @@
 
         <div class="flex gap-8 items-center">
             <div class="flex gap-8 items-center" v-if="token">
-                <IconVerticalGroup icon-name="mol-icon:user" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
+                <IconVerticalGroup icon-name="solar:user-linear" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
                     Moje konto
 
-                    <div class="absolute w-[200px] top-full h-fit bg-light-gray border-[1px] border-mid-gray" v-show="isUserDropdownVisible">
+                    <div class="absolute w-[200px] top-full h-fit bg-light-gray border-[1px] border-mid-gray z-30" v-show="isUserDropdownVisible">
                         <ul class="flex flex-col">
                             <li v-for="link in links" class="hover:bg-mid-gray">
                                 <NuxtLink class="justify-start size-full block p-2 py-3" :to="link.path">
@@ -25,15 +25,15 @@
                     </div>
                 </IconVerticalGroup>
 
-                <IconVerticalGroup icon-name="mol-icon:bell">
+                <IconVerticalGroup icon-name="solar:bell-linear">
                     Powiadomienia
                 </IconVerticalGroup>
 
-                <IconVerticalGroup icon-name="mol-icon:heart">
+                <IconVerticalGroup icon-name="solar:heart-linear">
                     Ulubione
                 </IconVerticalGroup>
 
-                <IconVerticalGroup icon-name="mol-icon:message">
+                <IconVerticalGroup icon-name="solar:chat-line-linear">
                     Wiadomości
                 </IconVerticalGroup>
             </div>
@@ -54,7 +54,7 @@
 
             <div class="w-[1px] bg-gray h-8 mx-2"></div>
 
-            <IconVerticalGroup icon-name="mol-icon:cart" @click="isCartOpened = true">
+            <IconVerticalGroup icon-name="solar:cart-large-minimalistic-linear" @click="isCartOpened = true">
                 0,00 zł
             </IconVerticalGroup>
         </div>

@@ -10,13 +10,7 @@ export default defineNuxtConfig({
     }
   ],
   icon: {
-    componentName: 'NuxtIcon',
-    customCollections: [
-      {
-        prefix: 'mol-icon',
-        dir: './assets/icons-collection'
-      }
-    ]
+    componentName: 'NuxtIcon'
   },
   runtimeConfig: {
     jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,

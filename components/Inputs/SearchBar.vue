@@ -8,7 +8,7 @@
             @keyup="search">
 
         <button class="bg-blue text-light-gray h-full px-2 flex items-center justify-center">
-            <NuxtIcon name="mol-icon:forward" size="1.7rem" />
+            <NuxtIcon name="solar:forward-line-duotone" size="1.7rem" />
         </button>
 
         <div class="w-full h-fit bg-light-gray shadow-md absolute left-0 top-full z-50 flex flex-col gap-3 p-3" v-if="searchValue != '' && response">
@@ -19,7 +19,7 @@
                     <NuxtLink :to="`/produkty/${product.title}`" class="pl-3 p-2 size-full flex justify-between">
                         <span>{{ product.title }}</span>
 
-                        <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
+                        <NuxtIcon name="solar:alt-arrow-right-linear" size="1.5rem"/>
                     </NuxtLink>
                 </li>
             </ul>
@@ -33,7 +33,7 @@
                     <NuxtLink :to="`/kategorie/${category.title}`" class="pl-3 p-2 size-full flex justify-between">
                         <span>{{ category.title }}</span>
 
-                        <NuxtIcon name="mol-icon:alt-arrow-right" size="1.5rem"/>
+                        <NuxtIcon name="solar:alt-arrow-right-linear" size="1.5rem"/>
                     </NuxtLink>
                 </li>
             </ul>

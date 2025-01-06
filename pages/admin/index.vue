@@ -9,8 +9,8 @@
                 @mouseleave="page.hover = false">
                 <NuxtLink 
                     :to="page.path" 
-                    class="flex flex-col gap-4 p-5 justify-center items-center size-full bg-light-gray z-50">
-                    <NuxtIcon :name="page.icon" size="7rem" :style="{ color: page.hover ? '#FFF' : '#1E1E1E' }" class="z-10 transition-colors duration-300"/>
+                    class="flex flex-col gap-4 p-5 justify-center items-center size-full bg-light-gray z-20">
+                    <NuxtIcon :name="page.icon" size="6rem" mode="svg" class="z-10 transition-colors duration-300 group-hover:text-[#FFF]"/>
 
                     <h1 class="text-lg group-hover:text-[#FFF] z-10 transition-colors duration-300 text-black">{{ page.title }}</h1>
                 </NuxtLink>
@@ -24,13 +24,11 @@
         middleware: 'auth-admin'
     });
 
-    const isHovered = ref(false);
-
     const adminPages = ref([
-        { title: 'Zarządzanie produktami', path: '/admin/produkty', icon: 'carbon:ibm-data-product-exchange', hover: false },
-        { title: 'Zarządzanie kategoriami', path: '/admin/kategorie', icon: 'carbon:collapse-categories', hover: false },
-        { title: 'Zarządzanie zamówieniami', path: '/admin/zamowienia', icon: 'mdi:basket-unfill', hover: false },
-        { title: 'Zgłoszenia użytkowników', path: '/admin/zgloszenia', icon: 'tabler:message-report', hover: false },
+        { title: 'Zarządzanie produktami', path: '/admin/produkty', icon: 'solar:box-minimalistic-linear', hover: false },
+        { title: 'Zarządzanie kategoriami', path: '/admin/kategorie', icon: 'solar:folder-with-files-linear', hover: false },
+        { title: 'Zarządzanie zamówieniami', path: '/admin/zamowienia', icon: 'solar:cart-linear', hover: false },
+        { title: 'Zgłoszenia użytkowników', path: '/admin/zgloszenia', icon: 'solar:danger-circle-linear', hover: false },
     ]);
     
 </script>
