@@ -13,3 +13,9 @@ export const getProductsByName = async (name: string) => {
 
     return result;
 }
+
+export const getAllProducts = async () => {
+    const result = await db.query.productsTable.findMany();
+
+    return result;
+}
