@@ -1,16 +1,11 @@
 <template>
-    <div>
-        <h1>Dodaj produkt</h1>
+    <div class="mx-20">
+        <h1 class="text-3xl mb-10 mt-5">Dodaj produkt</h1>
 
-        <input type="text" v-model="newProduct.title">
-        <input type="text" v-model="newProduct.price">
-
+        <AddProductForm />
     </div>
 </template>
 
 <script setup>
-    const newProduct = ref({
-        title: '',
-        price: 0,
-    });
+
 </script>

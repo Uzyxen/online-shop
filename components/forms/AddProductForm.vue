@@ -1,0 +1,25 @@
+<template>
+    <form class="flex gap-10 h-[2000px]">
+        <div class="flex flex-col w-2/3">
+            <HorizontalGroup>
+                <ValidateInput caption="Tytuł" v-model="newProduct.title" type="text" :minLength="3" :maxLength="50" class="w-full" />
+                <ValidateInput caption="Cena" v-model="newProduct.price" type="text" :minLength="1" :maxLength="10" class="w-full" />
+            </HorizontalGroup>
+
+            <label for="description">Opis</label>
+            <textarea id="description" class="w-full p-2.5 bg-mid-gray outline-none border-b-[3px] border-gray resize-none"></textarea>
+        </div>
+
+        <div class="w-1/3 p-4 shadow-md flex flex-col gap-4 sticky top-10 h-fit">
+            <PrimaryButton class="w-full">Dodaj produkt</PrimaryButton>
+            <SecondaryButton class="w-full">Podgląd produktu</SecondaryButton>
+        </div>
+    </form>
+</template>
+
+<script setup>
+    const newProduct = ref({
+        title: '',
+        price: 0,
+    });
+</script>
