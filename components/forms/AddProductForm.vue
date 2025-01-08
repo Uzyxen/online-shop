@@ -2,9 +2,11 @@
     <form class="flex gap-10 h-[2000px]">
         <div class="flex flex-col w-2/3">
             <HorizontalGroup>
-                <ValidateInput caption="Tytuł" v-model="newProduct.title" type="text" :minLength="3" :maxLength="50" class="w-full" />
-                <ValidateInput caption="Cena" v-model="newProduct.price" type="text" :minLength="1" :maxLength="10" class="w-full" />
+                <ProductInput caption="Tytuł" v-model="newProduct.title" type="text" :maxLength="50" class="w-full" />
+                <FilterSelectBox :endpoint="'/api/categories/categories'" />
             </HorizontalGroup>
+
+            <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />
 
             <label for="description">Opis</label>
             <textarea id="description" class="w-full p-2.5 bg-mid-gray outline-none border-b-[3px] border-gray resize-none"></textarea>
