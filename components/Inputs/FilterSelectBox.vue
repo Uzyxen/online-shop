@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-    const props = defineProps(['endpoint']);
+    const props = defineProps(['endpoint', 'subEndpoint']);
 
     const { data: items } = await useFetch(props.endpoint, {
         method: 'post'
@@ -28,7 +28,7 @@
     async function selectItem(index) {        
         selectedIndex.value = index;
         
-        subItems.value = await $fetch('/api/subcategories/subcategories', {
+        subItems.value = await $fetch(props.subEndpoint, {
             method: 'post',
             body: {
                 name: items.value[index].title

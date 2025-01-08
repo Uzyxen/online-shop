@@ -3,7 +3,9 @@
         <div class="flex flex-col w-2/3">
             <HorizontalGroup>
                 <ProductInput caption="Tytuł" v-model="newProduct.title" type="text" :maxLength="50" class="w-full" />
-                <FilterSelectBox :endpoint="'/api/categories/categories'" />
+                <FilterSelectBox 
+                    :endpoint="'/api/categories/categories'"
+                    :sub-endpoint="'/api/subcategories/subcategories'" />
             </HorizontalGroup>
 
             <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />
