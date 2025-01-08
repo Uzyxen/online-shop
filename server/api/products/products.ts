@@ -1,5 +1,7 @@
 import { getAllProducts } from "~/server/database/methods/products";
 
 export default defineEventHandler(async (event) => {
-    return await getAllProducts();
+    const body = await readBody(event);
+
+    return await getAllProducts(body.offset);
 });

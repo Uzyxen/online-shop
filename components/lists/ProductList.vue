@@ -7,6 +7,8 @@
         </div>
 
         <ProductBlock v-for="product in products" :key="product.id" :product="product" />
+
+        <PaginationButtons @page-change="(offset) => { $emit('pageChange', offset) }" />
     </div>
 </template>
 

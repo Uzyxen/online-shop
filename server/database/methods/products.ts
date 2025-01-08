@@ -14,8 +14,11 @@ export const getProductsByName = async (name: string) => {
     return result;
 }
 
-export const getAllProducts = async () => {
-    const result = await db.query.productsTable.findMany();
+export const getAllProducts = async (offset: number) => {
+    const result = await db.query.productsTable.findMany({
+        limit: 20,
+        offset: offset,
+    });
 
     return result;
 }
