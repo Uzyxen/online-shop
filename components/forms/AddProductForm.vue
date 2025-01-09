@@ -1,4 +1,6 @@
 <template>
+    <ProductPreview :is-visible="isPreviewVisible" @close="isPreviewVisible = false" />
+
     <form class="flex gap-10 h-[2000px]">
         <div class="flex flex-col w-2/3">
             <HorizontalGroup>
@@ -16,7 +18,7 @@
 
         <div class="w-1/3 p-4 shadow-md flex flex-col gap-4 sticky top-10 h-fit">
             <PrimaryButton class="w-full">Dodaj produkt</PrimaryButton>
-            <SecondaryButton class="w-full">Podgląd produktu</SecondaryButton>
+            <SecondaryButton class="w-full" @click.prevent="isPreviewVisible = true">Podgląd produktu</SecondaryButton>
         </div>
     </form>
 </template>
@@ -26,4 +28,6 @@
         title: '',
         price: 0,
     });
+
+    const isPreviewVisible = ref(false);
 </script>
