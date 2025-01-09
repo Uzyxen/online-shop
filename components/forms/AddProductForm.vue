@@ -1,5 +1,5 @@
 <template>
-    <ProductPreview :is-visible="isPreviewVisible" @close="isPreviewVisible = false" />
+    <ProductPreview :is-visible="isPreviewVisible" @close="isPreviewVisible = false" :product="newProduct" />
 
     <form class="flex gap-10 h-[2000px]">
         <div class="flex flex-col w-2/3">

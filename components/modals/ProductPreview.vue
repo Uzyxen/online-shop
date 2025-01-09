@@ -4,14 +4,16 @@
             <div class="bg-gray size-full m-4 h-[98%] shadow-md rounded-sm">
                 <NuxtIcon name="solar:arrow-left-linear" size="2.5rem" mode="svg" class="absolute left-7 top-6 cursor-pointer" @click="$emit('close')" />
 
-                
+                <h1>
+                    {{ product.title }}
+                </h1>
             </div>
         </div>
     </Transition>
 </template>
 
 <script setup>
-    defineProps(['isVisible']);
+    defineProps(['isVisible', 'product']);
 </script>
 
 <style>
