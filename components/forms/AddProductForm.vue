@@ -12,14 +12,18 @@
 
             <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />
 
-            <label for="description">Opis</label>
-            <textarea id="description" class="w-full p-2.5 bg-mid-gray outline-none border-b-[3px] border-gray resize-none"></textarea>
+            <VerticalGroup>
+                <label for="description" class="font-semibold text-base">Opis</label>
+                <textarea id="description" class="w-full min-h-40 p-2.5 bg-mid-gray outline-none resize-none"></textarea>
+            </VerticalGroup>
         </div>
 
         <div class="w-1/3 p-4 shadow-md flex flex-col gap-4 sticky top-10 h-fit">
             <PrimaryButton class="w-full">Dodaj produkt</PrimaryButton>
             <SecondaryButton class="w-full" @click.prevent="isPreviewVisible = true">Podgląd produktu</SecondaryButton>
         </div>
+
+
     </form>
 </template>
 
