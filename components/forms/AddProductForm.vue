@@ -19,9 +19,15 @@
             </VerticalGroup>
 
             <VerticalGroup>
-                <p for="specification" class="font-semibold text-base">Grafiki</p>
+                <p class="font-semibold text-base">Grafiki</p>
                 
                 <ProductImagesInput />
+            </VerticalGroup>
+
+            <VerticalGroup>
+                <p class="font-semibold text-base">Specyfikacja</p>
+
+                <button>Otwórz</button>
             </VerticalGroup>
         </div>
 

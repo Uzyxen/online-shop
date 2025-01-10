@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-3 gap-4">
         <div>
-            <label for="file-input" class="bg-[#FFF] border-2 border-[#DDD] h-40 flex justify-center items-center cursor-pointer">
+            <label for="file-input" class="bg-mid-gray border-2 border-[#DDD] h-40 flex justify-center items-center cursor-pointer">
                 <NuxtIcon name="solar:add-circle-linear" size="5rem" />
             </label>
 
@@ -20,7 +20,7 @@
 
         selectedImages.forEach(image => {
             const imageUrl = URL.createObjectURL(image);
-            
+
             images.value.push({ id: Date.now() + Math.random(), url: imageUrl, file: image });
         });
     }
