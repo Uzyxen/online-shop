@@ -7,7 +7,8 @@
                 <ProductInput caption="Tytuł" v-model="newProduct.title" type="text" :maxLength="50" class="w-full" />
                 <FilterSelectBox 
                     :endpoint="'/api/categories/categories'"
-                    :sub-endpoint="'/api/subcategories/subcategories'" />
+                    :sub-endpoint="'/api/subcategories/subcategories'"
+                    class="self-end" />
             </HorizontalGroup>
 
             <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />
