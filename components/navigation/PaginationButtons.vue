@@ -4,7 +4,7 @@
             Poprzednia strona
         </button>
 
-        <input type="text" v-model="index" class="border border-dark-gray w-10 text-center p-1" />
+        <input type="text" v-model="index" class="border border-dark-gray w-10 text-center p-1" @blur="$emit('pageChange', (index - 1) * 20)" />
 
         <button @click="index++; $emit('pageChange', (index - 1) * 20)">
             Następna strona
