@@ -3,7 +3,7 @@
         <button @click="index--; pageChange()" class="h-fit" v-if="index > 1"><NuxtIcon name="solar:alt-arrow-left-linear" size="2rem" /></button>
 
         <div class="flex gap-3">
-            <button class="border border-blue p-1 w-10" @click="index--; pageChange()">{{ index - 1 }}</button>
+            <button class="border border-blue p-1 w-10" @click="index--; pageChange()" v-if="index > 1">{{ index - 1 }}</button>
             <button class="border border-blue bg-blue text-[#FFF] p-1 w-10">{{ index }}</button>
             <button class="border border-blue p-1 w-10" @click="index++; pageChange()">{{ index + 1 }}</button>
 
