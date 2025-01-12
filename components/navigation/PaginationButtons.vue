@@ -17,7 +17,7 @@
             </button>
         </div>
 
-        <button @click="index++; pageChange()"><NuxtIcon name="solar:alt-arrow-right-linear" size="2rem" /></button>
+        <button @click="index++; pageChange()" v-if="index < pages"><NuxtIcon name="solar:alt-arrow-right-linear" size="2rem" /></button>
     </div>
 </template>
 
