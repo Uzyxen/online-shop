@@ -7,7 +7,12 @@
             <button class="border border-blue bg-blue text-[#FFF] p-1 w-10">{{ index }}</button>
             <button class="border border-blue p-1 w-10" @click="index++; pageChange()">{{ index + 1 }}</button>
 
-            <input type="text" v-model.number="customPage" class="border-b border-dark-gray w-10 text-center p-1" @blur="setCustomPage()" />
+            <input 
+                type="text" 
+                v-model.number="customPage" 
+                class="border-b border-dark-gray w-10 text-center p-1" 
+                @blur="setCustomPage()"
+                @keypress.enter="setCustomPage()" />
 
             <button class="border border-blue p-1 w-10" :class="{ 'bg-blue text-[#FFF]': index === pages }" @click="index = pages">
                 {{ pages }}
