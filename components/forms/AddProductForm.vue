@@ -27,7 +27,7 @@
             <VerticalGroup>
                 <p class="font-semibold text-base">Specyfikacja</p>
 
-                <button>Otwórz</button>
+                <MultiSelectBox />
             </VerticalGroup>
         </div>
 
