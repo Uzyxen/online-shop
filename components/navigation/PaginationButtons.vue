@@ -4,8 +4,8 @@
 
         <div class="flex gap-3">
             <button class="border border-blue p-1 w-10" @click="index--; pageChange()" v-if="index > 1">{{ index - 1 }}</button>
-            <button class="border border-blue bg-blue text-[#FFF] p-1 w-10">{{ index }}</button>
-            <button class="border border-blue p-1 w-10" @click="index++; pageChange()">{{ index + 1 }}</button>
+            <button class="border border-blue bg-blue text-[#FFF] p-1 w-10" v-if="index < pages">{{ index }}</button>
+            <button class="border border-blue p-1 w-10" @click="index++; pageChange()" v-if="index + 1 < pages">{{ index + 1 }}</button>
 
             <input 
                 type="text" 
@@ -24,8 +24,10 @@
 </template>
 
 <script setup>
-    const props = defineProps(['pages']);
+    const props = defineProps(['count', 'productsPerPage']);
     const emit = defineEmits(['pageChange']);
+
+    const pages = Math.ceil(props.count / props.productsPerPage);
 
     const index = ref(1);
     function pageChange() {
@@ -34,7 +36,7 @@
 
     const customPage = ref(null);
     function setCustomPage() {
-        if(customPage.value > 0 && customPage.value <= props.pages) {
+        if(customPage.value > 0 && customPage.value <= pages) {
             index.value = customPage.value;
             pageChange();
         }

@@ -9,11 +9,16 @@
         <ProductBlock v-for="product in products" :key="product.id" :product="product" />
 
         <PaginationButtons
-            :pages="30"
+            :count="numberOfProducts.count"
+            :products-per-page="20"
             @page-change="(offset) => { $emit('pageChange', offset) }" />
     </div>
 </template>
 
 <script setup>
     defineProps(['products', 'isEditModeEnabled']);
+
+    const { data: numberOfProducts } = await useFetch('/api/products/count', {
+        method: 'POST'
+    });
 </script>

@@ -1,4 +1,4 @@
-import { eq, like } from "drizzle-orm";
+import { count, eq, like } from "drizzle-orm";
 import db from "../connection";
 import { productsTable } from "../schema";
 
@@ -21,4 +21,10 @@ export const getAllProducts = async (offset: number) => {
     });
 
     return result;
+}
+
+export const getNumberOfProducts = async () => {
+    const result = await db.select({ count: count() }).from(productsTable);
+
+    return result[0];
 }
