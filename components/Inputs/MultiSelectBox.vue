@@ -8,15 +8,31 @@
     </div>
 
     <Teleport to="#teleports">
-        <div v-if="isOpen" class="fixed w-[600px] h-[600px] bg-mid-gray shadow-md left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-            <input type="text" class="w-full" />
+        <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-mid-gray shadow-md left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
+            <div class="flex p-2 gap-3 items-center">
+                <SingleSelectBox :items="[
+                    { title: 'Taktowanie procesora' },
+                    { title: 'Pamięć RAM' },
+                    { title: 'Pamięć wewnętrzna' },
+                    { title: 'Karta graficzna' },
+                    { title: 'Rozdzielczość' },
+                    { title: 'Typ matrycy' },
+                    { title: 'Czas reakcji' },
+                    { title: 'Kąt widzenia' },
+                    { title: 'Złącza' }
+                ]" @select-item="(item) => { newItem.key = item }"/>
+                <NuxtIcon name="solar:arrow-right-linear"/>
+                <input type="text" class="p-1.5" v-model="newItem.value" @keypress.enter="addItem()" />
+            </div>
+
+            <hr class="border-none h-px bg-gray my-3 mx-2">
 
             <div>
                 <ul>
                     <li v-for="(item, index) in selectedItems" :key="index" class="p-2 flex gap-3 items-center">
-                        <input type="text" v-model="item.key" class="flex-1 p-1">
-                        <NuxtIcon name="solar:arrow-right-linear" />
-                        <input type="text" v-model="item.value" class="p-1">
+                        <input type="text" v-model="item.key" class="flex-1 p-1.5">
+                        <NuxtIcon name="solar:arrow-right-linear"/>
+                        <input type="text" v-model="item.value" class="p-1.5">
                     </li>
                 </ul>
             </div>
@@ -25,19 +41,16 @@
 </template>
 
 <script setup>
+    const isOpen = ref(false);
+
     const selectedItems = ref([
-        { key: 'Taktowanie procesora', value: '5Ghz' },
-        { key: 'Pamięć RAM', value: '16GB' },
-        { key: 'Pamięć wewnętrzna', value: '512GB' },
-        { key: 'Karta graficzna', value: 'RTX 3080' },
-        { key: 'Rozdzielczość', value: '1920x1080' },
-        { key: 'Typ matrycy', value: 'IPS' },
-        { key: 'Czas reakcji', value: '1ms' },
-        { key: 'Kąt widzenia', value: '178°' },
-        { key: 'Złącza', value: 'HDMI, DisplayPort' },
-        { key: 'Waga', value: '2.5kg' },
-        { key: 'Wymiary', value: '400x300x20mm' },
+
     ]);
 
-    const isOpen = ref(false);
+    const newItem = ref({ key: '', value: '' });
+    function addItem() {
+        selectedItems.value.push({ key: newItem.value.key, value: newItem.value.value });
+
+        newItem.value = { key: '', value: '' };
+    }
 </script>
