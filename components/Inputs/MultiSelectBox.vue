@@ -4,7 +4,7 @@
             <p class="bg-blue-30 p-2 rounded-sm flex justify-center">{{ item.value }}</p>
         </div>
 
-        <span class="bg-mid-gray p-2 w-10 rounded-sm">+{{ selectedItems.length - 3 }}</span>
+        <span class="bg-mid-gray p-2 w-min-10 rounded-sm"><span v-if="selectedItems.length > 3">+</span>{{ selectedItems.length > 3 ? selectedItems.length - 3 : "Brak" }}</span>
     </div>
 
     <Teleport to="#teleports">
@@ -43,14 +43,13 @@
 <script setup>
     const isOpen = ref(false);
 
-    const selectedItems = ref([
-
-    ]);
+    const selectedItems = ref([]);
 
     const newItem = ref({ key: '', value: '' });
     function addItem() {
-        selectedItems.value.push({ key: newItem.value.key, value: newItem.value.value });
-
-        newItem.value = { key: '', value: '' };
+        if(newItem.value.key !== '' && newItem.value.value !== '') {
+            selectedItems.value.push({ key: newItem.value.key, value: newItem.value.value });
+            newItem.value = { key: '', value: '' };
+        }
     }
 </script>
