@@ -2,7 +2,7 @@
     <div class="mx-20 pb-16">
         <HorizontalTextLine>Produkty</HorizontalTextLine>
         <ul class="grid gap-2 mt-4 grid-cols-5">
-            <AnimatedBlock :page="{ title: 'Dodaj nowy produkt', icon: 'solar:add-circle-linear', path: '/admin/dodaj-produkt' }" />
+            <AnimatedBlock :page="{ title: 'Dodaj nowy produkt', icon: 'solar:widget-add-linear', path: '/admin/dodaj-produkt' }" />
             <AnimatedBlock :page="{ title: 'Przeglądaj produkty', icon: 'solar:box-minimalistic-linear', path: '/admin/produkty' }" />
         </ul>
 

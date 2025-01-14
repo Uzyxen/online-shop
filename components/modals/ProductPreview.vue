@@ -1,7 +1,7 @@
 <template>
     <Transition>
         <div class="fixed flex justify-center items-center left-0 top-0 size-full z-[999]" v-if="isVisible">
-            <div class="bg-gray size-full m-4 h-[98%] shadow-md rounded-sm">
+            <div class="bg-mid-gray border border-dark-gray size-full m-4 h-[98%] shadow-md rounded-sm">
                 <NuxtIcon name="solar:arrow-left-linear" size="2.5rem" mode="svg" class="absolute left-7 top-6 cursor-pointer" @click="$emit('close')" />
 
                 <h1>

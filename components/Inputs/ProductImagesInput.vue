@@ -1,8 +1,8 @@
 <template>
     <div class="grid grid-cols-3 gap-4">
         <div>
-            <label for="file-input" class="bg-mid-gray border-2 border-[#DDD] h-40 flex justify-center items-center cursor-pointer">
-                <NuxtIcon name="solar:add-circle-linear" size="5rem" />
+            <label for="file-input" class="bg-light-gray border-2 border-[#DDD] h-40 flex justify-center items-center cursor-pointer">
+                <NuxtIcon name="solar:gallery-download-linear" size="5rem" class="text-black" />
             </label>
 
             <input class="hidden" type="file" id="file-input" accept="image/*" @change="handleImageUpload" ref="fileInput">

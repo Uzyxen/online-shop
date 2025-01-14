@@ -1,5 +1,5 @@
 <template>
-    <div class="border border-gray max-w-96 flex gap-2 p-2 items-center" @click="isOpen = true">
+    <div class="border-2 border-[#DDD] bg-light-gray max-w-96 flex gap-2 p-2 items-center" @click="isOpen = true">
         <div v-for="(item, index) in selectedItems.slice(0, 3)" :key="index">
             <p class="bg-blue-30 p-2 rounded-sm flex justify-center">{{ item.value }}</p>
         </div>
@@ -8,7 +8,7 @@
     </div>
 
     <Teleport to="#teleports">
-        <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-mid-gray shadow-md border border-gray left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
+        <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-light-gray shadow-md border border-[#DDD] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
             <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" />
 
             <div class="flex p-2 gap-3 items-center">
