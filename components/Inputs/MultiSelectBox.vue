@@ -8,7 +8,9 @@
     </div>
 
     <Teleport to="#teleports">
-        <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-mid-gray shadow-md left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
+        <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-mid-gray shadow-md border border-gray left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
+            <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" />
+
             <div class="flex p-2 gap-3 items-center">
                 <SingleSelectBox :items="[
                     { title: 'Taktowanie procesora' },
