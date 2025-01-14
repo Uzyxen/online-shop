@@ -1,7 +1,7 @@
 <template>
     <div class="bg-light-gray flex-1 p-1.5 relative" @click="itemsVisible = !itemsVisible">
         <div class="flex w-full justify-between items-center">
-            <span>{{ selectedIndex !== null ? items[selectedIndex].title : 'Wybierz' }}</span>
+            <span>{{ displayItem() }}</span>
         </div>
 
         <ul v-if="itemsVisible" class="absolute bg-light-gray w-full left-0 top-full shadow-sm">
@@ -27,10 +27,23 @@
         emit('selectItem', props.items[index].title);
     }
 
+    function displayItem() {
+        if(selectedIndex.value !== null) {
+            return props.items[selectedIndex.value].title;
+        } else if(submittedItem.value !== '') {
+            return submittedItem.value;
+        } else {
+            return 'Wybierz';
+        }
+    }
+
     const newCustomItem = ref('');
+    const submittedItem = ref('');
     function submitCustomItem() {
         if(props.customValue) {
-
+            selectedIndex.value = null;
+            submittedItem.value = newCustomItem.value;
+            newCustomItem.value = '';
         }
     }
 </script>
