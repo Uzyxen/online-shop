@@ -6,7 +6,7 @@
 
         <ul v-if="itemsVisible" class="absolute bg-light-gray w-full left-0 top-full shadow-sm">
             <li class="hover:bg-gray cursor-pointer" @click.stop="">
-                <input type="text" v-model="newCustomItem" placeholder="Wpisz własne..." class="size-full p-2 bg-light-gray outline-none border-b border-gray" @keypress.enter="submitCustomItem()">
+                <input type="text" v-model="newCustomItem" placeholder="Wpisz własne..." class="size-full p-2 bg-light-gray outline-none border-b border-t border-gray" @keypress.enter="submitCustomItem()">
             </li>
             <li v-for="(item, index) in items" :key="index" class="p-2 hover:bg-gray cursor-pointer" @click.stop="selectItem(index)">{{ item.title }}</li>
         </ul>
@@ -41,9 +41,12 @@
     const submittedItem = ref('');
     function submitCustomItem() {
         if(props.customValue) {
+            itemsVisible.value = false;
             selectedIndex.value = null;
             submittedItem.value = newCustomItem.value;
             newCustomItem.value = '';
+
+            emit('selectItem', submittedItem.value);
         }
     }
 </script>
