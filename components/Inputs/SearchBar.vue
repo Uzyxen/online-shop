@@ -3,7 +3,7 @@
         <input 
             type="search" 
             placeholder="Wyszukaj..." 
-            class="outline-none h-full text-sm border-dark-gray border-2 border-r-0 bg-light-gray w-[450px] px-2 focus:border-blue"
+            class="outline-none h-full text-sm border-blue-gray border-2 border-r-0 bg-light-gray w-[450px] px-2 focus:border-blue"
             v-model="searchValue"
             @keyup="search">
 

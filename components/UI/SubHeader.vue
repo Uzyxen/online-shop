@@ -1,16 +1,16 @@
 <template>
-    <div class="border-b-2 border-gray">
+    <div class="border-b-2 border-blue-gray">
         <ul class="mx-20 flex gap-32 text-sm relative">
             <li class="w-64 group text-center text-black">
                 <div
-                    class="size-full block py-4 border-r-[1px] border-l-[1px] border-gray" 
+                    class="size-full block py-4 border-r-[1px] border-l-[1px] border-blue-gray" 
                     to="/kategorie">
 
                     Kategorie
 
                     <div class="flex w-full absolute top-full left-0 shadow-md rounded-b-sm z-50">
                         <div
-                            class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-gray hidden group-hover:block cursor-default">
+                            class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-blue-gray hidden group-hover:block cursor-default">
                             <ul>
                                 <li v-for="category in categories" class="cursor-pointer hover:text-blue text-sm font-semibold relative">
                                     <NuxtLink :to="`/kategorie/${category.title}`" class="block size-full p-3">
