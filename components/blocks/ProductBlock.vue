@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="'/produkty/' + product.title" class="shadow-md p-3 h-48 bg-[#FFF]">
+    <NuxtLink :to="'/produkty/' + product.title" class="shadow-md p-3 h-48 bg-[#FFF] text-black">
         <div class="flex size-full gap-4">
             <img :src="product.image" :alt="product.title" class="bg-mid-gray w-48" />
 

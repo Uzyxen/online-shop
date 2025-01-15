@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-3">
-        <p class="text-base font-semibold">{{ caption }}</p>
+        <p class="text-base font-semibold text-black">{{ caption }}</p>
         <input 
             :type="type"
             v-model="model" 
