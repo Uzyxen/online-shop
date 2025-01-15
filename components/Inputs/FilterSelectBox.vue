@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-light-gray border-2 border-[#DDD] w-full p-2.5 relative" @click="itemsVisible = !itemsVisible">
+    <div class="bg-light-gray border-2 border-blue-gray w-full p-2.5 relative" @click="itemsVisible = !itemsVisible">
         <div class="flex w-full justify-between items-center">
             <span>{{ selectedIndex !== null ? items[selectedIndex].title : 'Wybierz' }} {{ selectedSubItem !== null ? ' / ' + subItems[selectedSubItem].title : '' }}</span>
             <NuxtIcon v-if="selectedIndex !== null" name="solar:arrow-left-linear" size="1.5rem" mode="svg" @click.stop="selectedIndex = null; selectedSubItem = null; itemsToDisplay = items" />

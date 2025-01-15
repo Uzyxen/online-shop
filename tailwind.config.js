@@ -3,6 +3,7 @@ export default {
   content: [],
   theme: {
     colors: {
+      'blue-gray': '#CED7E0',
       'light-gray': '#FAFAFA',
       'mid-gray': '#EEEEEE',
       'gray': '#D9D9D9',

@@ -1,5 +1,5 @@
 <template>
-    <div class="border-2 border-[#DDD] bg-light-gray max-w-96 flex gap-2 p-2 items-center" @click="isOpen = true">
+    <div class="border-2 border-blue-gray bg-light-gray max-w-96 flex gap-2 p-2 items-center" @click="isOpen = true">
         <div v-for="(item, index) in selectedItems.slice(0, 3)" :key="index">
             <p class="bg-blue-30 p-2 rounded-sm flex justify-center">{{ item.value }}</p>
         </div>
@@ -9,7 +9,7 @@
 
     <Teleport to="#teleports">
         <Transition>
-            <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-light-gray shadow-md border border-[#DDD] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
+            <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-light-gray shadow-md border border-blue-gray left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
                 <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" />
 
                 <div class="flex p-2 gap-3 items-center">
@@ -27,7 +27,7 @@
                     :custom-value="true"
                     @select-item="(item) => { newItem.key = item }"/>
                     <NuxtIcon name="solar:arrow-right-linear"/>
-                    <input type="text" class="p-1.5 border-2 border-[#DDD] outline-none" v-model="newItem.value" @keypress.enter="addItem()" placeholder="wartość" />
+                    <input type="text" class="p-1.5 border-2 border-blue-gray outline-none" v-model="newItem.value" @keypress.enter="addItem()" placeholder="wartość" />
                 </div>
 
                 <hr class="border-none h-px bg-gray my-3 mx-2">
@@ -35,9 +35,9 @@
                 <div>
                     <ul v-if="selectedItems.length > 0">
                         <li v-for="(item, index) in selectedItems" :key="index" class="p-2 flex gap-3 items-center">
-                            <input type="text" v-model="item.key" class="flex-1 p-1.5 border-2 border-[#DDD] outline-none">
+                            <input type="text" v-model="item.key" class="flex-1 p-1.5 border-2 border-blue-gray outline-none">
                             <NuxtIcon name="solar:arrow-right-linear"/>
-                            <input type="text" v-model="item.value" class="p-1.5 border-2 border-[#DDD] outline-none">
+                            <input type="text" v-model="item.value" class="p-1.5 border-2 border-blue-gray outline-none">
                         </li>
                     </ul>
                 </div>

@@ -15,7 +15,7 @@
 
             <VerticalGroup>
                 <label for="description" class="font-semibold text-base">Opis</label>
-                <textarea id="description" class="w-full min-h-40 p-2.5 bg-light-gray border-2 border-[#DDD] outline-none resize-none"></textarea>
+                <textarea id="description" class="w-full min-h-40 p-2.5 bg-light-gray border-2 border-blue-gray outline-none resize-none"></textarea>
             </VerticalGroup>
 
             <VerticalGroup>
