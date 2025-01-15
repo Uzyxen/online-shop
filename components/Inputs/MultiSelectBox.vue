@@ -27,7 +27,7 @@
                     :custom-value="true"
                     @select-item="(item) => { newItem.key = item }"/>
                     <NuxtIcon name="solar:arrow-right-linear"/>
-                    <input type="text" class="p-1.5" v-model="newItem.value" @keypress.enter="addItem()" placeholder="wartość" />
+                    <input type="text" class="p-1.5 border-2 border-[#DDD] outline-none" v-model="newItem.value" @keypress.enter="addItem()" placeholder="wartość" />
                 </div>
 
                 <hr class="border-none h-px bg-gray my-3 mx-2">
@@ -35,9 +35,9 @@
                 <div>
                     <ul v-if="selectedItems.length > 0">
                         <li v-for="(item, index) in selectedItems" :key="index" class="p-2 flex gap-3 items-center">
-                            <input type="text" v-model="item.key" class="flex-1 p-1.5">
+                            <input type="text" v-model="item.key" class="flex-1 p-1.5 border-2 border-[#DDD] outline-none">
                             <NuxtIcon name="solar:arrow-right-linear"/>
-                            <input type="text" v-model="item.value" class="p-1.5">
+                            <input type="text" v-model="item.value" class="p-1.5 border-2 border-[#DDD] outline-none">
                         </li>
                     </ul>
                 </div>
