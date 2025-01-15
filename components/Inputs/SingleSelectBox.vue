@@ -4,7 +4,7 @@
             <span>{{ displayItem() }}</span>
         </div>
 
-        <ul v-if="itemsVisible" class="absolute bg-light-gray border-2 border-blue-gray border-t-0 w-full left-0 top-full shadow-sm">
+        <ul v-if="itemsVisible" class="absolute bg-light-gray border-2 border-blue-gray border-t-0 w-[calc(100%+4px)] -left-[2px] top-full shadow-sm">
             <li class="hover:bg-gray cursor-pointer" @click.stop="">
                 <input type="text" v-model="newCustomItem" placeholder="Wpisz własne..." class="size-full p-2 bg-light-gray outline-none border-b border-t border-gray" @keypress.enter="submitCustomItem()">
             </li>
