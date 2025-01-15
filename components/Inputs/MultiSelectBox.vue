@@ -8,39 +8,41 @@
     </div>
 
     <Teleport to="#teleports">
-        <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-light-gray shadow-md border border-[#DDD] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
-            <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" />
+        <Transition>
+            <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-light-gray shadow-md border border-[#DDD] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
+                <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" />
 
-            <div class="flex p-2 gap-3 items-center">
-                <SingleSelectBox :items="[
-                    { title: 'Taktowanie procesora' },
-                    { title: 'Pamięć RAM' },
-                    { title: 'Pamięć wewnętrzna' },
-                    { title: 'Karta graficzna' },
-                    { title: 'Rozdzielczość' },
-                    { title: 'Typ matrycy' },
-                    { title: 'Czas reakcji' },
-                    { title: 'Kąt widzenia' },
-                    { title: 'Złącza' }
-                ]" 
-                :custom-value="true"
-                @select-item="(item) => { newItem.key = item }"/>
-                <NuxtIcon name="solar:arrow-right-linear"/>
-                <input type="text" class="p-1.5" v-model="newItem.value" @keypress.enter="addItem()" placeholder="wartość" />
+                <div class="flex p-2 gap-3 items-center">
+                    <SingleSelectBox :items="[
+                        { title: 'Taktowanie procesora' },
+                        { title: 'Pamięć RAM' },
+                        { title: 'Pamięć wewnętrzna' },
+                        { title: 'Karta graficzna' },
+                        { title: 'Rozdzielczość' },
+                        { title: 'Typ matrycy' },
+                        { title: 'Czas reakcji' },
+                        { title: 'Kąt widzenia' },
+                        { title: 'Złącza' }
+                    ]" 
+                    :custom-value="true"
+                    @select-item="(item) => { newItem.key = item }"/>
+                    <NuxtIcon name="solar:arrow-right-linear"/>
+                    <input type="text" class="p-1.5" v-model="newItem.value" @keypress.enter="addItem()" placeholder="wartość" />
+                </div>
+
+                <hr class="border-none h-px bg-gray my-3 mx-2">
+
+                <div>
+                    <ul v-if="selectedItems.length > 0">
+                        <li v-for="(item, index) in selectedItems" :key="index" class="p-2 flex gap-3 items-center">
+                            <input type="text" v-model="item.key" class="flex-1 p-1.5">
+                            <NuxtIcon name="solar:arrow-right-linear"/>
+                            <input type="text" v-model="item.value" class="p-1.5">
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <hr class="border-none h-px bg-gray my-3 mx-2">
-
-            <div>
-                <ul v-if="selectedItems.length > 0">
-                    <li v-for="(item, index) in selectedItems" :key="index" class="p-2 flex gap-3 items-center">
-                        <input type="text" v-model="item.key" class="flex-1 p-1.5">
-                        <NuxtIcon name="solar:arrow-right-linear"/>
-                        <input type="text" v-model="item.value" class="p-1.5">
-                    </li>
-                </ul>
-            </div>
-        </div>
+        </Transition>
     </Teleport>
 </template>
 
@@ -57,3 +59,16 @@
         }
     }
 </script>
+
+<style scoped>
+    .v-enter-active,
+    .v-leave-active {
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0;
+    }
+</style>
