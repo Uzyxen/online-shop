@@ -10,7 +10,7 @@
     <Teleport to="#teleports">
         <Transition>
             <div v-if="isOpen" class="fixed w-[750px] h-[600px] bg-light-gray shadow-md border border-blue-gray left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-2">
-                <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" />
+                <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" class="cursor-pointer" />
 
                 <div class="flex p-2 gap-3 items-center">
                     <SingleSelectBox :items="[
