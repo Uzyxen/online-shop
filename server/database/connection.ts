@@ -1,12 +1,8 @@
 import 'dotenv/config';
-import { drizzle } from "drizzle-orm/mysql2";
+import { drizzle } from "drizzle-orm/vercel-postgres";
 import * as schema from './schema';
-import mysql from 'mysql2/promise';
+import { sql } from '@vercel/postgres';
 
-const connection = await mysql.createConnection({
-    uri: process.env.DATABASE_URL!,
-});
-
-const db = drizzle({ client: connection, schema, mode: 'default' });
+const db = drizzle(sql, { schema });
 
 export default db;

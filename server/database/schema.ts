@@ -1,52 +1,52 @@
 import { sql } from 'drizzle-orm';
-import { boolean, datetime, decimal, int, mysqlTable, text, varchar } from 'drizzle-orm/mysql-core';
+import { boolean, timestamp, numeric, integer, text, varchar, pgTable } from 'drizzle-orm/pg-core';
 
-export const users = mysqlTable('users', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const users = pgTable('users', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     email: varchar({ length: 255 }).notNull().unique(),
     password: varchar({ length: 255 }).notNull(),
     isAdmin: boolean().notNull().default(false),
 });
 
-export const products = mysqlTable('products', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const products = pgTable('products', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     name: varchar({ length: 100 }).notNull(),
-    price: decimal({ precision: 10, scale: 2 }) // decimal(10, 2) -> 99999999.99
+    price: numeric({ precision: 10, scale: 2 })
 });
 
-export const refreshTokens = mysqlTable('refresh_tokens', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const refreshTokens = pgTable('refresh_tokens', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     token: text().unique(),
-    createdAt: datetime().default(sql`now()`),
-    updatedAt: datetime(), 
-    userId: int().references(() => users.id, { onDelete: 'cascade' })
+    createdAt: timestamp({ precision: 6 }).default(sql`now()`),
+    updatedAt: timestamp({ precision: 6 }),
+    userId: integer().references(() => users.id, { onDelete: 'cascade' }),
 });
 
-export const categoriesTable = mysqlTable('categories', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const categoriesTable = pgTable('categories', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     title: varchar({ length: 100 }).notNull(),
 });
 
-export const subcategoriesTable = mysqlTable('subcategories', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const subcategoriesTable = pgTable('subcategories', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     title: varchar({ length: 100 }).notNull(),
-    categoryId: int().references(() => categoriesTable.id, { onDelete: 'cascade' })
+    categoryId: integer().references(() => categoriesTable.id, { onDelete: 'cascade' }),
 });
 
-export const productsTable = mysqlTable('products', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const productsTable = pgTable('products', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     title: varchar({ length: 100 }).notNull(),
-    price: decimal({ precision: 10, scale: 2 }).notNull(),
-    subcategoryId: int().references(() => subcategoriesTable.id, { onDelete: 'cascade' })
+    price: numeric({ precision: 10, scale: 2 }).notNull(),
+    subcategoryId: integer().references(() => subcategoriesTable.id, { onDelete: 'cascade' }),
 });
 
-export const propertiesTable = mysqlTable('properties', {
-    id: int().notNull().primaryKey().autoincrement(),
+export const propertiesTable = pgTable('properties', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     name: varchar({ length: 100 }).notNull().unique(),
 });
 
-export const subcategoryProperties = mysqlTable('subcategory_properties', {
-    id: int().notNull().primaryKey().autoincrement(),
-    subcategoryId: int().references(() => subcategoriesTable.id, { onDelete: 'cascade' }),
-    propertyId: int().references(() => propertiesTable.id, { onDelete: 'cascade' }),
+export const subcategoryProperties = pgTable('subcategory_properties', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
+    subcategoryId: integer().references(() => subcategoriesTable.id, { onDelete: 'cascade' }),
+    propertyId: integer().references(() => propertiesTable.id, { onDelete: 'cascade' }),
 });
