@@ -37,7 +37,8 @@
 
 <script setup>
     const links = [
-        { label: 'Konfigurator PC', path: '/konfigurator' }
+        { label: 'Konfigurator PC', path: '/konfigurator' },
+        { label: 'Promocje', path: '/promocje' }
     ]
 
     const { data: categories } = await useFetch('/api/categories/categories', {
