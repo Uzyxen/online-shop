@@ -19,25 +19,8 @@
 <script setup>
     const route = useRoute();
     const path = ref();
-    const crumbs = ref();
-
-    const initCrumbs = () => {
-        path.value = route.fullPath;
-        crumbs.value = path.value.split('/');
-    }
-
-    initCrumbs();
-
-    const getCrumbs = () => {
-        initCrumbs();
-
-        //crumbs.value = path.value.split('/');
-    }
-
-    watch(
-        () => route.path,
-        () => {
-            getCrumbs();
-        },
-    );
+    
+    const crumbs = computed(() => {
+        return route.fullPath.split('/');
+    });
 </script>
