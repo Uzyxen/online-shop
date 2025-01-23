@@ -18,8 +18,7 @@
 
 <script setup>
     const route = useRoute();
-    const path = ref();
-    
+
     const crumbs = computed(() => {
         return route.fullPath.split('/');
     });
