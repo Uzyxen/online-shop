@@ -3,7 +3,7 @@
         <div v-for="(item, index) in selectedItems.slice(0, 3)" :key="index">
             <p class="bg-blue-30 p-2 rounded-sm flex justify-center">{{ item.value }}</p>
         </div>
-
+        
         <span class="bg-mid-gray p-2 w-min-10 rounded-sm"><span v-if="selectedItems.length > 3">+</span>{{ selectedItems.length > 3 ? selectedItems.length - 3 : "Brak" }}</span>
     </div>
 
