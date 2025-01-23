@@ -1,9 +1,9 @@
 <template>
-    <div class="border-b-2 border-blue-gray">
+    <div class="border-b-2 border-blue-gray h-12">
         <ul class="mx-20 flex gap-32 text-sm relative">
             <li class="w-64 group text-center text-black">
                 <div
-                    class="size-full block py-4 border-r-[1px] border-l-[1px] border-blue-gray" 
+                    class="size-full block py-3 border-r-[1px] border-l-[1px] border-blue-gray" 
                     to="/kategorie">
 
                     Kategorie
@@ -27,7 +27,7 @@
             </li>
 
             <li class="w-64 text-center text-black" v-for="link in links">
-                <NuxtLink class="size-full block py-4" :to="link.path">
+                <NuxtLink class="size-full block py-3" :to="link.path">
                     {{ link.label }}
                 </NuxtLink>
             </li>

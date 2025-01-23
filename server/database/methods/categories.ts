@@ -2,7 +2,7 @@ import { eq, like } from "drizzle-orm";
 import db from "../connection";
 import { categoriesTable } from "../schema";
 
-export const getAllCategories = async () => {
+export const getAllCategoriesWithSubcategories = async () => {
     const result = await db.query.categoriesTable.findMany();
 
     return result;
