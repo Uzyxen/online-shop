@@ -1,6 +1,5 @@
-const { useAccessToken } = useStore();
-
 export default defineNuxtRouteMiddleware(async (to, from) => {
+    const { useAccessToken } = useStore();
     const token: any = useAccessToken();
 
     if(!token.value) {
