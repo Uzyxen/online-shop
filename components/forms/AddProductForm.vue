@@ -11,18 +11,18 @@
             <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />
 
             <VerticalGroup>
-                <label for="description" class="font-semibold text-base text-black">Opis</label>
+                <label for="description" class="font-medium text-base text-black">Opis</label>
                 <textarea id="description" class="w-full min-h-40 p-2.5 bg-light-gray border-2 border-blue-gray outline-none resize-none"></textarea>
             </VerticalGroup>
 
             <VerticalGroup>
-                <p class="font-semibold text-base">Grafiki</p>
+                <p class="font-medium text-base">Grafiki</p>
                 
                 <ProductImagesInput />
             </VerticalGroup>
 
             <VerticalGroup>
-                <p class="font-semibold text-base">Specyfikacja</p>
+                <p class="font-medium text-base">Specyfikacja</p>
 
                 <MultiSelectBox />
             </VerticalGroup>
