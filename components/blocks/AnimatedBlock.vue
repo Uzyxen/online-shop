@@ -1,6 +1,6 @@
 <template>
     <li
-        class="border-2 border-blue-gray text-black h-52 rounded-sm relative after:bg-blue after:w-full after:content-[''] after:absolute after:bottom-0 after:h-0 hover:after:h-full hover:border-blue transition-colors group cursor-pointer after:transition-all"
+        class="border-2 border-blue-gray text-black h-40 rounded-sm relative after:bg-blue after:w-full after:content-[''] after:absolute after:bottom-0 after:h-0 hover:after:h-full hover:border-blue transition-colors group cursor-pointer after:transition-all"
         @click="navigateTo(page.path)">
         <div
             class="flex flex-col gap-4 p-5 justify-center items-center size-full bg-light-gray z-20">
