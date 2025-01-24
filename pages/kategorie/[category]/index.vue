@@ -15,10 +15,5 @@
 <script setup>
     const route = useRoute();
 
-    const { data: subCategories } = await useFetch('/api/subcategories/subcategories', {
-        body: {
-            name: route.params.category 
-        },
-        method: 'POST'
-    });
+    const { data: subCategories } = await useFetch(`/api/categories/${route.params.category}/subcategories`);
 </script>
