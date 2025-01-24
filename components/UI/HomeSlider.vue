@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-[500px] bg-gray group relative">
+    <div class="w-full h-[500px] bg-gray group relative" @mouseover="isHovered = true" @mouseleave="isHovered = false">
         <button class="absolute z-20 left-0 top-0 h-full opacity-0 group-hover:opacity-100 transition-opacity delay-75 duration-200" @click="prevSlide">
             <NuxtIcon name="solar:alt-arrow-left-linear" size="4rem" />
         </button>
@@ -22,12 +22,12 @@
     // develoment only
 
     const slides = [
-        { title: 'test 1', color: 'gray' },
-        { title: 'test 2', color: 'lightgray' },
-        { title: 'test 3', color: 'darkgray' },
-        { title: 'test 4', color: 'gray' },
-        { title: 'test 5', color: 'darkgray' },
-        { title: 'test 6', color: 'lightgray' },
+        { title: 'test 1', color: '#ced6de' },
+        { title: 'test 2', color: '#b0c3d6' },
+        { title: 'test 3', color: '#ced6de' },
+        { title: 'test 4', color: '#b0c3d6' },
+        { title: 'test 5', color: '#ced6de' },
+        { title: 'test 6', color: '#b0c3d6' },
     ]
 
     const currentSlide = ref(0);
@@ -47,4 +47,13 @@
             currentSlide.value++;
         }
     }
+
+    const isHovered = ref(false);
+
+    onMounted(() => {
+        setInterval(() => {
+            if(isHovered.value) return;
+            nextSlide();
+        }, 7000);
+    })
 </script>

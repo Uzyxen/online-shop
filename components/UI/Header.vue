@@ -39,13 +39,13 @@
             </div>
 
             <div v-else>
-                <TransparentButton>
+                <TransparentButton class="h-fit p-2 w-32 text-sm">
                     <FlexLinkFull link="/logowanie">
                         Zaloguj się
                     </FlexLinkFull>
                 </TransparentButton>
 
-                <PrimaryButton>
+                <PrimaryButton class="h-fit p-2 w-32 text-sm">
                     <FlexLinkFull link="/rejestracja">
                         Zarejestruj się
                     </FlexLinkFull>
