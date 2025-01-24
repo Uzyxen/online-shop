@@ -26,7 +26,23 @@ async function main() {
                         'Monitory',
                         'Drukarki',
                         'Akcesoria komputerowe'
-                    ]
+                    ],
+                    isUnique: true
+                }),
+                url: f.valuesFromArray({
+                    values: [
+                        'laptopy',
+                        'komputery',
+                        'podzespoły-komputerowe',
+                        'gaming',
+                        'telewizory',
+                        'smartfony',
+                        'tablety',
+                        'monitory',
+                        'drukarki',
+                        'akcesoria-komputerowe'
+                    ],
+                    isUnique: true
                 })
             },
             with: {

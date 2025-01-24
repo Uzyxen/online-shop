@@ -8,8 +8,8 @@ export const getAllCategoriesWithSubcategories = async () => {
     return result;
 }
 
-export const getCategoryByName = async (name: string) => {
-    const result = await db.select({ id: categoriesTable.id }).from(categoriesTable).where(eq(categoriesTable.title, name));
+export const getCategoryByURL = async (url: string) => {
+    const result = await db.select({ id: categoriesTable.id }).from(categoriesTable).where(eq(categoriesTable.url, url));
 
     return result[0];
 }

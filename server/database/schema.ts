@@ -25,6 +25,7 @@ export const refreshTokens = pgTable('refresh_tokens', {
 export const categoriesTable = pgTable('categories', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     title: varchar({ length: 100 }).notNull(),
+    url: varchar({ length: 100 }).notNull(),
 });
 
 export const subcategoriesTable = pgTable('subcategories', {

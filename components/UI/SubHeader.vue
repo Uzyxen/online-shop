@@ -13,7 +13,7 @@
                             class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-blue-gray hidden group-hover:block cursor-default">
                             <ul>
                                 <li v-for="category in categories" class="cursor-pointer hover:text-blue text-sm font-medium relative">
-                                    <NuxtLink :to="`/kategorie/${category.title}`" class="block size-full p-3">
+                                    <NuxtLink :to="`/kategorie/${category.url}`" class="block size-full p-3">
                                         {{ category.title }}
                                     </NuxtLink> 
                                 </li>
