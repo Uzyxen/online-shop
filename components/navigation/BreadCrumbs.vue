@@ -20,6 +20,6 @@
     const route = useRoute();
 
     const crumbs = computed(() => {
-        return route.fullPath.split('/');
+        return route.path.split('/');
     });
 </script>
