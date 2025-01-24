@@ -39,16 +39,23 @@
             </form>
         </div>
 
-        <div class="bg-gradient-to-br from-blue via-blue-medium to-blue-dark w-2/5 h-full flex items-center justify-center">
-            <ul class="flex flex-col gap-7">
-                <li v-for="(item, index) in list" :key="index" class="flex items-center gap-4">
-                    <div class="bg-blue-gray-10 p-2 rounded-sm">
-                        <NuxtIcon name="material-symbols:check-rounded" size="3rem" mode="svg" class="text-blue-gray-ultra-light"/>
-                    </div>
+        <div class="bg-gradient-to-br from-blue via-blue-medium to-blue-dark w-2/5 h-full flex items-center justify-center relative overflow-hidden">  
+            <div class="flex flex-col gap-16">
+                <div class="flex flex-col gap-2">
+                    <h1 class="text-3xl text-blue-gray-ultra-light font-medium">MOLLEGRO</h1>
+                    <hr class="border-0 h-[2px] bg-blue-gray-ultra-light">
+                </div>
 
-                    <span class="text-2xl text-blue-gray-ultra-light">{{ item }}</span>
-                </li>
-            </ul>
+                <ul class="flex flex-col gap-7">
+                    <li v-for="(item, index) in list" :key="index" class="flex items-center gap-4">
+                        <div class="bg-blue-gray-20 p-2 rounded-sm">
+                            <NuxtIcon name="material-symbols:check-rounded" size="2.5rem" mode="svg" class="text-blue-gray-ultra-light"/>
+                        </div>
+
+                        <span class="text-2xl text-blue-gray-ultra-light">{{ item }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -65,8 +72,8 @@
     });
 
     const list = [
-        'Bezpieczne zakupy',
-        'Ponad 1000 produktów',
+        'Bezpieczne zakupy i płatności',
+        'Ponad 1000 produktów w ofercie',
         'Wysyłka w 24h'
     ];
 

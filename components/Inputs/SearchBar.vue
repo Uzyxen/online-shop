@@ -48,10 +48,9 @@
     async function search() {
         if(searchValue.value.length > 0) {
             response.value = await $fetch('/api/search/suggestions', {
-                body: {
+                query: {
                     value: searchValue.value
-                },
-                method: 'POST'
+                }
             });
         }
     }
