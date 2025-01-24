@@ -1,5 +1,5 @@
 <template>
-    <div class="flex h-[100vh] bg-blue-gray-ultra-light">
+    <div class="flex h-[100vh]">
         <div class="w-3/5 flex flex-col justify-center items-center">
             <UserExistsNotification :is-visible="isUserExistsNotificationVisible" :email="email" @close="isUserExistsNotificationVisible = false" />
             <CenterHeader>Zarejestruj się</CenterHeader>

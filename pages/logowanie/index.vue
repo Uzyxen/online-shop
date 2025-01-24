@@ -1,5 +1,5 @@
 <template>
-    <div class="flex h-[100vh] bg-blue-gray-ultra-light">
+    <div class="flex h-[100vh]">
         <div class="w-full flex flex-col justify-center items-center">
             <CenterHeader class="mb-8">Zaloguj się</CenterHeader>
             <ResponseMessage>
