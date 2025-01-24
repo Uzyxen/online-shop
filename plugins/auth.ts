@@ -16,7 +16,5 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         if(data.value?.is_admin) {
             admin.value = data.value.is_admin
         }
-
-        console.log(data.value);
     }
 });
