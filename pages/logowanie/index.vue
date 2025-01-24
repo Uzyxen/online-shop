@@ -1,16 +1,16 @@
 <template>
-    <div class="flex h-[100vh]">
-        <div class="w-3/5 flex flex-col justify-center items-center">
+    <div class="flex h-[100vh] bg-blue-gray-ultra-light">
+        <div class="w-full flex flex-col justify-center items-center">
             <CenterHeader class="mb-8">Zaloguj się</CenterHeader>
             <ResponseMessage>
                 {{ responseMessage }}
             </ResponseMessage>
 
-            <form class="flex flex-col gap-12">
-                <ValidateInput caption="E-mail:" type="email" v-model="loginData.email" />
+            <form class="flex flex-col gap-8">
+                <ValidateInput caption="E-mail:" type="email" v-model="loginData.email" placeholder="Adres e-mail" />
 
                 <div>
-                    <ValidateInput caption="Hasło:" type="password" v-model="loginData.password" />
+                    <ValidateInput caption="Hasło:" type="password" v-model="loginData.password" placeholder="Wprowadź hasło" />
                     <p class="mt-6">
                         Nie masz konta? 
                         <NuxtLink to="/rejestracja">Zrejestruj się</NuxtLink>
@@ -19,10 +19,6 @@
 
                 <PrimaryButton class="w-full mt-8 h-12" @click.prevent="login()">Zaloguj się</PrimaryButton>
             </form>
-        </div>
-
-        <div class="bg-blue w-2/5 h-full">
-
         </div>
     </div>
 </template>

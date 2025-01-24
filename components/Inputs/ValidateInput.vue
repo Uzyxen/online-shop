@@ -1,13 +1,14 @@
 <template>
     <div class="flex flex-col gap-3">
-        <p class="text-base font-semibold">{{ caption }}</p>
+        <p class="text-base font-medium">{{ caption }}</p>
         <input 
             :type="type"
             v-model="model" 
             :minlength="minLength"
             :maxlength="maxLength"
             @blur="validateLength"
-            class="w-[500px] p-2.5 bg-mid-gray outline-none border-b-[3px] border-gray"
+            class="w-[450px] p-2.5 outline-none border border-blue-gray text-base rounded-sm"
+            :placeholder="placeholder"
             :class="{ 'border-red': error }">
         
         <span class="text-red text-right">
@@ -23,7 +24,8 @@
         caption: String,
         type: String,
         minLength: Number,
-        maxLength: Number
+        maxLength: Number,
+        placeholder: String
     })
 
     const error = ref(false);
