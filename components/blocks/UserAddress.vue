@@ -1,5 +1,7 @@
 <template>
-    <div class="rounded-sm w-full h-44 border-2 border-blue-gray cursor-pointer hover:border-blue hover:bg-blue-gray-light transition-colors">
+    <div 
+        class="rounded-sm w-full h-44 border-2 border-blue-gray cursor-pointer hover:border-blue hover:bg-blue-gray-light transition-colors" 
+        :class="{ 'bg-blue-gray-light': address.selected }">
         <div class="size-full p-4 flex flex-col gap-5">
             <h1 class="font-medium text-lg">{{ address.firstName }} {{ address.lastName }}</h1>
 

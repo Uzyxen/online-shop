@@ -14,7 +14,8 @@
             streetNumber: '1234',
             city: 'wqeqwewq',
             zip: '34-600',
-            phoneNumber: '123123123'
+            phoneNumber: '123123123',
+            selected: true
         },
         {
             id: 2,
@@ -24,7 +25,8 @@
             streetNumber: '1234',
             city: 'qweqwewqe',
             zip: '34-600',
-            phoneNumber: '123123123'
+            phoneNumber: '123123123',
+            selected: false
         }
     ]
 </script>
