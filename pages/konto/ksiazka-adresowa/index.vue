@@ -8,21 +8,23 @@
     const addresses = [
         {
             id: 1,
-            name: 'John Doe',
-            street: '1234 Main St',
-            city: 'Springfield',
-            state: 'IL',
-            zip: '62701',
-            country: 'USA'
+            firstName: 'John',
+            lastName: 'Doe',
+            street: 'street',
+            streetNumber: '1234',
+            city: 'wqeqwewq',
+            zip: '34-600',
+            phoneNumber: '123123123'
         },
         {
             id: 2,
-            name: 'Jane Doe',
-            street: '5678 Elm St',
-            city: 'Springfield',
-            state: 'IL',
-            zip: '62701',
-            country: 'USA'
+            firstName: 'John',
+            lastName: 'Doe',
+            street: 'street',
+            streetNumber: '1234',
+            city: 'qweqwewqe',
+            zip: '34-600',
+            phoneNumber: '123123123'
         }
     ]
 </script>
