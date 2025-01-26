@@ -1,4 +1,4 @@
-import { relations, sql } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
 import { boolean, timestamp, numeric, integer, text, varchar, pgTable } from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
@@ -50,4 +50,17 @@ export const subcategoryProperties = pgTable('subcategory_properties', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     subcategoryId: integer().references(() => subcategoriesTable.id, { onDelete: 'cascade' }),
     propertyId: integer().references(() => propertiesTable.id, { onDelete: 'cascade' }),
+});
+
+export const addressesTable = pgTable('addresses', {
+    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
+    firstName: varchar({ length: 100 }).notNull(),
+    lastName: varchar({ length: 100 }).notNull(),
+    street: varchar({ length: 50 }).notNull(),
+    streetNumber: varchar({ length: 15 }).notNull(),
+    city: varchar({ length: 50 }).notNull(),
+    zip: varchar({ length: 10 }).notNull(),
+    phoneNumber: varchar({ length: 9 }).notNull(),
+    selected: boolean(),
+    userId: integer().references(() => users.id, { onDelete: 'cascade' }),
 });
