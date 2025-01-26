@@ -1,7 +1,8 @@
 <template>
     <div 
         class="rounded-sm w-full h-48 border-2 border-blue-gray cursor-pointer hover:border-blue hover:bg-blue-gray-light transition-colors" 
-        :class="{ 'bg-blue-gray-light': address.selected }">
+        :class="{ 'bg-blue-gray-light': address.selected }"
+        @click="$emit('select')">
         <div class="size-full p-4 flex flex-col relative">
             <div>
                 <input type="checkbox" :checked="address.selected" class="absolute top-2 right-2" />

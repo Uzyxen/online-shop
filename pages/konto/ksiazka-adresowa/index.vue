@@ -1,11 +1,13 @@
 <template>
     <section class="grid grid-cols-4 gap-4 mx-20">
-        <UserAddress v-for="address in addresses" :key="address.id" :address="address" />
+        <UserAddress 
+            v-for="address in addresses" :key="address.id" :address="address"
+            @select="changeSelection(address)" />
     </section>
 </template>
 
 <script setup>
-    const addresses = [
+    const addresses = ref([
         {
             id: 1,
             firstName: 'John',
@@ -28,5 +30,10 @@
             phoneNumber: '123123123',
             selected: false
         }
-    ]
+    ]);
+
+    const changeSelection = (address) => {
+        addresses.value.forEach(a => a.selected = false);
+        address.selected = !address.selected;
+    }
 </script>
