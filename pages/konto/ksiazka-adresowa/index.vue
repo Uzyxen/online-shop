@@ -1,8 +1,14 @@
 <template>
-    <section class="grid grid-cols-4 gap-4 mx-20">
-        <UserAddress 
-            v-for="address in addresses" :key="address.id" :address="address"
-            @select="changeSelection(address)" />
+    <section class="mx-20 mt-4">
+        <PrimaryButton class="w-44">Dodaj adres</PrimaryButton>
+
+        <div class="grid grid-cols-4 gap-4 mt-6">
+            <UserAddress 
+                v-for="address in addresses" 
+                :key="address.id" 
+                :address="address"
+                @select="changeSelection(address)" />
+        </div>
     </section>
 </template>
 
