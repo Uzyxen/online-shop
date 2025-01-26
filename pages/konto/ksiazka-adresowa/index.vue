@@ -1,5 +1,5 @@
 <template>
-    <section class="grid grid-cols-5 gap-4 mx-20">
+    <section class="grid grid-cols-4 gap-4 mx-20">
         <UserAddress v-for="address in addresses" :key="address.id" :address="address" />
     </section>
 </template>
