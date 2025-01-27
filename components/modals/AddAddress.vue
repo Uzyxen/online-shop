@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-4 flex flex-col gap-3">
+    <div class="w-full px-4 flex flex-col gap-5">
         <div class="flex gap-2">
             <ProductInput caption="Imię" type="text" v-model="newAddress.firstName" class="w-full" />
             <ProductInput caption="Nazwisko" type="text" v-model="newAddress.lastName" class="w-full" />
