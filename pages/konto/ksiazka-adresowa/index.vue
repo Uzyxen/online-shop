@@ -29,7 +29,7 @@
 
         <div class="grid grid-cols-4 gap-4 mt-6">
             <UserAddress 
-                v-for="address in addresses" 
+                v-for="address in addresses.response" 
                 :key="address.id" 
                 :address="address"
                 @select="changeSelection(address)" />
@@ -38,33 +38,17 @@
 </template>
 
 <script setup>
-    const addresses = ref([
-        {
-            id: 1,
-            firstName: 'John',
-            lastName: 'Doe',
-            street: 'street',
-            streetNumber: '1234',
-            city: 'wqeqwewq',
-            zip: '34-600',
-            phoneNumber: '123123123',
-            selected: true
-        },
-        {
-            id: 2,
-            firstName: 'John',
-            lastName: 'Doe',
-            street: 'street',
-            streetNumber: '1234',
-            city: 'qweqwewqe',
-            zip: '34-600',
-            phoneNumber: '123123123',
-            selected: false
+    const { useAccessToken } = useStore();
+    const token = useAccessToken();
+
+    const { data: addresses } = await useFetch('/api/addresses', {
+        headers: {
+            authorization: `Bearer ${token.value}`
         }
-    ]);
+    });
 
     const changeSelection = (address) => {
-        addresses.value.forEach(a => a.selected = false);
+        addresses.value.response.forEach(a => a.selected = false);
         address.selected = !address.selected;
     }
 
@@ -80,9 +64,6 @@
     });
 
     const addAddress = async () => {
-        const { useAccessToken } = useStore();
-        const token = useAccessToken();
-
         const response = await $fetch('/api/addresses', {
             method: 'POST',
             body: newAddress.value,
