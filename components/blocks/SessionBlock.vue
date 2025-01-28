@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ session }}
+        {{ session.createdAt }}
     </div>
 </template>
 
