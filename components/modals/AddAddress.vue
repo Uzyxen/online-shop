@@ -12,7 +12,6 @@
             <ProductInput caption="Numer ulicy" type="text" v-model="newAddress.streetNumber" />
         </div>
 
-
         <ProductInput caption="Kod pocztowy" type="text" v-model="newAddress.zip" />
         <ProductInput caption="Numer telefonu" type="text" v-model="newAddress.phoneNumber" />
 
