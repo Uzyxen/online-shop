@@ -1,4 +1,3 @@
-import { sql } from 'drizzle-orm';
 import { boolean, timestamp, numeric, integer, text, varchar, pgTable } from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
@@ -17,8 +16,8 @@ export const products = pgTable('products', {
 export const refreshTokens = pgTable('refresh_tokens', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     token: text().unique(),
-    createdAt: timestamp({ precision: 6 }).default(sql`now()`),
-    updatedAt: timestamp({ precision: 6 }),
+    createdAt: timestamp({ precision: 0 }).defaultNow(),
+    updatedAt: timestamp({ precision: 0 }),
     userId: integer().references(() => users.id, { onDelete: 'cascade' }),
 });
 
