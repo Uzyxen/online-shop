@@ -6,15 +6,20 @@
             <div class="flex-1 flex flex-col gap-2">
                 <h1 class="text-xl">{{ product.title }}</h1>
                 
-                <ProductRating :rating="4.9" />
+                <ProductRating :rating="4.9" class="flex-1" />
 
                 <div>
-                    
+                    <ul>
+                        <li class="text-sm" v-for="i in 4">Test property: <span class="font-medium">test value</span></li>
+                    </ul>
                 </div>
             </div>
 
             <div class="flex flex-col">
-                <p class="text-2xl font-semibold flex-1">{{ formatPrice(product.price) }} zł</p>
+                <div class="flex-1 flex flex-col gap-2">
+                    <h1 class="text-2xl font-medium">{{ formatPrice(product.price) }} zł</h1>
+                    <h3 class="text-sm">U Ciebie już jutro!</h3>
+                </div>
 
                 <PrimaryButton @click.prevent="addToCart">
                     Dodaj do koszyka
