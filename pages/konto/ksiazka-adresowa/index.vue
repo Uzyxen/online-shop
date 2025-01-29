@@ -1,5 +1,9 @@
 <template>
-    <section class="mx-20 mt-4">
+    <div v-if="status === 'pending'">
+        <Loader />
+    </div>
+
+    <section class="mx-20 mt-4" v-else>
         <PrimaryButton class="w-44" @click="isUserAddingNewAddress = true">Dodaj adres</PrimaryButton>
 
         <ModalBlock :is-modal-visible="isUserAddingNewAddress" @close="isUserAddingNewAddress = false">
@@ -20,7 +24,7 @@
     const { useAccessToken } = useStore();
     const token = useAccessToken();
 
-    const { data: addresses } = await useFetch('/api/addresses', {
+    const { status,data: addresses } = await useLazyFetch('/api/addresses', {
         headers: {
             authorization: `Bearer ${token.value}`
         }
