@@ -5,7 +5,7 @@
         </div>
 
         <ul v-if="itemsVisible" class="absolute bg-light-gray border-2 border-blue-gray border-t-0 w-[calc(100%+4px)] -left-[2px] top-full shadow-sm">
-            <li class="hover:bg-gray cursor-pointer" @click.stop="">
+            <li class="hover:bg-gray cursor-pointer" @click.stop="" v-if="customValue === true">
                 <input type="text" v-model="newCustomItem" placeholder="Wpisz własne..." class="size-full p-2 bg-light-gray outline-none border-b border-t border-gray" @keypress.enter="submitCustomItem()">
             </li>
             <li v-for="(item, index) in items" :key="index" class="p-2 hover:bg-gray cursor-pointer" @click.stop="selectItem(index)">{{ item.title }}</li>

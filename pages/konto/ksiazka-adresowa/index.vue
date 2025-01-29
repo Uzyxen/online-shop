@@ -24,7 +24,7 @@
     const { useAccessToken } = useStore();
     const token = useAccessToken();
 
-    const { status,data: addresses } = await useLazyFetch('/api/addresses', {
+    const { status, data: addresses } = await useLazyFetch('/api/addresses', {
         headers: {
             authorization: `Bearer ${token.value}`
         }
