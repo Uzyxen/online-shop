@@ -1,5 +1,9 @@
 <template>
-    <section class="mx-20">
+    <div v-if="status === 'pending'">
+
+    </div>
+
+    <section class="mx-20" v-else>
         <h1 class="text-xl mt-3">Aktywne sesje</h1>
 
         <div class="mt-5">
@@ -12,7 +16,7 @@
     const { useAccessToken } = useStore();
     const token = useAccessToken();
 
-    const { data: sessions } = await useFetch('/api/sessions', {
+    const { status, data: sessions } = await useLazyFetch('/api/sessions', {
         headers: {
             authorization: `Bearer ${token.value}`
         }
