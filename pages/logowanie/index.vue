@@ -17,7 +17,10 @@
                     </p>
                 </div>
 
-                <PrimaryButton class="w-full mt-8 h-12" @click.prevent="login()">Zaloguj się</PrimaryButton>
+                <PrimaryButton 
+                    class="w-full mt-8 h-12" 
+                    @click.prevent="login()" 
+                    :loading="pending">Zaloguj się</PrimaryButton>
             </form>
         </div>
     </div>
@@ -34,8 +37,10 @@
     });
 
     const responseMessage = ref();
-
+    const isPending = ref(false);
     async function login() {
+        isPending.value = true;
+
         const response = await $fetch('/api/auth/login', {
             method: 'POST',
             body: loginData.value
@@ -53,5 +58,11 @@
         } else if(response.message) {
             responseMessage.value = response.message;
         }
+
+        isPending.value = false;
     }
+
+    const pending = computed(() => {
+        return isPending.value ? true : false;
+    });
 </script>

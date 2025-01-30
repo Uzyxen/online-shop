@@ -12,7 +12,7 @@
                 <IconVerticalGroup icon-name="solar:user-linear" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
                     Moje konto
 
-                    <div class="absolute w-[200px] top-full h-fit bg-light-gray border-[1px] border-mid-gray z-30" v-show="isUserDropdownVisible">
+                    <div class="absolute w-[220px] top-full h-fit rounded-sm bg-light-gray border border-mid-gray z-30" v-show="isUserDropdownVisible">
                         <ul class="flex flex-col">
                             <li v-for="link in links" class="hover:bg-mid-gray">
                                 <NuxtLink class="justify-start size-full block p-2 py-3" :to="link.path">
