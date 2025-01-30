@@ -10,7 +10,6 @@ export const users = pgTable('users', {
 export const products = pgTable('products', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     name: varchar({ length: 100 }).notNull(),
-    url: varchar({ length: 100 }).notNull(),
     price: numeric({ precision: 10, scale: 2 }),
 });
 
@@ -37,6 +36,7 @@ export const subcategoriesTable = pgTable('subcategories', {
 export const productsTable = pgTable('products', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     title: varchar({ length: 100 }).notNull(),
+    url: varchar({ length: 100 }).notNull(),
     price: numeric({ precision: 10, scale: 2 }).notNull(),
     subcategoryId: integer().references(() => subcategoriesTable.id, { onDelete: 'cascade' }),
 });
