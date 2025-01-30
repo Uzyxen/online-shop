@@ -10,7 +10,8 @@ export const users = pgTable('users', {
 export const products = pgTable('products', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     name: varchar({ length: 100 }).notNull(),
-    price: numeric({ precision: 10, scale: 2 })
+    url: varchar({ length: 100 }).notNull(),
+    price: numeric({ precision: 10, scale: 2 }),
 });
 
 export const refreshTokens = pgTable('refresh_tokens', {

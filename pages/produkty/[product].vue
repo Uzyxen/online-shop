@@ -1,9 +1,11 @@
 <template>
     <div>
-        <h1>Produkt {{ $route.params.product }}</h1>
+        
     </div>
 </template>
 
 <script setup>
+    const route = useRoute();
 
+    const { data: product } = await useLazyFetch(`/api/products/${route}`)
 </script>
