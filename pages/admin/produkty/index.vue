@@ -1,5 +1,9 @@
 <template>
-    <div class="mx-20">
+    <div v-if="status === 'pending'">
+        <Loader />
+    </div>
+
+    <div class="mx-20" v-else>
         <ProductList :products="products" :is-edit-mode-enabled="true" @page-change="(value) => { offset = value }" />
     </div>
 </template>
@@ -11,7 +15,7 @@
 
     const offset = ref(0);
 
-    const { data: products } = await useFetch('/api/products/products', {
+    const { status, data: products } = await useLazyFetch('/api/products/products', {
         method: 'post',
         body: {
             offset
