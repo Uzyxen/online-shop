@@ -1,7 +1,7 @@
 import { getProductInfo } from "~/server/database/methods/products";
 
 export default defineEventHandler(async (event) => {
-    const id: any = await getRouterParam(event, 'id');
+    const url: any = await getRouterParam(event, 'url');
 
-    return await getProductInfo(id);
+    return await getProductInfo(url);
 });

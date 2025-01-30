@@ -29,8 +29,8 @@ export const getNumberOfProducts = async () => {
     return result[0];
 }
 
-export const getProductInfo = async (id: number) => {
-    const result = await db.select().from(productsTable).where(eq(productsTable.id, id));
+export const getProductInfo = async (url: string) => {
+    const result = await db.select().from(productsTable).where(eq(productsTable.url, url));
 
     return result[0];
 }

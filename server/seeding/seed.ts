@@ -33,7 +33,7 @@ async function main() {
                     values: [
                         'laptopy',
                         'komputery',
-                        'podzespoły-komputerowe',
+                        'podzespoly-komputerowe',
                         'gaming',
                         'telewizory',
                         'smartfony',
@@ -76,6 +76,17 @@ async function main() {
                         'Laptop Asus VivoBook 15',
                         'Laptop Dell Inspiron 15 3000',
                         'Laptop Lenovo IdeaPad 3',
+                    ]
+                }),
+                url: f.valuesFromArray({
+                    values: [
+                        'laptop-dell-inspiron-15-3000',
+                        'laptop-lenovo-ideapad-3',
+                        'laptop-hp-pavilion-15',
+                        'laptop-acer-aspire-5',
+                        'laptop-asus-vivobook-15',
+                        'laptop-dell-inspiron-15-3000',
+                        'laptop-lenovo-ideapad-3',
                     ]
                 }),
                 price: f.int({ minValue: 1000, maxValue: 5000 }),

@@ -1,11 +1,15 @@
 <template>
-    <div>
-        
+    <div v-if="status === 'pending'">
+        <Loader />
     </div>
+
+    <section v-else>
+        {{ product }}
+    </section>
 </template>
 
 <script setup>
     const route = useRoute();
 
-    const { data: product } = await useLazyFetch(`/api/products/${route}`)
+    const { status, data: product } = await useLazyFetch(`/api/products/${route.params.product}`);
 </script>

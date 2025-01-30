@@ -7,12 +7,6 @@ export const users = pgTable('users', {
     isAdmin: boolean().notNull().default(false),
 });
 
-export const products = pgTable('products', {
-    id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
-    name: varchar({ length: 100 }).notNull(),
-    price: numeric({ precision: 10, scale: 2 }),
-});
-
 export const refreshTokens = pgTable('refresh_tokens', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     token: text().unique(),
