@@ -1,15 +1,17 @@
-import * as schema from "../database/schema";
 import db from "../database/connection";
 import { seed } from "drizzle-seed";
+import { categories } from "../database/schema/categories";
+import { subcategories } from "../database/schema/subcategories";
+import { products } from "../database/schema/products";
 
 async function main() {
     const database = db;
     
     await seed(database, 
         { 
-            categories: schema.categoriesTable, 
-            subcategories: schema.subcategoriesTable,
-            products: schema.productsTable
+            categories: categories, 
+            subcategories: subcategories,
+            products: products
         }).refine((f) => ({
         categories: {
             count: 10,
