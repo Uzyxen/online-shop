@@ -1,5 +1,5 @@
 import { getRefreshTokenByToken } from "~/server/database/refreshTokens";
-import { getUserById } from "~/server/database/users";
+import { getUserById } from "~/server/database/methods/users";
 
 export default defineEventHandler(async (event) => {
     const cookies = parseCookies(event);

@@ -1,15 +1,15 @@
 import { eq } from "drizzle-orm";
 import db from "./connection";
-import { refreshTokens } from "./schema";
+import { sessions } from "./schema/sessions";
 
 export const getRefreshTokenByToken = async (token: string) => {
-    const result = await db.select().from(refreshTokens).where(eq(refreshTokens.token, token));
+    const result = await db.select().from(sessions).where(eq(sessions.token, token));
 
     if(result[0]) return result[0].token;
 }
 
 export const deleteRefreshTokenByToken = async (token: string) => {
-    const result = await db.delete(refreshTokens).where(eq(refreshTokens.token, token));
+    const result = await db.delete(sessions).where(eq(sessions.token, token));
 
     return result;
 }

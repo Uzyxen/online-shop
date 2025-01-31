@@ -1,7 +1,8 @@
 import { eq } from "drizzle-orm";
 import db from "~/server/database/connection";
-import { refreshTokens, users } from "~/server/database/schema";
 import bcrypt from 'bcrypt'
+import { users } from "~/server/database/schema/users";
+import { sessions } from "~/server/database/schema/sessions";
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event);
@@ -17,7 +18,7 @@ export default defineEventHandler(async (event) => {
             const { accessToken, refreshToken } = generateTokens(user);
 
             // save refresh token in db
-            await db.insert(refreshTokens).values({ 
+            await db.insert(sessions).values({ 
                 token: refreshToken,
                 userId: user.id,
             });

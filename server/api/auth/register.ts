@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import db from "~/server/database/connection";
-import { users } from "~/server/database/schema";
 import bcrypt from 'bcrypt'
+import { users } from "~/server/database/schema/users";
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event);

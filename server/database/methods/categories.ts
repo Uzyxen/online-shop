@@ -1,21 +1,21 @@
 import { eq, like } from "drizzle-orm";
 import db from "../connection";
-import { categoriesTable } from "../schema";
+import { categories } from "../schema/categories";
 
 export const getAllCategoriesWithSubcategories = async () => {
-    const result = await db.query.categoriesTable.findMany();
+    const result = await db.query.categories.findMany();
 
     return result;
 }
 
 export const getCategoryByURL = async (url: string) => {
-    const result = await db.select({ id: categoriesTable.id }).from(categoriesTable).where(eq(categoriesTable.url, url));
+    const result = await db.select({ id: categories.id }).from(categories).where(eq(categories.url, url));
 
     return result[0];
 }
 
 export const getCategoriesByName = async (name: string) => {
-    const result = await db.select().from(categoriesTable).where(like(categoriesTable.title, `%${name}%`));
+    const result = await db.select().from(categories).where(like(categories.title, `%${name}%`));
 
     return result;
 }
