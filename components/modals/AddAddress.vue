@@ -31,6 +31,9 @@
     });
 
     const addAddress = async () => {
+        const { useAccessToken } = useStore();
+        const token = useAccessToken();
+
         const response = await $fetch('/api/addresses', {
             method: 'POST',
             body: newAddress.value,
