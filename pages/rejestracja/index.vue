@@ -35,7 +35,10 @@
                     </p>
                 </div>
 
-                <PrimaryButton class="w-full mt-8 h-12" @click.prevent="register()">Utwórz konto</PrimaryButton>
+                <PrimaryButton 
+                    class="w-full mt-8 h-12" 
+                    @click.prevent="register()"
+                    :loading="loading">Utwórz konto</PrimaryButton>
             </form>
         </div>
 
@@ -77,9 +80,12 @@
         'Wysyłka w 24h'
     ];
 
+    const loading = ref(false);
     const isUserExistsNotificationVisible = ref(false);
     let email = '';
     async function register() {
+        loading.value = true;
+
         const response = await $fetch('/api/auth/register', {
             method: 'POST',
             body: registerData.value
@@ -93,5 +99,7 @@
             email = registerData.value.email;
             isUserExistsNotificationVisible.value = true;
         }
+
+        loading.value = false;
     }
 </script>
