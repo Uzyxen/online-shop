@@ -34,3 +34,14 @@ export const getProductInfo = async (url: string) => {
 
     return result[0];
 }
+
+export const addProduct = async (product: any) =>{
+    const result = await db.insert(productsTable).values({
+        title: product.title,
+        url: product.url,
+        price: product.price,
+        subcategoryId: product.subcategoryId
+    });
+
+    return result;
+}
