@@ -41,7 +41,5 @@
                 authorization: `Bearer ${token.value}`
             }
         });
-
-        console.log(response);
     }
 </script>
