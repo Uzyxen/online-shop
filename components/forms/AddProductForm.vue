@@ -12,7 +12,7 @@
 
             <VerticalGroup>
                 <label for="description" class="font-medium text-base text-black">Opis</label>
-                <textarea id="description" class="w-full min-h-40 p-2.5 bg-light-gray border-2 border-blue-gray outline-none resize-none"></textarea>
+                <textarea v-model="newProduct.description" id="description" class="w-full min-h-40 p-2.5 bg-light-gray border-2 border-blue-gray outline-none resize-none"></textarea>
             </VerticalGroup>
 
             <VerticalGroup>
@@ -38,6 +38,7 @@
 <script setup>
     const newProduct = ref({
         title: '',
+        description: '',
         price: 0,
     });
 
