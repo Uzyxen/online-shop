@@ -1,7 +1,7 @@
 <template>
     <div 
-        class="w-full flex justify-center items-center border relative
-        border-dark-gray max-h-40 after:content-[''] after:bg-black-50 after:absolute after:size-full">
+        class="w-full flex justify-center items-center border relative border-dark-gray max-h-40 group">
+        <div class="absolute size-full bg-black-50 opacity-0 cursor-pointer group-hover:opacity-100 transition-opacity"></div>
         <img :src="image.url" :alt="image.alt" class="size-full object-cover">
     </div>
 </template>
