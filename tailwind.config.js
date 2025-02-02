@@ -16,6 +16,7 @@ export default {
       'blue-dark': '#0D47A1',
       'blue-30': '#E3F2FD',
       'black': '#061F33',
+      'black-50': 'rgba(6, 31, 51, 0.5)',
       'black-40': 'rgba(6, 31, 51, 0.3)',
       'black-10': 'rgba(6, 31, 51, 0.1)',
       'red': '#FF0F0F'
