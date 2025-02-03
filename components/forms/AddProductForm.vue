@@ -35,8 +35,8 @@
     </form>
 </template>
 
-<script setup>
-    const newProduct = ref({
+<script lang="ts" setup>
+    const newProduct = ref<Product>({
         title: '',
         description: '',
         price: 0,
