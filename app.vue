@@ -8,6 +8,7 @@
   body {
     background-color: #F8FAFC;
     font-family: "Rubik", sans-serif;
+    overflow-x: hidden;
   }
 
   body > * {

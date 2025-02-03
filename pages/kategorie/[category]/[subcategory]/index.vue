@@ -13,7 +13,7 @@
     </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
     const route = useRoute();
 
     const { status, data: products } = await useLazyFetch('/api/products/productsFromSubCategory', {
