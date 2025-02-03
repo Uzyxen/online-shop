@@ -14,3 +14,10 @@ type Register = {
     password: string;
     passwordRepeat: string;
 }
+
+type Order = {
+    id: number;
+    date: string;
+    status: 'placed' | 'shipped' | 'delivered' | 'cancelled' | 'returned' | 'progress';
+    price: number;
+}
