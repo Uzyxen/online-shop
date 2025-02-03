@@ -2,7 +2,7 @@
     <Transition>
         <div 
             v-if="isOpened" 
-            class="absolute w-1/4 bg-gray h-[100vh] top-0 right-0 z-20">
+            class="absolute w-1/4 bg-blue-gray-ultra-light border-l border-blue-gray h-[100vh] top-0 right-0 z-20">
 
             <HideCartButton @click="$emit('hideCart')" />
         </div>
