@@ -3,3 +3,14 @@ type Product = {
     description: string;
     price: number;
 }
+
+type Login = {
+    email: string;
+    password: string;
+}
+
+type Register = {
+    email: string;
+    password: string;
+    passwordRepeat: string;
+}

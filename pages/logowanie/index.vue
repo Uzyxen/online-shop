@@ -26,8 +26,8 @@
     </div>
 </template>
 
-<script setup>
-    const loginData = ref({
+<script lang="ts" setup>
+    const loginData = ref<Login>({
         email: '',
         password: ''
     });
@@ -41,7 +41,7 @@
     async function login() {
         isPending.value = true;
 
-        const response = await $fetch('/api/auth/login', {
+        const response = await $fetch<any>('/api/auth/login', {
             method: 'POST',
             body: loginData.value
         });

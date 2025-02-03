@@ -63,8 +63,8 @@
     </div>
 </template>
 
-<script setup>
-    const registerData = ref({
+<script lang="ts" setup>
+    const registerData = ref<Register>({
         email: '',
         password: '',
         passwordRepeat: ''
