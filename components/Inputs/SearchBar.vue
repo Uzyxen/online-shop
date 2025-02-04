@@ -1,9 +1,9 @@
 <template>
-    <div class="h-10 flex relative">
+    <div class="h-10 hidden md:flex relative flex-1 xl:flex-grow-0">
         <input 
             type="search" 
             placeholder="Wyszukaj..." 
-            class="outline-none h-full text-sm border-blue-gray border-2 border-r-0 bg-light-gray w-[450px] px-2 focus:border-blue"
+            class="outline-none h-full text-sm border-blue-gray border-2 border-r-0 bg-light-gray w-full xl:w-[400px] 2xl:w-[450px] px-2 focus:border-blue"
             v-model="searchValue"
             @keyup="search">
 

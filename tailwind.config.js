@@ -23,7 +23,7 @@ export default {
     },
     extend: {
       maxWidth: {
-        '8xl': '128rem',
+        '8xl': '120rem',
       }
     },
   },
