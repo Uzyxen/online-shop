@@ -1,65 +1,66 @@
 <template>
-    <header class="h-[85px] flex items-center px-20 border-b-2 border-blue-gray justify-between">
-        <Teleport to="#teleports">
-            <SideCart :is-opened="isCartOpened" @hide-cart="isCartOpened = false" /> <!-- will render inside #teleports -->
-        </Teleport>
+    <div class="border-b-2 border-blue-gray">
+        <header class="h-[85px] flex items-center px-20 justify-between max-w-8xl mx-auto">
+            <Teleport to="#teleports">
+                <SideCart :is-opened="isCartOpened" @hide-cart="isCartOpened = false" /> <!-- will render inside #teleports -->
+            </Teleport>
 
-        <AppLogo />
-        <SearchBar />
+            <AppLogo />
+            <SearchBar />
 
-        <div class="flex gap-8 items-center">
-            <div class="flex gap-8 items-center" v-if="token">
-                <IconVerticalGroup icon-name="solar:user-linear" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
-                    Moje konto
+            <div class="flex gap-8 items-center">
+                <div class="flex gap-8 items-center" v-if="token">
+                    <IconVerticalGroup icon-name="solar:user-linear" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
+                        Moje konto
 
-                    <div class="absolute w-[220px] top-full h-fit rounded-sm bg-light-gray border border-mid-gray z-30" v-show="isUserDropdownVisible">
-                        <ul class="flex flex-col">
-                            <li v-for="link in links" class="hover:bg-mid-gray">
-                                <NuxtLink class="justify-start size-full block p-2 py-3" :to="link.path">
-                                    {{ link.name }}
-                                </NuxtLink>
-                            </li>
+                        <div class="absolute w-[220px] top-full h-fit rounded-sm bg-light-gray border border-mid-gray z-30" v-show="isUserDropdownVisible">
+                            <ul class="flex flex-col">
+                                <li v-for="link in links" class="hover:bg-mid-gray">
+                                    <NuxtLink class="justify-start size-full block p-2 py-3" :to="link.path">
+                                        {{ link.name }}
+                                    </NuxtLink>
+                                </li>
 
-                            <SecondaryButton class="w-full text-red" @click="logOut()">Wyloguj się</SecondaryButton>
-                        </ul>
-                    </div>
-                </IconVerticalGroup>
+                                <SecondaryButton class="w-full text-red" @click="logOut()">Wyloguj się</SecondaryButton>
+                            </ul>
+                        </div>
+                    </IconVerticalGroup>
 
-                <IconVerticalGroup icon-name="solar:bell-linear">
-                    Powiadomienia
-                </IconVerticalGroup>
+                    <IconVerticalGroup icon-name="solar:bell-linear">
+                        Powiadomienia
+                    </IconVerticalGroup>
 
-                <IconVerticalGroup icon-name="solar:heart-linear">
-                    Ulubione
-                </IconVerticalGroup>
+                    <IconVerticalGroup icon-name="solar:heart-linear">
+                        Ulubione
+                    </IconVerticalGroup>
 
-                <IconVerticalGroup icon-name="solar:chat-line-linear">
-                    Wiadomości
+                    <IconVerticalGroup icon-name="solar:chat-line-linear">
+                        Wiadomości
+                    </IconVerticalGroup>
+                </div>
+
+                <div v-else>
+                    <TransparentButton class="h-fit p-2 w-32 text-sm">
+                        <FlexLinkFull link="/logowanie">
+                            Zaloguj się
+                        </FlexLinkFull>
+                    </TransparentButton>
+
+                    <PrimaryButton class="h-fit p-2 w-32 text-sm">
+                        <FlexLinkFull link="/rejestracja">
+                            Zarejestruj się
+                        </FlexLinkFull>
+                    </PrimaryButton>
+                </div>
+
+                <div class="w-[1px] bg-gray h-8 mx-2"></div>
+
+                <IconVerticalGroup icon-name="solar:cart-large-minimalistic-linear" @click="isCartOpened = true">
+                    0,00 zł
                 </IconVerticalGroup>
             </div>
-
-            <div v-else>
-                <TransparentButton class="h-fit p-2 w-32 text-sm">
-                    <FlexLinkFull link="/logowanie">
-                        Zaloguj się
-                    </FlexLinkFull>
-                </TransparentButton>
-
-                <PrimaryButton class="h-fit p-2 w-32 text-sm">
-                    <FlexLinkFull link="/rejestracja">
-                        Zarejestruj się
-                    </FlexLinkFull>
-                </PrimaryButton>
-            </div>
-
-            <div class="w-[1px] bg-gray h-8 mx-2"></div>
-
-            <IconVerticalGroup icon-name="solar:cart-large-minimalistic-linear" @click="isCartOpened = true">
-                0,00 zł
-            </IconVerticalGroup>
-        </div>
-    </header>
-
+        </header>
+    </div>
     <SubHeader />
 </template>
 

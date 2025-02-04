@@ -3,7 +3,7 @@
 
     <Header />
 
-    <main>
+    <main class="max-w-8xl mx-auto">
         <BreadCrumbs />
         
         <slot />

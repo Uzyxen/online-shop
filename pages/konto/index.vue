@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-20 pb-16">
+    <div class="px-20 pb-16">
         <HorizontalTextLine>Konto</HorizontalTextLine>
         <ul class="grid gap-2 mt-4 grid-cols-6">
             <AnimatedBlock :page="{ title: 'Moje zamówienia', icon: 'solar:clipboard-list-linear', path: '/konto/zamowienia' }" />

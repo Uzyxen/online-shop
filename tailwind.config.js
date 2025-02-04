@@ -21,7 +21,11 @@ export default {
       'black-10': 'rgba(6, 31, 51, 0.1)',
       'red': '#FF0F0F'
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        '8xl': '128rem',
+      }
+    },
   },
   plugins: [],
 }
