@@ -8,7 +8,7 @@
 
                     Kategorie
 
-                    <div class="flex w-full absolute top-full left-0 shadow-md rounded-b-sm z-50">
+                    <div class="flex w-[calc(100%-10rem)] absolute top-full left-0 shadow-md rounded-b-sm z-50 mx-20">
                         <div
                             class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-blue-gray hidden group-hover:block cursor-default">
                             <ul>
