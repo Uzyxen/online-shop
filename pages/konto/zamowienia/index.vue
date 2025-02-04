@@ -2,9 +2,10 @@
     <section class="mx-20 mt-5">
         <h1 class="text-3xl">Zamówienia</h1>
 
-        <div class="flex flex-col">
+
+        <AppTable>
             <OrderBlock v-for="order in orders" :order="order" :key="order.id" />
-        </div>
+        </AppTable>
     </section>
 </template>
 
