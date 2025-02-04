@@ -2,8 +2,7 @@
     <section class="mx-20 mt-5">
         <h1 class="text-3xl">Zamówienia</h1>
 
-
-        <AppTable>
+        <AppTable :headers="['Numer zamówienia', 'Status', 'Data', 'Cena']" class="mt-8">
             <OrderBlock v-for="order in orders" :order="order" :key="order.id" />
         </AppTable>
     </section>

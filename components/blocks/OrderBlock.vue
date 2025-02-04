@@ -1,6 +1,9 @@
 <template>
-    <div>
-        {{ order.id }} - {{ translate(order.status) }} - {{ order.date }} - {{ order.price }} zł
+    <div class="grid grid-cols-4">
+        <p class="text-center border-r border-gray p-2">{{ order.id }}</p>
+        <p class="text-center border-r border-gray p-2">{{ translate(order.status) }}</p>
+        <p class="text-center border-r border-gray p-2">{{ order.date }}</p>
+        <p class="text-center p-2">{{ order.price }} zł</p>
     </div>
 </template>
 
