@@ -1,5 +1,5 @@
 <template>
-    <section class="mx-20 mt-5">
+    <section class="px-3 sm:px-5 md:px-10 lg:px-20 mt-5">
         <h1 class="text-3xl">Zamówienia</h1>
 
         <AppTable :headers="['Numer zamówienia', 'Status', 'Data', 'Cena']" class="mt-8">
