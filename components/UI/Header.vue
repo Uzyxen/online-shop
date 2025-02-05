@@ -5,6 +5,10 @@
                 <SideCart :is-opened="isCartOpened" @hide-cart="isCartOpened = false" /> <!-- will render inside #teleports -->
             </Teleport>
 
+            <Teleport to="#teleports">
+                <MobileMenu :is-user-menu-visible="isUserMenuVisible" @close="isUserMenuVisible = false" />
+            </Teleport>
+
             <AppLogo />
             <SearchBar />
 
@@ -60,7 +64,7 @@
                 </IconVerticalGroup>
             </div>
 
-            <NuxtIcon class="block lg:hidden" name="solar:hamburger-menu-linear" size="3rem"/>
+            <NuxtIcon class="block lg:hidden" name="solar:hamburger-menu-linear" size="3rem" @click="isUserMenuVisible = !isUserMenuVisible"/>
         </header>
     </div>
     <SubHeader />
@@ -71,6 +75,7 @@
     const token = useAccessToken();
 
     const isCartOpened = ref(false);
+    const isUserMenuVisible = ref(false);
     const isUserDropdownVisible = ref(false);
 
     const links = [
