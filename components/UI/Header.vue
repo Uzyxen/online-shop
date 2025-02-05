@@ -1,6 +1,6 @@
 <template>
     <div class="border-b-2 border-blue-gray">
-        <header class="h-[85px] flex items-center px-8 2xl:px-20 justify-between max-w-8xl mx-auto gap-20 2xl:gap-0">
+        <header class="h-[85px] flex items-center px-8 2xl:px-20 justify-between max-w-8xl mx-auto gap-6 2xl:gap-0">
             <Teleport to="#teleports">
                 <SideCart :is-opened="isCartOpened" @hide-cart="isCartOpened = false" /> <!-- will render inside #teleports -->
             </Teleport>
@@ -8,8 +8,8 @@
             <AppLogo />
             <SearchBar />
 
-            <div class="hidden xl:flex gap-8 items-center">
-                <div class="flex gap-8 items-center" v-if="token">
+            <div class="hidden lg:flex gap-4 xl:gap-8 items-center">
+                <div class="flex gap-0 lg:gap-8 items-center" v-if="token">
                     <IconVerticalGroup icon-name="solar:user-linear" class="relative" @click="isUserDropdownVisible = !isUserDropdownVisible">
                         Moje konto
 
@@ -60,7 +60,7 @@
                 </IconVerticalGroup>
             </div>
 
-            <NuxtIcon class="block xl:hidden" name="solar:hamburger-menu-linear" size="3rem"/>
+            <NuxtIcon class="block lg:hidden" name="solar:hamburger-menu-linear" size="3rem"/>
         </header>
     </div>
     <SubHeader />
