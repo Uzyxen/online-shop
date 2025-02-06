@@ -64,7 +64,7 @@
                 </IconVerticalGroup>
             </div>
 
-            <NuxtIcon class="block lg:hidden" name="solar:hamburger-menu-linear" size="3rem" @click="isUserMenuVisible = !isUserMenuVisible"/>
+            <NuxtIcon class="block lg:hidden" name="solar:hamburger-menu-linear" size="2.5rem" @click="isUserMenuVisible = !isUserMenuVisible"/>
         </header>
     </div>
     <SubHeader />
