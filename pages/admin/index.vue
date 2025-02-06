@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-20 pb-16">
+    <div class="px-3 sm:px-5 md:px-10 lg:px-20 pb-16">
         <HorizontalTextLine>Produkty</HorizontalTextLine>
         <ul class="grid gap-2 mt-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
             <AnimatedBlock :page="{ title: 'Dodaj nowy produkt', icon: 'solar:widget-add-linear', path: '/admin/dodaj-produkt' }" />
