@@ -6,7 +6,7 @@
             class="flex flex-col gap-4 p-5 justify-center items-center size-full bg-light-gray z-20">
             <NuxtIcon :name="page.icon" size="4rem" mode="svg" class="z-10 text-black transition-colors duration-300 group-hover:text-[#FFF]"/>
 
-            <h1 class="text-base group-hover:text-[#FFF] z-10 transition-colors duration-300 text-black">{{ page.title }}</h1>
+            <h1 class="text-base group-hover:text-[#FFF] z-10 transition-colors duration-300 text-black whitespace-nowrap">{{ page.title }}</h1>
         </div>
     </li>
 </template>
