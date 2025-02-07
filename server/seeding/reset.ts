@@ -8,6 +8,7 @@ import * as sessions from '../database/schema/sessions';
 import * as subcategories from '../database/schema/subcategories';
 import * as subcategoryProperties from '../database/schema/subcategoryProperties';
 import * as users from '../database/schema/users';
+import { favorites } from "../database/schema/favorites";
 
 async function main() {
     const database = db;
@@ -20,6 +21,7 @@ async function main() {
             ...subcategories,
             ...subcategoryProperties,
             ...users,
+            ...favorites
         }
     );
 }
