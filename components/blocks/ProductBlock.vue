@@ -21,9 +21,13 @@
                     <h3 class="text-sm">U Ciebie już jutro!</h3>
                 </div>
 
-                <PrimaryButton @click.prevent="addToCart">
-                    Dodaj do koszyka
-                </PrimaryButton>
+                <div class="flex gap-2 items-center"> 
+                    <PrimaryButton @click.prevent="addToCart">
+                        Dodaj do koszyka
+                    </PrimaryButton>
+
+                    <NuxtIcon name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1 rounded-sm" />
+                </div>
             </div>
         </div>
     </NuxtLink>
