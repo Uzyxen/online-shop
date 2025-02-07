@@ -26,7 +26,7 @@
                         Dodaj do koszyka
                     </PrimaryButton>
 
-                    <NuxtIcon name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1 rounded-sm" />
+                    <NuxtIcon @click="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1 rounded-sm" />
                 </div>
             </div>
         </div>
@@ -44,5 +44,9 @@
     
     function addToCart() {
         alert('Dodano do koszyka');
+    }
+
+    const toggleFavorite = () => {
+        alert('Zapisano produkt');
     }
 </script>
