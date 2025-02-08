@@ -26,7 +26,7 @@
                         Dodaj do koszyka
                     </PrimaryButton>
 
-                    <NuxtIcon @click="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
+                    <NuxtIcon @click.prevent="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-    defineProps(['product']);
+    const props = defineProps(['product']);
 
     function formatPrice(price) {
         return new Intl.NumberFormat('pl-PL', {
@@ -46,7 +46,20 @@
         alert('Dodano do koszyka');
     }
 
-    const toggleFavorite = () => {
-        alert('Zapisano produkt');
+    const toggleFavorite = async () => {
+        const { useAccessToken } = useStore();
+        const token = useAccessToken();
+
+        const response = await $fetch('/api/favorites', {
+            method: "POST",
+            body: {
+                productId: props.product.id
+            },
+            headers: {
+                authorization: `Bearer ${token.value}`
+            }
+        });
+
+        console.log(response);
     }
 </script>
