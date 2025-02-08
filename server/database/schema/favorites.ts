@@ -1,6 +1,7 @@
 import { integer, pgTable } from "drizzle-orm/pg-core";
 import { users } from "./users";
 import { products } from "./products";
+import { relations } from "drizzle-orm";
 
 export const favorites = pgTable('favorites', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
