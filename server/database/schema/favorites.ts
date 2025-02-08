@@ -8,3 +8,14 @@ export const favorites = pgTable('favorites', {
     userId: integer().references(() => users.id, { onDelete: 'cascade' }),
     productId: integer().references(() => products.id, { onDelete: 'cascade' }),
 });
+
+export const favoritesRelations = relations(favorites, ({ one }) => ({
+    user: one(users, {
+        fields: [favorites.userId],
+        references: [users.id],
+    }),
+    product: one(products, {
+        fields: [favorites.productId],
+        references: [products.id],
+    })
+}));

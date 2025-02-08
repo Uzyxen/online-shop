@@ -6,7 +6,7 @@
     <section class="mx-20" v-else>
         <h1 class="text-xl mt-3">Ulubione produkty</h1>
 
-        <ProductList :products="favoriteProducts" />
+        <ProductList :products="favoriteProducts.response" />
     </section>
 </template>
 
@@ -19,6 +19,4 @@
             authorization: `Bearer ${token.value}`
         }
     });
-
-    console.log(favoriteProducts);
 </script>
