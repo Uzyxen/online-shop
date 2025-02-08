@@ -26,7 +26,7 @@
                         Dodaj do koszyka
                     </PrimaryButton>
 
-                    <NuxtIcon @click="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1 rounded-sm" />
+                    <NuxtIcon @click="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
                 </div>
             </div>
         </div>
