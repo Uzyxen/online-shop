@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import db from "../connection"
 import { favorites } from "../schema/favorites";
 
@@ -29,6 +29,14 @@ export const getFavoriteIds = async (_userId: number) => {
         },
         where: eq(favorites.userId, _userId),
     });
+
+    return result;
+}
+
+export const deleteFavorite = async (_userId: number, _productId: number) => {
+    const result = await db.delete(favorites).where(
+        and(eq(favorites.userId, _userId), eq(favorites.productId, _productId))
+    )
 
     return result;
 }

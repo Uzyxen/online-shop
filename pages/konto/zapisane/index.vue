@@ -6,8 +6,6 @@
     <section class="mx-20" v-else>
         <h1 class="text-xl mt-3">Ulubione produkty</h1>
 
-        {{ userFavorites }}
-
         <ProductList :products="favoriteProducts.response" />
     </section>
 </template>

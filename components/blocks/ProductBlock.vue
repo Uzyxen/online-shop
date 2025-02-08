@@ -26,8 +26,8 @@
                         Dodaj do koszyka
                     </PrimaryButton>
 
-                    <NuxtIcon v-if="isFavorite" @click.prevent="toggleFavorite" name="solar:heart-bold" size="2.5rem" mode="svg" class="bg-blue-gray-light text-blue p-1.5 rounded-sm" />
-                    <NuxtIcon v-else @click.prevent="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
+                    <NuxtIcon v-if="isFavorite" @click.prevent="deleteFavorite" name="solar:heart-bold" size="2.5rem" mode="svg" class="bg-blue-gray-light text-blue p-1.5 rounded-sm" />
+                    <NuxtIcon v-else @click.prevent="addFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
                 </div>
             </div>
         </div>
@@ -37,7 +37,8 @@
 <script setup>
     const props = defineProps(['product']);
 
-    const { userFavorites } = useStore();
+    const { userFavorites, useAccessToken } = useStore();
+    const token = useAccessToken();
 
     const isFavorite = userFavorites.value.some(favorite => favorite.productId === props.product.id);
 
@@ -51,15 +52,21 @@
         alert('Dodano do koszyka');
     }
 
-    const toggleFavorite = async () => {
-        const { useAccessToken } = useStore();
-        const token = useAccessToken();
-
+    const addFavorite = async () => {
         const response = await $fetch('/api/favorites', {
             method: "POST",
             body: {
                 productId: props.product.id
             },
+            headers: {
+                authorization: `Bearer ${token.value}`
+            }
+        });
+    }
+
+    const deleteFavorite = async () => {
+        const response = await $fetch(`/api/favorites/${props.product.id}`, {
+            method: "DELETE",
             headers: {
                 authorization: `Bearer ${token.value}`
             }
