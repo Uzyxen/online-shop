@@ -3,10 +3,12 @@ export default () => {
     const isAdmin = () => useState('is_admin');
 
     const categories = useState('categories');
+    const userFavorites = useState('user_favorites');
 
     return {
         useAccessToken,
         isAdmin,
-        categories
+        categories,
+        userFavorites
     }
 }

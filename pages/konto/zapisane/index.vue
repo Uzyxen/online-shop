@@ -6,12 +6,14 @@
     <section class="mx-20" v-else>
         <h1 class="text-xl mt-3">Ulubione produkty</h1>
 
+        {{ userFavorites }}
+
         <ProductList :products="favoriteProducts.response" />
     </section>
 </template>
 
 <script setup>
-    const { useAccessToken } = useStore();
+    const { useAccessToken, userFavorites } = useStore();
     const token = useAccessToken();
 
     const { status, data: favoriteProducts } = await useLazyFetch('/api/favorites', {

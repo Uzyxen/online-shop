@@ -26,7 +26,8 @@
                         Dodaj do koszyka
                     </PrimaryButton>
 
-                    <NuxtIcon @click.prevent="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
+                    <NuxtIcon v-if="isFavorite" @click.prevent="toggleFavorite" name="solar:heart-bold" size="2.5rem" mode="svg" class="bg-blue-gray-light text-blue p-1.5 rounded-sm" />
+                    <NuxtIcon v-else @click.prevent="toggleFavorite" name="solar:heart-linear" size="2.5rem" mode="svg" class="bg-blue-gray-light p-1.5 rounded-sm" />
                 </div>
             </div>
         </div>
@@ -35,6 +36,10 @@
 
 <script setup>
     const props = defineProps(['product']);
+
+    const { userFavorites } = useStore();
+
+    const isFavorite = userFavorites.value.some(favorite => favorite.productId === props.product.id);
 
     function formatPrice(price) {
         return new Intl.NumberFormat('pl-PL', {

@@ -21,3 +21,14 @@ export const getFromFavorites = async (_userId: number) => {
 
     return result.map(favorite => favorite.product);
 }
+
+export const getFavoriteIds = async (_userId: number) => {
+    const result = await db.query.favorites.findMany({
+        columns: {
+            productId: true
+        },
+        where: eq(favorites.userId, _userId),
+    });
+
+    return result;
+}
