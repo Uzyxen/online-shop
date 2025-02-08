@@ -9,7 +9,7 @@ import * as sessions from './schema/sessions';
 import * as subcategories from './schema/subcategories';
 import * as subcategoryProperties from './schema/subcategoryProperties';
 import * as users from './schema/users';
-import { favorites } from './schema/favorites';
+import * as favorites from './schema/favorites';
 
 const db = drizzle(sql, { schema: {
     ...addresses, 
