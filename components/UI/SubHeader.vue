@@ -8,7 +8,7 @@
 
                     Kategorie
 
-                    <div class="flex w-[calc(100%-10rem)] absolute top-full left-0 shadow-md rounded-b-sm z-50 mx-20">
+                    <div class="flex w-fit absolute top-full left-0 shadow-md rounded-b-sm z-50 mx-20">
                         <div
                             class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-blue-gray hidden group-hover:block cursor-default">
                             <ul>
@@ -19,9 +19,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="w-[calc(100%-256px)] rounded-br-sm bg-light-gray border-[1px] border-gray border-l-0 cursor-default hidden group-hover:block overflow-hidden">
-                            <ul class="flex flex-col items-start gap-2">
-                                <li v-for="subcategory in subcategories">{{ subcategory.title }}</li>
+                        <div class="w-96 rounded-br-sm bg-light-gray border-[1px] border-gray border-l-0 cursor-default hidden group-hover:block overflow-hidden">
+                            <ul class="flex flex-col items-start gap-3 p-3">
+                                <li v-for="subcategory in subcategories" class="text-sm">{{ subcategory.title }}</li>
                             </ul>
                         </div>
                     </div>
