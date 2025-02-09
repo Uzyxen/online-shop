@@ -18,6 +18,9 @@ export const getAllProducts = async (offset: number) => {
     const result = await db.query.products.findMany({
         limit: 20,
         offset: offset,
+        with: {
+            images: true
+        }
     });
 
     return result;
