@@ -26,12 +26,7 @@
         if(selectedIndex.value === null) {
             selectedIndex.value = index;
         
-            subItems.value = await $fetch(props.subEndpoint, {
-                method: 'post',
-                body: {
-                    name: items.value[index].title
-                }
-            });
+            subItems.value = categories.value[index].subcategories;
 
             itemsToDisplay.value = subItems.value;
         } else {
