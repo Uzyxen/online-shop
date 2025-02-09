@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-    const { useAccessToken, userFavorites } = useStore();
+    const { useAccessToken } = useStore();
     const token = useAccessToken();
 
     const { status, data: favoriteProducts } = await useLazyFetch('/api/favorites', {

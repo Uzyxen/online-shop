@@ -40,7 +40,9 @@
     const { userFavorites, useAccessToken } = useStore();
     const token = useAccessToken();
 
-    const isFavorite = userFavorites.value.some(favorite => favorite.productId === props.product.id);
+    const isFavorite = computed(() => {
+        return userFavorites.value.some(favorite => favorite.productId === props.product.id);
+    });
 
     function formatPrice(price) {
         return new Intl.NumberFormat('pl-PL', {
@@ -53,6 +55,10 @@
     }
 
     const addFavorite = async () => {
+        userFavorites.value.push({
+            productId: props.product.id
+        });
+
         const response = await $fetch('/api/favorites', {
             method: "POST",
             body: {
@@ -65,6 +71,8 @@
     }
 
     const deleteFavorite = async () => {
+        userFavorites.value = userFavorites.value.filter(favorite => favorite.productId !== props.product.id);
+        
         const response = await $fetch(`/api/favorites/${props.product.id}`, {
             method: "DELETE",
             headers: {
