@@ -1,7 +1,7 @@
 <template>
     <ProductPreview :is-visible="isPreviewVisible" @close="isPreviewVisible = false" :product="newProduct" />
 
-    <form class="flex gap-10 h-[2000px]">
+    <form class="flex gap-10 h-[2000px]" @submit.prevent="addProduct">
         <div class="flex flex-col w-2/3 gap-2">
             <HorizontalGroup>
                 <ProductInput caption="Tytuł" v-model="newProduct.title" type="text" :maxLength="50" class="w-full" />
@@ -18,7 +18,7 @@
             <VerticalGroup>
                 <p class="font-medium text-base">Grafiki</p>
                 
-                <ProductImagesInput />
+                <ProductImagesInput @upload="(img) => { images = img }" />
             </VerticalGroup>
 
             <VerticalGroup>
@@ -42,5 +42,22 @@
         price: 0,
     });
 
+    const images = ref<FormData>();
     const isPreviewVisible = ref(false);
+
+    const addProduct = async () => {
+        //const productResponse = await $fetch('/api/products', {
+            //method: 'POST',
+            //body: newProduct.value
+        //});
+
+        //console.log(productResponse);
+
+        const imageResponse = await $fetch('/api/images', {
+            method: 'POST',
+            body: images.value
+        });
+
+        console.log(imageResponse);
+    };
 </script>

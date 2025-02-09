@@ -38,9 +38,9 @@ export const getProductInfo = async (url: string) => {
 export const addProduct = async (product: any) =>{
     const result = await db.insert(products).values({
         title: product.title,
-        url: product.url,
+        url: 'qweqew',
         price: product.price,
-        subcategoryId: product.subcategoryId
+        subcategoryId: 27
     });
 
     return result;

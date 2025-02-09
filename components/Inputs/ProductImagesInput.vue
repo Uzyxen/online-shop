@@ -5,7 +5,7 @@
                 <NuxtIcon name="solar:gallery-download-linear" size="4.2rem" class="text-black" />
             </label>
 
-            <input class="hidden" type="file" id="file-input" accept="image/*" @change="handleImageUpload" ref="fileInput">
+            <input class="hidden" type="file" id="file-input" multiple accept="image/*" @change="handleImageUpload" ref="fileInput">
         </div>
 
         <SelectedImageBlock v-for="image in images" :key="image.id" :image="image" />
@@ -13,7 +13,10 @@
 </template>
 
 <script setup>
+    const emit = defineEmits(['upload']);
+
     const images = ref([]);
+    const formData = new FormData();
 
     function handleImageUpload(event) {
         const selectedImages = Array.from(event.target.files);
@@ -22,6 +25,9 @@
             const imageUrl = URL.createObjectURL(image);
 
             images.value.push({ id: Date.now() + Math.random(), url: imageUrl, file: image });
+            formData.append('image', image);
         });
+
+        emit('upload', formData);
     }
 </script>
