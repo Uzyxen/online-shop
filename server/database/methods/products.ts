@@ -33,9 +33,14 @@ export const getNumberOfProducts = async () => {
 }
 
 export const getProductInfo = async (url: string) => {
-    const result = await db.select().from(products).where(eq(products.url, url));
+    const result = await db.query.products.findFirst({
+        where: eq(products.url, url),
+        with: {
+            images: true,
+        }
+    })
 
-    return result[0];
+    return result;
 }
 
 export const addProduct = async (product: any) =>{
