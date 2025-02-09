@@ -5,7 +5,7 @@
         <div class="flex flex-col w-2/3 gap-2">
             <HorizontalGroup>
                 <ProductInput caption="Tytuł" v-model="newProduct.title" type="text" :maxLength="50" class="w-full" />
-                <FilterSelectBox class="self-end" />
+                <FilterSelectBox class="self-end" @select="(element) => console.log(element)" />
             </HorizontalGroup>
 
             <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />

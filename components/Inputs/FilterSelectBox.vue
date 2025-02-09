@@ -14,6 +14,8 @@
 <script setup>
     const { categories } = useStore();
 
+    const emit = defineEmits(['select']);
+
     const itemsToDisplay = ref([]);
     itemsToDisplay.value = categories.value;
 
@@ -37,6 +39,8 @@
     async function selectSubItem(index) {        
         selectedSubItem.value = index;
         itemsVisible.value = false;
+
+        emit('select', subItems.value[index].id);
     }
 
 </script>
