@@ -2,6 +2,7 @@ type Product = {
     title: string;
     description: string;
     price: number;
+    subcategoryId: number;
 }
 
 type Login = {

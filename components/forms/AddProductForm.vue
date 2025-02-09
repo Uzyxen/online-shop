@@ -5,7 +5,7 @@
         <div class="flex flex-col w-2/3 gap-2">
             <HorizontalGroup>
                 <ProductInput caption="Tytuł" v-model="newProduct.title" type="text" :maxLength="50" class="w-full" />
-                <FilterSelectBox class="self-end" @select="(element) => console.log(element)" />
+                <FilterSelectBox class="self-end" @select="(id) => newProduct.subcategoryId = id" />
             </HorizontalGroup>
 
             <ProductInput caption="Cena" v-model="newProduct.price" type="text" :maxLength="10" class="w-full mb-5" />
@@ -40,6 +40,7 @@
         title: '',
         description: '',
         price: 0,
+        subcategoryId: 0
     });
 
     const images = ref<FormData>();
