@@ -41,7 +41,7 @@ export const getProductInfo = async (url: string) => {
 export const addProduct = async (product: any) =>{
     const result = await db.insert(products).values({
         title: product.title,
-        url: 'qweqew',
+        url: convertToUrl(product.title),
         description: product.description,
         price: product.price,
         subcategoryId: product.subcategoryId
