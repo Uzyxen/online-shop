@@ -22,7 +22,11 @@
                         <div class="w-96 rounded-br-sm bg-light-gray border-[1px] border-gray border-l-0 cursor-default hidden group-hover:block overflow-hidden p-3">
                             <h1 class="text-left font-medium text-base">{{ subcategories.title }}</h1>
                             <ul class="flex flex-col items-start gap-3 mt-4">
-                                <li v-for="subcategory in subcategories.subcategories" class="text-sm">{{ subcategory.title }}</li>
+                                <li v-for="subcategory in subcategories.subcategories" class="text-sm">
+                                    <NuxtLink :to="`/kategorie/${subcategories.url}/${subcategory.title}`" class="block size-full">
+                                        {{ subcategory.title }}
+                                    </NuxtLink> 
+                                </li>
                             </ul>
                         </div>
                     </div>
