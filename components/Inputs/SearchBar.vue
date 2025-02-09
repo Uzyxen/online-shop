@@ -16,7 +16,7 @@
                 <h1 class="text-base font-semibold">Produkty</h1>
 
                 <li v-for="product in response.products" class="hover:bg-mid-gray cursor-pointer text-base flex justify-between">
-                    <NuxtLink :to="`/produkty/${product.title}`" class="pl-3 p-2 size-full flex justify-between">
+                    <NuxtLink :to="`/produkty/${product.url}`" class="pl-3 p-2 size-full flex justify-between">
                         <span>{{ product.title }}</span>
 
                         <NuxtIcon name="solar:alt-arrow-right-linear" size="1.5rem"/>

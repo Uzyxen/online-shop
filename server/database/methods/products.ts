@@ -9,7 +9,7 @@ export const getProductsFromSubcategory = async (id: number) => {
 }
 
 export const getProductsByName = async (name: string) => {
-    const result = await db.selectDistinct({ title: products.title }).from(products).where(like(products.title, `%${name}%`)).groupBy(products.title);
+    const result = await db.selectDistinct({ title: products.title, url: products.url }).from(products).where(like(products.title, `%${name}%`)).groupBy(products.title, products.url);
 
     return result;
 }
