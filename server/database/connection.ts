@@ -10,6 +10,7 @@ import * as subcategories from './schema/subcategories';
 import * as subcategoryProperties from './schema/subcategoryProperties';
 import * as users from './schema/users';
 import * as favorites from './schema/favorites';
+import * as productImages from './schema/productImages';
 
 const db = drizzle(sql, { schema: {
     ...addresses, 
@@ -20,7 +21,8 @@ const db = drizzle(sql, { schema: {
     ...subcategories,
     ...subcategoryProperties,
     ...users,
-    ...favorites
+    ...favorites,
+    ...productImages
 }});
 
 export default db;

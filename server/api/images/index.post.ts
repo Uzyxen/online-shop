@@ -5,7 +5,9 @@ export default defineEventHandler(async (event) => {
 
     if(formData) {
         formData.forEach(async file => {
-            const { url } = await put(file.filename!, file.data, { access: 'public' });
+            if(file.name === 'image'){
+                const { url } = await put(file.filename!, file.data, { access: 'public' });
+            }
         });
     }
 });
