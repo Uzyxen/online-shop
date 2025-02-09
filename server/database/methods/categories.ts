@@ -3,7 +3,11 @@ import db from "../connection";
 import { categories } from "../schema/categories";
 
 export const getAllCategoriesWithSubcategories = async () => {
-    const result = await db.query.categories.findMany();
+    const result = await db.query.categories.findMany({
+        with: {
+            subcategories: true,
+        }
+    });
 
     return result;
 }

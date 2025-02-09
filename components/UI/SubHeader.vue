@@ -12,7 +12,7 @@
                         <div
                             class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-blue-gray hidden group-hover:block cursor-default">
                             <ul>
-                                <li v-for="category in categories" class="cursor-pointer hover:text-blue text-sm font-medium relative">
+                                <li @mouseover="subcategories = category.subcategories" v-for="category in categories" class="cursor-pointer hover:text-blue text-sm font-medium relative">
                                     <NuxtLink :to="`/kategorie/${category.url}`" class="block size-full p-3">
                                         {{ category.title }}
                                     </NuxtLink> 
@@ -20,7 +20,9 @@
                             </ul>
                         </div>
                         <div class="w-[calc(100%-256px)] rounded-br-sm bg-light-gray border-[1px] border-gray border-l-0 cursor-default hidden group-hover:block overflow-hidden">
-                            
+                            <ul class="flex flex-col items-start gap-2">
+                                <li v-for="subcategory in subcategories">{{ subcategory.title }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -37,6 +39,7 @@
 
 <script setup>
     const { categories } = useStore();
+    const subcategories = ref([]);
 
     const links = [
         { label: 'Konfigurator PC', path: '/konfigurator' },
