@@ -41,7 +41,7 @@ export const addProduct = async (product: any) =>{
         url: 'qweqew',
         price: product.price,
         subcategoryId: 27
-    });
+    }).returning({ insertedId: products.id });
 
-    return result;
+    return result[0].insertedId;
 }

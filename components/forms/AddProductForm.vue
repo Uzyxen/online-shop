@@ -46,18 +46,18 @@
     const isPreviewVisible = ref(false);
 
     const addProduct = async () => {
-        //const productResponse = await $fetch('/api/products', {
-            //method: 'POST',
-            //body: newProduct.value
-        //});
-
-        //console.log(productResponse);
-
-        const imageResponse = await $fetch('/api/images', {
+        const productResponse = await $fetch('/api/products', {
             method: 'POST',
-            body: images.value
+            body: newProduct.value
         });
 
-        console.log(imageResponse);
+        console.log(productResponse);
+
+        //const imageResponse = await $fetch('/api/images', {
+            //method: 'POST',
+            //body: images.value
+        //});
+
+        //console.log(imageResponse);
     };
 </script>
