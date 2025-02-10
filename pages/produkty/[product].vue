@@ -14,8 +14,8 @@
                 <img class="size-full object-contain" :src="product.images[currendImageIndex].imageUrl" alt="">
             </div>
 
-            <div class="flex gap-10 flex-1">
-                <div class="flex-1 flex flex-col gap-2">
+            <div class="flex gap-32 flex-1">
+                <div class="flex flex-col gap-2">
                     <h1 class="text-2xl">{{ product.title }}</h1>
                     
                     <ProductRating :rating="4.5" />
@@ -37,9 +37,10 @@
                     <h1 class="text-right text-xl">{{ product.price }} zł</h1>
 
                     <div class="flex gap-2">
-                        <input type="text" class="border border-blue-gray outline-none w-12 h-10">
+                        <input type="text" class="border border-blue-gray outline-none w-12 h-10 text-center" v-model="quantity">
                         <PrimaryButton>Do koszyka</PrimaryButton>
                     </div>
+                    <h4 class="text-sm">Ilość sztuk: 12</h4>
                 </div>
             </div>
         </div>
@@ -52,4 +53,6 @@
     const { status, data: product } = await useLazyFetch(`/api/products/${route.params.product}`);
 
     const currendImageIndex = ref(0);
+
+    const quantity = ref(1);
 </script>
