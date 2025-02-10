@@ -13,17 +13,7 @@
                 <NuxtIcon name="solar:arrow-left-linear" size="2rem" mode="svg" @click="isOpen = false" class="cursor-pointer" />
 
                 <div class="flex p-2 gap-3 items-center">
-                    <SingleSelectBox :items="[
-                        { title: 'Taktowanie procesora' },
-                        { title: 'Pamięć RAM' },
-                        { title: 'Pamięć wewnętrzna' },
-                        { title: 'Karta graficzna' },
-                        { title: 'Rozdzielczość' },
-                        { title: 'Typ matrycy' },
-                        { title: 'Czas reakcji' },
-                        { title: 'Kąt widzenia' },
-                        { title: 'Złącza' }
-                    ]" 
+                    <SingleSelectBox :items="items" 
                     :custom-value="true"
                     @select-item="(item) => { newItem.key = item }"/>
                     <NuxtIcon name="solar:arrow-right-linear"/>
@@ -31,7 +21,6 @@
                 </div>
 
                 <hr class="border-none h-px bg-gray my-3 mx-2">
-
                 <div>
                     <ul v-if="selectedItems.length > 0">
                         <li v-for="(item, index) in selectedItems" :key="index" class="p-2 flex gap-3 items-center">
@@ -47,6 +36,14 @@
 </template>
 
 <script setup>
+    const props = defineProps(['subcategoryId']);
+
+    const items = ref([]);
+    watchEffect(async () => {
+        const data = await $fetch(`/api/properties/${props.subcategoryId}`);
+        items.value = data.map(item => ({ title: item.property.name }));
+    });
+
     const isOpen = ref(false);
 
     const selectedItems = ref([]);

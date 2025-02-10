@@ -37,7 +37,7 @@
                     <h1 class="text-right text-xl">{{ product.price }} zł</h1>
 
                     <div class="flex gap-2">
-                        <input type="text" class="border border-blue-gray outline-none w-12 h-10 text-center" v-model="quantity">
+                        <input type="number" class="border border-blue-gray outline-none w-12 h-10 text-center" v-model="quantity">
                         <PrimaryButton>Do koszyka</PrimaryButton>
                     </div>
                     <h4 class="text-sm">Ilość sztuk: 12</h4>

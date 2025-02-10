@@ -24,9 +24,11 @@
             <VerticalGroup>
                 <p class="font-medium text-base">Specyfikacja</p>
 
-                <MultiSelectBox />
+                <MultiSelectBox :subcategory-id="newProduct.subcategoryId" />
             </VerticalGroup>
         </div>
+
+        {{ newProduct.subcategoryId }}
 
         <div class="w-1/3 p-4 shadow-md flex flex-col gap-4 sticky top-10 h-fit">
             <PrimaryButton class="w-full">Dodaj produkt</PrimaryButton>
