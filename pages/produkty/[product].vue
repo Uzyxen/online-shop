@@ -91,6 +91,7 @@
 
         cart.value.push({
             id: product.id,
+            image: product.images[0].imageUrl,
             title: product.title,
             price: product.price,
             quantity: quantity.value,
