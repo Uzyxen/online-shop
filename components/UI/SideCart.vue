@@ -6,8 +6,8 @@
 
             <HideCartButton @click="$emit('hideCart')" />
 
-            <div>
-                {{ cart }}
+            <div class="mt-14 px-4">
+                <CartProductBlock v-for="product in cart" :product="product" :key="product.id" />
             </div>
         </div>
     </Transition>
