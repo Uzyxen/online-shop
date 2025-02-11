@@ -4,11 +4,13 @@ export default () => {
 
     const categories = useState('categories');
     const userFavorites = useState('user_favorites');
+    const cart = useState('cart', () => []);
 
     return {
         useAccessToken,
         isAdmin,
         categories,
-        userFavorites
+        userFavorites,
+        cart
     }
 }

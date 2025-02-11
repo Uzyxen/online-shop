@@ -38,7 +38,7 @@
 
                     <div class="flex gap-2">
                         <input type="number" class="border border-blue-gray outline-none w-12 h-10 text-center" v-model="quantity">
-                        <PrimaryButton>Do koszyka</PrimaryButton>
+                        <PrimaryButton @click="addToCart(product)">Do koszyka</PrimaryButton>
                     </div>
                     <h4 class="text-sm">Ilość sztuk: 12</h4>
                 </div>
@@ -80,4 +80,20 @@
     const currendImageIndex = ref(0);
 
     const quantity = ref(1);
+
+    const { cart } = useStore();
+
+    const addToCart = (product) => {
+        if(cart.value.find(item => item.id === product.id)) {
+            cart.value.find(item => item.id === product.id).quantity += quantity.value;
+            return;
+        }
+
+        cart.value.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            quantity: quantity.value,
+        });
+    }
 </script>
