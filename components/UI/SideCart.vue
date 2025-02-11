@@ -12,7 +12,11 @@
 
                 <div>
                     <h1>Łącznie: {{ totalPrice }} zł</h1>
-                    <PrimaryButton>Przejdź do koszyka</PrimaryButton>
+                    <PrimaryButton>
+                        <NuxtLink to="/koszyk">
+                            Przejdź do koszyka
+                        </NuxtLink>
+                    </PrimaryButton>
                 </div>
             </div>
         </div>

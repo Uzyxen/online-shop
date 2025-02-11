@@ -6,7 +6,7 @@
 
         <div class="flex flex-col pb-1">
             <h1 class="flex-1">{{ product.title }}</h1>
-            <h2 class="text-sm">{{ product.quantity }} szt</h2>
+            <h2 class="text-sm">{{ product.quantity }} szt / {{ product.price }} zł</h2>
         </div>
     </div>
 </template>
