@@ -60,7 +60,7 @@
                 <div class="w-[1px] bg-gray h-8 mx-2"></div>
 
                 <IconVerticalGroup icon-name="solar:cart-large-minimalistic-linear" @click="isCartOpened = true">
-                    0,00 zł
+                    {{ totalPrice }} zł
                 </IconVerticalGroup>
             </div>
 
@@ -71,8 +71,9 @@
 </template>
 
 <script setup>
-    const { useAccessToken } = useStore();
+    const { useAccessToken, cart } = useStore();
     const token = useAccessToken();
+    const totalPrice = computed(() => cart.value.reduce((acc, item) => acc + item.price * item.quantity, 0));
 
     const isCartOpened = ref(false);
     const isUserMenuVisible = ref(false);
