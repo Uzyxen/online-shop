@@ -10,6 +10,7 @@
             <div 
                 v-for="subcategory in category.subcategories" 
                 :key="subcategory.id" v-show="isCollapsed[index] === true" 
+                @click="navigateTo(`/admin/kategorie/${category.url}/${subcategory.url}`)"
                 class="hover:bg-blue-gray-20 border-t border-blue-gray flex items-center gap-1 pl-5 relative before:content-[''] before:absolute before:-left-[1px] before:h-[calc(100%+2px)] before:w-2 before:bg-blue">
                 <NuxtIcon name="solar:forward-2-linear" mode="svg" size="1.2rem" />
                 <h2 class="p-3 hover:underline cursor-pointer">{{ subcategory.title }}</h2>

@@ -61,7 +61,16 @@ async function main() {
                         'Laptopy gamingowe',
                         'Tablety graficzne'
                     ]
-                })
+                }),
+                url: f.valuesFromArray({
+                    values: [
+                        'laptopy',
+                        'tablety',
+                        'laptopy-biznesowe',
+                        'laptopy-gamingowe',
+                        'tablety-graficzne'
+                    ]
+                }),
             },
             with: {
                 products: 7
