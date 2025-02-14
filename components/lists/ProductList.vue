@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full gap-3">
+    <div class="flex flex-col w-full gap-3" v-if="products.length > 0">
         <div class="p-2" v-if="isEditModeEnabled">
             <button>
                 Tryb edycji
@@ -12,6 +12,10 @@
             :count="numberOfProducts.count"
             :products-per-page="20"
             @page-change="(offset) => { $emit('pageChange', offset) }" />
+    </div>
+
+    <div v-else>
+        <h1>Brak produktów</h1>
     </div>
 </template>
 
