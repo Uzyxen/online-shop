@@ -5,6 +5,7 @@ import { relations } from "drizzle-orm";
 export const subcategories = pgTable('subcategories', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     title: varchar({ length: 100 }).notNull(),
+    url: varchar({ length: 100 }).notNull(),
     categoryId: integer().references(() => categories.id, { onDelete: 'cascade' }),
 });
 
