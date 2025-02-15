@@ -1,7 +1,7 @@
 <template>
     <NuxtLink :to="'/produkty/' + product.url" class="shadow-md p-3 h-48 bg-[#FFF] text-black">
         <div class="flex size-full gap-4">
-            <img :src="product.images.length && product.images[0].imageUrl" :alt="product.title" class="bg-mid-gray w-48" />
+            <img :src="product.images && product.images[0].imageUrl" :alt="product.title" class="bg-mid-gray w-48" />
 
             <div class="flex-1 flex flex-col gap-2">
                 <h1 class="text-xl">{{ product.title }}</h1>
