@@ -8,7 +8,7 @@
 
                     Kategorie
 
-                    <div class="flex w-fit absolute top-full left-0 collapse group-hover:visible group-hover:shadow-md rounded-b-sm z-50 mx-20">
+                    <div class="flex w-fit absolute top-full left-0 -translate-y-4 collapse group-hover:visible group-hover:shadow-md group-hover:translate-y-0 transition-transform rounded-b-sm z-50 mx-20">
                         <div
                             class="w-64 rounded-bl-sm text-left border-[1px] border-t-0 bg-light-gray border-blue-gray opacity-0 group-hover:opacity-100 transition-all cursor-default">
                             <ul>
