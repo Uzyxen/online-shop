@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="w-[700px] p-8">
-                <img class="size-full object-contain" :src="product.images[currendImageIndex].imageUrl" alt="">
+                <img class="size-full object-contain" :src="product.images.length && product.images[currendImageIndex].imageUrl" alt="">
             </div>
 
             <div class="flex gap-32 flex-1 border-l border-blue-gray">
