@@ -8,12 +8,20 @@
             <p class="text-base font-medium text-black">Wyszukaj zamówienie: </p>
 
             <div class="flex gap-2">
-                <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia">
-                <PrimaryButton>Szukaj</PrimaryButton>
+                <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia" v-model="orderId">
+                <PrimaryButton @click="fetchOrder">Szukaj</PrimaryButton>
             </div>
         </div>
 
-        <AppTable :headers="['Numer zamówienia', 'Status', 'Data', 'Cena', 'ID użytkownika']" class="mt-8">
+        <div v-if="order" class="mt-5 flex flex-col gap-4">
+            <h1>Zamówienie o numerze: {{ orderId }}</h1>
+
+            <OrderBlock :order="order" :admin="true" class="border border-gray" />
+        </div>
+
+        <h1 class="mt-14 cursor-pointer w-fit" @click="isAllVisible = !isAllVisible">{{ isAllVisible ? 'Ukryj wszystkie' : 'Pokaż wszystkie' }}</h1>
+
+        <AppTable :headers="['Numer zamówienia', 'Status', 'Data', 'Cena', 'ID użytkownika']" v-if="isAllVisible" class="mt-4">
             <OrderBlock v-for="order in orders.response" :order="order" :admin="true" :key="order.id" v-if="orders" />
         </AppTable>
     </section>
@@ -28,4 +36,21 @@
             authorization: `Bearer ${token.value}`
         }
     });
+
+    const orderId = ref();
+    const order = ref();
+
+    const fetchOrder = async () => {
+        const response = await $fetch(`/api/orders/${orderId.value}`, {
+            headers: {
+                authorization: `Bearer ${token.value}`
+            }
+        });
+
+        if(response) {
+            order.value = response.response;
+        }
+    }
+
+    const isAllVisible = ref(false);
 </script>
