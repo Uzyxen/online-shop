@@ -3,7 +3,7 @@
         <h1 class="text-3xl">Zamówienia</h1>
 
         <AppTable :headers="['Numer zamówienia', 'Status', 'Data', 'Cena']" class="mt-8">
-            <OrderBlock v-for="order in orders" :order="order" :key="order.id" />
+            <OrderBlock v-for="order in orders" :order="order" :admin="false" :key="order.id" />
         </AppTable>
     </section>
 </template>

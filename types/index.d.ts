@@ -18,6 +18,7 @@ type Register = {
 
 type Order = {
     id: number;
+    userId: number;
     date: string;
     status: 'placed' | 'shipped' | 'delivered' | 'cancelled' | 'returned' | 'progress';
     price: number;
