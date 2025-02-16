@@ -8,9 +8,11 @@
             <p class="text-base font-medium text-black">Wyszukaj zamówienie: </p>
 
             <div class="flex gap-2">
-                <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia" v-model="orderId">
+                <input type="text" class="outline-none border border-gray p-1.5" placeholder="ID zamówienia" v-model="orderId">
                 <PrimaryButton @click="fetchOrder" :loading="isPending">Szukaj</PrimaryButton>
             </div>
+
+            <h2 class="text-red">{{ errorMessage }}</h2>
         </div>
 
         <div v-if="order" class="mt-5 flex flex-col gap-4">
@@ -40,8 +42,11 @@
     const orderId = ref();
     const order = ref();
     const isPending = ref(false);
+    const errorMessage = ref();
 
     const fetchOrder = async () => {
+        errorMessage.value = '';
+
         isPending.value = true;
         const response = await $fetch(`/api/orders/${orderId.value}`, {
             headers: {
@@ -49,8 +54,10 @@
             }
         });
 
-        if(response) {
+        if(response.response) {
             order.value = response.response;
+        } else {
+            errorMessage.value = 'Nie znaleziono zamówienia o podanym numerze';
         }
 
         isPending.value = false;
