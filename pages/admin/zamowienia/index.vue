@@ -4,17 +4,17 @@
     </div>
 
     <section v-else class="px-3 sm:px-5 md:px-10 lg:px-20 mt-5">
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3" v-if="!order">
             <p class="text-base font-medium text-black">Wyszukaj zamówienie: </p>
 
             <div class="flex gap-2">
                 <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia" v-model="orderId">
-                <PrimaryButton @click="fetchOrder">Szukaj</PrimaryButton>
+                <PrimaryButton @click="fetchOrder" :loading="pending">Szukaj</PrimaryButton>
             </div>
         </div>
 
         <div v-if="order" class="mt-5 flex flex-col gap-4">
-            <h1>Zamówienie o numerze: {{ orderId }}</h1>
+            <h1 @click="order = null" class="cursor-pointer">Zamówienie o numerze: {{ orderId }} - kliknij by skasować</h1>
 
             <OrderBlock :order="order" :admin="true" class="border border-gray" />
         </div>
@@ -39,8 +39,10 @@
 
     const orderId = ref();
     const order = ref();
+    const isPending = ref(false);
 
     const fetchOrder = async () => {
+        isPending.value = true;
         const response = await $fetch(`/api/orders/${orderId.value}`, {
             headers: {
                 authorization: `Bearer ${token.value}`
@@ -50,7 +52,13 @@
         if(response) {
             order.value = response.response;
         }
+
+        isPending.value = false;
     }
+
+    const pending = computed(() => {
+        return isPending.value ? true : false;
+    });
 
     const isAllVisible = ref(false);
 </script>
