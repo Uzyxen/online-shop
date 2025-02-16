@@ -4,8 +4,8 @@ import { users } from "./users";
 export const orders = pgTable('orders', {
     id: integer().notNull().primaryKey().generatedByDefaultAsIdentity(),
     userId: integer().references(() => users.id, { onDelete: 'cascade' }),
-    date: date().notNull(),
-    status: varchar({ length: 50 }).notNull(),
+    date: varchar().notNull(),
+    status: varchar().notNull(),
     total: integer().notNull(),
     address: varchar().notNull(),
     payment: varchar().notNull(),
