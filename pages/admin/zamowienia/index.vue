@@ -4,9 +4,13 @@
     </div>
 
     <section v-else class="px-3 sm:px-5 md:px-10 lg:px-20 mt-5">
-        <div class="flex gap-2">
-            <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia">
-            <PrimaryButton>Szukaj</PrimaryButton>
+        <div class="flex flex-col gap-3">
+            <p class="text-base font-medium text-black">Wyszukaj zamówienie: </p>
+
+            <div class="flex gap-2">
+                <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia">
+                <PrimaryButton>Szukaj</PrimaryButton>
+            </div>
         </div>
 
         <AppTable :headers="['Numer zamówienia', 'Status', 'Data', 'Cena', 'ID użytkownika']" class="mt-8">
