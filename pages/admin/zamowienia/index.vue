@@ -9,7 +9,7 @@
 
             <div class="flex gap-2">
                 <input type="text" class="outline-none border border-gray p-1" placeholder="ID zamówienia" v-model="orderId">
-                <PrimaryButton @click="fetchOrder" :loading="pending">Szukaj</PrimaryButton>
+                <PrimaryButton @click="fetchOrder" :loading="isPending">Szukaj</PrimaryButton>
             </div>
         </div>
 
@@ -55,10 +55,6 @@
 
         isPending.value = false;
     }
-
-    const pending = computed(() => {
-        return isPending.value ? true : false;
-    });
 
     const isAllVisible = ref(false);
 </script>
