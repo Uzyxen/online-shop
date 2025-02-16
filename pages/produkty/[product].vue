@@ -6,12 +6,12 @@
     <section class="px-3 sm:px-5 md:px-10 lg:px-20 mt-5" v-else>
         <div class="flex h-[calc(6rem*5)]">
             <div class="flex flex-col w-24">
-                <div v-for="(image, index) in product.images" class="h-24 p-1 flex justify-center items-center border" :class="currendImageIndex === index ? 'border-blue' : 'border-blue-gray'" @click="currendImageIndex = index">
+                <div v-for="(image, index) in product.images" class="h-24 p-1 flex justify-center items-center border" :class="currentImageIndex === index ? 'border-blue' : 'border-blue-gray'" @click="currentImageIndex = index">
                     <img class="object-contain" :src="image.imageUrl" alt="">
                 </div>
             </div>
             <div class="w-[700px] p-8">
-                <img class="size-full object-contain" :src="product.images.length && product.images[currendImageIndex].imageUrl" alt="">
+                <img class="size-full object-contain" :src="product.images.length && product.images[currentImageIndex].imageUrl" alt="">
             </div>
 
             <div class="flex gap-32 flex-1 border-l border-blue-gray">
@@ -77,7 +77,7 @@
 
     const { status, data: product } = await useLazyFetch(`/api/products/${route.params.product}`);
 
-    const currendImageIndex = ref(0);
+    const currentImageIndex = ref(0);
 
     const quantity = ref(1);
 
