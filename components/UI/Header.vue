@@ -81,8 +81,8 @@
 
     const links = [
         { name: 'Konto', path: '/konto' },
-        { name: 'Moje zamówienia', path: '/zamowienia' },
-        { name: 'Ustawienia', path: '/ustawienia' },
+        { name: 'Moje zamówienia', path: '/konto/zamowienia' },
+        { name: 'Ustawienia', path: '/konto/ustawienia' },
     ];
 
     async function logOut() {
