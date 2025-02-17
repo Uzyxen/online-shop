@@ -13,7 +13,7 @@
                     :key="subcategory.id" v-show="isCollapsed[index] === true" 
                     @click.stop="fetchProperties(subcategory.id)"
                     class="hover:bg-blue-gray-20 border-t border-blue-gray flex items-center gap-1 pl-5 relative before:content-[''] before:absolute before:-left-[1px] before:h-[calc(100%+2px)] before:w-2 before:bg-blue"
-                    :class="{ 'bg-blue text-blue-gray-ultra-light hover:bg-blue border-t-blue': selectedId === subcategory.id }">
+                    :class="{ 'bg-blue text-blue-gray-ultra-light hover:bg-blue border-t-blue border-b border-b-blue': selectedId === subcategory.id }">
                     <NuxtIcon name="solar:forward-2-linear" mode="svg" size="1.2rem" />
                     <h2 class="p-3 hover:underline cursor-pointer">{{ subcategory.title }}</h2>
                 </div>
@@ -23,7 +23,7 @@
         <div class="w-1/2 relative">
             <h1 class="text-lg">Właściwości wybranej kategorii</h1>
 
-            <div class="mt-5">
+            <div class="mt-5 flex flex-col">
                 <div v-for="property in properties" class="border border-gray p-2 border-t-0 first:border-t">{{ property.property.name }}</div>
             </div>
         </div>
