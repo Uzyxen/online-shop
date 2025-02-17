@@ -15,3 +15,11 @@ export const getOrderById = async (id: number) => {
 
     return result;
 }
+
+export const getOrdersByUserId = async (userId: number) => {
+    const result = await db.query.orders.findMany({
+        where: eq(orders.userId, userId)
+    });
+
+    return result;
+}
