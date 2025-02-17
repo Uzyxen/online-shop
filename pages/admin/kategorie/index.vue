@@ -21,7 +21,7 @@
         </div>  
 
         <div class="w-1/2 relative" v-if="selectedId !== null">
-            <h1 class="text-lg">Właściwości wybranej kategorii</h1>
+            <h1 class="text-lg">Właściwości wybranej podkategorii</h1>
 
             <div class="mt-5 flex flex-col">
                 <div v-for="property in properties" class="border border-gray p-2 border-t-0 first:border-t">{{ property.property.name }}</div>
