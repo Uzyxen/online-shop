@@ -12,14 +12,15 @@
                     v-for="subcategory in category.subcategories"
                     :key="subcategory.id" v-show="isCollapsed[index] === true" 
                     @click.stop="fetchProperties(subcategory.id)"
-                    class="hover:bg-blue-gray-20 border-t border-blue-gray flex items-center gap-1 pl-5 relative before:content-[''] before:absolute before:-left-[1px] before:h-[calc(100%+2px)] before:w-2 before:bg-blue">
+                    class="hover:bg-blue-gray-20 border-t border-blue-gray flex items-center gap-1 pl-5 relative before:content-[''] before:absolute before:-left-[1px] before:h-[calc(100%+2px)] before:w-2 before:bg-blue"
+                    :class="{ 'bg-blue text-blue-gray-ultra-light hover:bg-blue border-t-blue': selectedId === subcategory.id }">
                     <NuxtIcon name="solar:forward-2-linear" mode="svg" size="1.2rem" />
                     <h2 class="p-3 hover:underline cursor-pointer">{{ subcategory.title }}</h2>
                 </div>
             </div>
-        </div>
+        </div>  
 
-        <div class="w-1/2">
+        <div class="w-1/2 relative">
             <h1 class="text-lg">Właściwości wybranej kategorii</h1>
 
             <div class="mt-5">
@@ -32,7 +33,6 @@
 <script setup>
     const { categories } = useStore();
     const isCollapsed = ref([]);
-    const properties = ref([]);
 
     onMounted(() => {
         categories.value.forEach(() => {
@@ -40,7 +40,10 @@
         });
     });
 
+    const selectedId = ref(null);
+    const properties = ref([]);
     const fetchProperties = async (id) => {
+        selectedId.value = id;
         properties.value = await $fetch(`/api/properties/${id}`);
     };
 </script>
