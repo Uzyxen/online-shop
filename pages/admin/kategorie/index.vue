@@ -1,6 +1,6 @@
 <template>
     <section class="px-3 sm:px-5 md:px-10 lg:px-20 flex gap-8">
-        <div class="w-1/2">
+        <div class="w-full">
             <div v-for="(category, index) in categories" @click="isCollapsed[index] = !isCollapsed[index]" :key="category.id" class="border border-blue-gray border-t-0 first:border-t hover:bg-blue-gray-light cursor-pointer select-none">
                 <div class="p-2 flex justify-between items-center">
                     <h1>{{ category.title }}</h1>
@@ -20,7 +20,7 @@
             </div>
         </div>  
 
-        <div class="w-1/2 relative">
+        <div class="w-1/2 relative" v-if="selectedId !== null">
             <h1 class="text-lg">Właściwości wybranej kategorii</h1>
 
             <div class="mt-5 flex flex-col">
@@ -43,6 +43,13 @@
     const selectedId = ref(null);
     const properties = ref([]);
     const fetchProperties = async (id) => {
+
+        if (selectedId.value === id) {
+            selectedId.value = null;
+            properties.value = [];
+            return;
+        }
+
         selectedId.value = id;
         properties.value = await $fetch(`/api/properties/${id}`);
     };
