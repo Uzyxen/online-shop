@@ -5,7 +5,7 @@
             :type="type"
             v-model="model" 
             :maxlength="maxLength"
-            class="w-full p-2 bg-light-gray border-2 border-blue-gray outline-none"/>
+            class="w-full p-2 bg-blue-gray-ultra-light border border-blue-gray outline-none"/>
     </div>
 </template>
 
