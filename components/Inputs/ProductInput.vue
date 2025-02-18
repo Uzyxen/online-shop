@@ -3,7 +3,7 @@
         <p class="text-base font-medium text-black">{{ caption }}</p>
         <input 
             :type="type"
-            v-model="model" 
+            v-model="model"
             :maxlength="maxLength"
             class="w-full p-2 bg-blue-gray-ultra-light border border-blue-gray outline-none"/>
     </div>
@@ -16,5 +16,5 @@
         caption: String,
         type: String,
         maxLength: Number
-    })
+    });
 </script>
