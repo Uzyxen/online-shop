@@ -5,7 +5,7 @@ export default {
     colors: {
       'blue-gray': '#CED7E0',
       'blue-gray-light': '#F0F4F8',
-      'blue-gray-ultra-light': '#F8FAFC',
+      'blue-gray-ultra-light': '#FEFEFF',
       'blue-gray-20': 'rgba(206, 215, 224, 0.2)',
       'light-gray': '#FAFAFA',
       'mid-gray': '#EEEEEE',
