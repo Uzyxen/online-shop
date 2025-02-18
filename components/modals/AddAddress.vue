@@ -15,7 +15,7 @@
         <ProductInput caption="Kod pocztowy" type="text" v-model="newAddress.zip" />
         <ProductInput caption="Numer telefonu" type="text" v-model="newAddress.phoneNumber" />
 
-        <PrimaryButton @click="addAddress" class="mt-4 self-end">Dodaj adres</PrimaryButton>
+        <PrimaryButton @click="addAddress" class="mt-4 self-end" :loading="isLoading">Dodaj adres</PrimaryButton>
     </div>
 </template>
 
@@ -30,10 +30,13 @@
         phoneNumber: '',
     });
 
+    const isLoading = ref(false);
+
     const addAddress = async () => {
         const { useAccessToken } = useStore();
         const token = useAccessToken();
 
+        isLoading.value = true;
         const response = await $fetch('/api/addresses', {
             method: 'POST',
             body: newAddress.value,
@@ -41,5 +44,7 @@
                 authorization: `Bearer ${token.value}`
             }
         });
+
+        isLoading.value = false;
     }
 </script>
