@@ -24,6 +24,11 @@
     });
 
     const logoutFromAll = async () => {
-        
+        const response = await $fetch('/api/sessions/', {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${token.value}`
+            }
+        })
     }
 </script>
