@@ -6,6 +6,7 @@
     <section class="mx-20" v-else>
         <h1 class="text-xl mt-3">Aktywne sesje</h1>
 
+        <button @click="logoutFromAll">Wyloguj z wszystkich sesji</button>
         <div class="mt-5">
             <SessionBlock v-for="session in sessions.response" :key="session.id" :session="session"/>
         </div>
@@ -21,4 +22,8 @@
             authorization: `Bearer ${token.value}`
         }
     });
+
+    const logoutFromAll = async () => {
+        
+    }
 </script>
