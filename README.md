@@ -1,1 +1,3 @@
-# Online shop - Nuxt.js/Nitro.js/Neon database
+# Online shop - Nuxt.js/Nitro.js/NeonDB
+
+Hosted on Vercel
